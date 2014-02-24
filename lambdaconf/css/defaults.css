@@ -1,0 +1,255 @@
+* {
+    position: relative;
+    border: 0;
+    outline: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*TRANSITIONS AND ANIMATIONS*/
+.css-transitions {
+    transition: .5s;
+    -webkit-transition: .5s;
+}
+
+/*GENERAL SETTINGS*/
+.clear {
+    clear: both;
+}
+
+.active {
+    display: block !important;
+}
+
+body {
+    background-color: #f2f2f2;
+    overflow-x: hidden;
+}
+
+/*SPECIAL FONT FORMATTING*/
+p, a {
+    font-family: open sans, sans-serif;
+}
+
+h1, h2, h3, h4 ,h5 {
+    font-family: Montserrat, sans-serif;
+}
+
+p {
+    color: #666666;
+    
+}
+
+p a {
+    color: #000;
+    text-decoration: underline;
+}
+
+/*FONT PADDING*/
+/*P*/
+p + p {
+    margin-top: 20px;
+}
+
+p + h1, p + h2, p + h3, p + h4, p + h5 {
+    margin-top: 20px;
+}
+
+p + ul, p + ol {
+    margin-top: 8px;
+}
+
+/*H*/
+h1 + h2, h2 + h3 {
+    margin-top: 16px;
+}
+
+h3 + h4 {
+    margin-top: 12px;
+}
+
+h4 + h5 {
+    margin-top: 8px;
+}
+
+h1 + p, h2 + p {
+    margin-top: 4px;
+}
+
+h3 + p, h4 + p, h5 + p {
+    margin-top: 0px;
+}
+
+/*UL*/
+h1 + ul, h2 + ul, h3 + ul, h4 + ul, h5 + ul {
+    margin-top: 8px;
+}
+
+ul + h1, ul + h2, ul + h3, ul + h4, ul + h5, ul + p, ul + pre, ul + ul, ol + h1, ol + h2, ol + h3, ol + h4, ol + h5, ol + p, ol + pre, ol + ol {
+    margin-top: 30px;
+}
+
+/*LI*/
+li + li {
+    margin-top: 8px;
+}
+
+/*PRE*/
+h1 + pre, h2 + pre, h3 + pre, h4 + pre, h5 + pre, p + pre, pre + pre {
+    margin-top: 8px;
+}
+
+ul + pre, ol + pre {
+    margin-top: 24px;
+}
+
+pre + h1, pre + h2, pre + h3, pre + h4, pre + h5, pre + ol, pre + ul, pre + p {
+    margin-top: 30px;
+}
+
+pre {
+    padding: 20px;
+    background-color: #ccc;
+}
+
+/*FONT-SIZES*/
+p {
+    font-size: 12pt;
+    line-height: 1.4;
+}
+
+/*GENERAL BODY*/
+.holder-80p {
+    width: 80%;
+    max-width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.holder-72p {
+    width: 72%;
+    max-width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.holder-600 {
+    width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.divider {
+    height: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #666;
+}
+
+.two-columns {
+    float: left;
+    width: 47%;
+}
+
+.two-columns:first-child {
+    margin-right: 6%;
+}
+
+.three-columns {
+    float: left;
+    width: 33%;
+}
+
+.four-columns {
+    float: left;
+    width: 25%;
+}
+
+.two-third-left {
+    float: left;
+    width: 66%;
+}
+
+.one-third-left {
+    float: left;
+    width: 33%;
+    padding-right: 1%;
+}
+
+/*BOX SLIDE*/
+.box-frame {
+    width: 1000px;
+    height: 98px;
+    border-bottom: 1px solid #f2f2f2;
+    overflow: hidden;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.box-slide {
+    top: -100%;
+    width: 100%;
+    height: 200%;
+}
+
+.box-slide:hover {
+    top: 0%;
+    width: 100%;
+    height: 200%;
+}
+
+.box-slide-half {
+    height: 80px;
+    width: 978px;
+    padding: 10px 10px;
+}
+
+.box-frame i {
+    font-size: 30pt;
+    display: block;
+    text-align: center;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.box-frame h1 {
+    text-align: center;
+}
+
+.box-frame p {
+    padding-top: 28px;
+    text-align: center;
+}
+
+/*BUTTON EFFECTS*/
+.effect-popup:hover {
+    -moz-box-shadow: 0 0 6px 1px #000;
+    -webkit-box-shadow: 0 0 6px 1px #000;
+    box-shadow: 0 0 6px 1px #000;
+}
+
+.effect-recess:hover {
+    -moz-box-shadow: inset 0 0 6px 1px #000;
+    -webkit-box-shadow: inset 0 0 6px 1px #000;
+    box-shadow: inset 0 0 6px 1px #000;
+}
+
+/*OVERLAY*/
+#overlay {
+    position: absolute;
+    z-index: 1000;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+#interactive-div {
+    position: absolute;
+    top: 200px;
+    background-color: #fff;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 0;
+    opacity: 0.0;
+}
