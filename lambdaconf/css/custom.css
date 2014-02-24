@@ -56,7 +56,7 @@ header h1 {
 }
 
 #header-menu {
-    width: 720px;
+    width: 590px;
     margin-top: 14px;
     margin-right: auto;
     margin-left: auto;
@@ -112,7 +112,8 @@ header h1 {
 }
 
 #frame-text .top h1 {
-    font-size: 28pt;
+    padding-top: 46px;
+    font-size: 26pt;
     color: #fff;
     width: 65%;
     max-width: 1000px;
