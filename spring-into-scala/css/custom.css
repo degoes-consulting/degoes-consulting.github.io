@@ -206,19 +206,19 @@ header h1 {
     background-position: center;
 }
 
-.body-section .introduction-points:nth-child(2) .points-image {
+.body-section .introduction-points:nth-child(1) .points-image {
     background-image: url("../images/graphic-intro-bullet1.png");
 }
 
-.body-section .introduction-points:nth-child(3) .points-image {
+.body-section .introduction-points:nth-child(2) .points-image {
     background-image: url("../images/graphic-intro-bullet2.png");
 }
 
-.body-section .introduction-points:nth-child(4) .points-image {
+.body-section .introduction-points:nth-child(3) .points-image {
     background-image: url("../images/graphic-intro-bullet3.png");
 }
 
-.body-section .introduction-points:nth-child(5) .points-image {
+.body-section .introduction-points:nth-child(4) .points-image {
     background-image: url("../images/graphic-intro-bullet4.png");
 }
 
