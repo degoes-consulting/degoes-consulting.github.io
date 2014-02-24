@@ -373,7 +373,7 @@ header h1 {
     background-color: #D65534;
 }
 
-.repeat-orange h1, .repeat-orange p {
+.repeat-orange h1, .repeat-orange p, .repeat-orange a {
     color: #FFAF9C !important;
 }
 

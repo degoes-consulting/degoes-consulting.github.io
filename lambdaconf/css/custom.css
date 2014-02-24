@@ -196,10 +196,16 @@ header h1 {
     padding-top: 52px;
 }
 
+.body-section-special-top-alt p {
+    font-size: 10pt;
+    text-decoration: none;
+    padding-bottom: 12px;
+}
+
 .body-section-special-top-alt h1:first-child {
     font-size: 20pt;
     color: #666666;
-    padding-bottom: 12px;
+    padding-bottom: 4px;
 }
 
 .body-section h1:first-child {
@@ -263,7 +269,7 @@ header h1 {
     background-color: #007AA3;
 }
 
-.repeat-darkblue p, .repeat-darkblue h1 {
+.repeat-darkblue p, .repeat-darkblue h1, .repeat-darkblue a {
     color: #fff !important;
 }
 
