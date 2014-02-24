@@ -22,6 +22,18 @@ h2, h3, h4, h5 {
     cursor: pointer;
 }
 
+#contact-us {
+    font-size: 20pt;
+    position: fixed;
+    right: 10px;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+#contact-us a {
+    color: rgba(0, 0, 0, 0.5);
+}
+
 /*HEADER*/
 header {
     height: 130px;
@@ -44,14 +56,18 @@ header h1 {
 }
 
 #header-menu {
+    width: 720px;
     margin-top: 14px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 #header-menu a {
     display: block;
     float: left;
     text-align: center;
-    width: 12.4%;
+    padding-right: 10px;
+    padding-left: 10px;
     height: 30px;
     line-height: 30px;
     color: #686868;
@@ -428,6 +444,7 @@ header h1 {
 
 /*BUTTONS*/
 .medium-button {
+    margin-top: 20px;
     display: block;
     margin-right: auto;
     margin-left: auto;
@@ -455,8 +472,8 @@ header h1 {
 .medium-button i {
     position: absolute;
     font-size: 20pt;
-    top: -20px;
-    left: -10px;
+    top: -18px;
+    right: -16px;
     opacity: 0.0;
     transition: .5s;
     -webkit-transition: .5s;
