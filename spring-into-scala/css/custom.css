@@ -365,6 +365,7 @@ header h1 {
 .schedule-alt ul {
     margin: 0px;
     list-style-type: none;
+    border-bottom: 1px solid #CBE4F5;
 }
 
 .schedule-alt ul li {
