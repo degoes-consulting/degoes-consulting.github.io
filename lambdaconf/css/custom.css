@@ -285,19 +285,19 @@ header h1 {
     background-color: #fff;
 }
 
-.repeat-white ul li {
+.repeat-white ul.tr > li {
     font-family: montserrat, helvetica, sans-serif;
     margin: 0px;
     padding: 10px 0px;
 }
 
-.schedule ul {
+.schedule ul.tr {
     margin: 0px;
     list-style-type: none;
     border-bottom: 1px solid #CBE4F5;
 }
 
-.schedule ul li {
+.schedule ul.tr > li {
     margin: 0px;
     float: left;
     width: 19%;
@@ -305,28 +305,28 @@ header h1 {
     border-right: 1px solid #CBE4F5;
 }
 
-.schedule ul li p {
+.schedule ul.tr > li > p {
     color: #000;
     font-size: 10pt;
     padding: 10px;
 }
 
-.schedule ul li:first-child p {
+.schedule ul.tr > li:first-child > p {
     color: #434c52;
     font-family: open sans condensed;
     font-weight: bold;
     font-size: 24pt;
 }
 
-.schedule ul.half li {
+.schedule ul.half > li {
     height: 60px;
 }
 
-.schedule ul.whole li {
+.schedule ul.whole > li {
     height: 140px;
 }
 
-.schedule ul.special li {
+.schedule ul.special > li {
     height: 150px;
 }
 
@@ -339,16 +339,16 @@ header h1 {
     background-color: #CBE4F5;
 }
 
-.repeat-scheduleblue ul {
+.repeat-scheduleblue ul.tr {
     
 }
 
-.repeat-scheduleblue ul li {
+.repeat-scheduleblue ul.tr > li {
     font-size: 11pt;
     font-family: open sans, arial, sans-serif;
 }
 
-.repeat-scheduleblue ul li:nth-child(n+2) {
+.repeat-scheduleblue ul.tr > li:nth-child(n+2) {
     background-color: #fefefe;
 }
 
@@ -385,13 +385,13 @@ header h1 {
 }
 
 /*JOB FAIRS*/
-.schedule-alt ul {
+.schedule-alt ul.tr {
     margin: 0px;
     list-style-type: none;
     border-bottom: 1px solid #CBE4F5;
 }
 
-.schedule-alt ul li {
+.schedule-alt ul.tr > li {
     margin: 0px;
     float: left;
     width: 24%;
@@ -399,13 +399,13 @@ header h1 {
     border-right: 1px solid #CBE4F5;
 }
 
-.schedule-alt ul li p {
+.schedule-alt ul.tr > li > p {
     color: #000;
     font-size: 10pt;
     padding: 10px;
 }
 
-.schedule-alt ul li:first-child p {
+.schedule-alt ul.tr > li:first-child > p {
     margin: 0px;
     color: #434c52;
     font-family: open sans condensed;
@@ -413,22 +413,22 @@ header h1 {
     font-size: 12pt;
 }
 
-.schedule-alt ul li:first-child p:first-child {
+.schedule-alt ul.tr > li:first-child > p:first-child {
     padding-bottom: 0px;
 }
 
-.schedule-alt ul li:first-child p:last-child {
+.schedule-alt ul.tr > li:first-child > p:last-child {
     padding-top: 0px;
 }
 
-.schedule-alt ul li:first-child p span {
+.schedule-alt ul.tr > li:first-child > p > span {
     font-family: open sans, arial, sans-serif;
     font-size: 10pt;
     color: #666;
     font-weight: normal;
 }
 
-.schedule-alt ul.whole li {
+.schedule-alt ul.whole > li {
     height: 80px;
 }
 
@@ -436,16 +436,16 @@ header h1 {
     background-color: #CBE4F5;
 }
 
-.repeat-scheduleblue-alt ul {
+.repeat-scheduleblue-alt ul.tr {
     
 }
 
-.repeat-scheduleblue-alt ul li {
+.repeat-scheduleblue-alt ul.tr > li {
     font-size: 11pt;
     font-family: open sans, arial, sans-serif;
 }
 
-.repeat-scheduleblue-alt ul li:nth-child(n+2) {
+.repeat-scheduleblue-alt ul.tr > li:nth-child(n+2) {
     background-color: #fefefe;
 }
 
