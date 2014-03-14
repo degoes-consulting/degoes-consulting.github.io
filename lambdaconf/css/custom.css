@@ -10,6 +10,9 @@ p {
 h2, h3, h4, h5 {
     color: #666666;
 }
+ul.tracks {
+padding-left: 40px;
+}
 
 #to-top {
     border-top: 4px solid rgba(0, 0, 0, 0.5);
