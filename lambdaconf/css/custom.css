@@ -542,6 +542,23 @@ header h1 {
     opacity: 1.0;
 }
 
+/*SPONSOR SECTION*/
+#sponsor-section h3 {
+    color: #FFAF9C !important;
+    text-align: center;
+}
+
+#sponsor-section p {
+    text-align: center;
+}
+
+#sponsor-section img {
+    margin: 20px 0px;
+    max-height: 60px;
+    max-width: 80%;
+    margin-left: 10%;
+}
+
 /*FOOTER*/
 
 footer {
