@@ -546,6 +546,15 @@ header h1 {
 }
 
 /*SPONSOR SECTION*/
+#sponsor-section .three-columns {
+    width: 32% !important;
+    margin-right: 2% !important;
+}
+
+#sponsor-section .three-columns.js-clear-float {
+    margin-right: 0px !important;
+}
+
 #sponsor-section h3 {
     color: #FFAF9C !important;
     text-align: center;
