@@ -575,10 +575,8 @@ header h1 {
 }
 
 #sponsor-section img {
-    margin: 20px 0px;
-    max-height: 60px;
-    max-width: 80%;
-    margin-left: 10%;
+    margin: 20px 5px;
+    height: 60px;
 }
 
 /*FOOTER*/
