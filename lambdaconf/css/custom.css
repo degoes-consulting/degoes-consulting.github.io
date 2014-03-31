@@ -366,6 +366,16 @@ header h1 {
     padding: 10px;
 }
 
+.schedule ul.tr > li.full {
+  width: 76%;
+  padding-right: 3px;
+  vertical-align: middle;
+}
+
+.schedule ul.tr > li.full p {
+  padding: 5px;
+}
+
 .schedule ul.tr > li:first-child > p {
     color: #434c52;
     font-family: open sans condensed;
