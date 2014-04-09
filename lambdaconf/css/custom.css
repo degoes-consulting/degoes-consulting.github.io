@@ -561,7 +561,7 @@ header h1 {
 
 /*SPONSOR SECTION*/
 #sponsor-section .three-columns {
-    width: 32% !important;
+    width: 31% !important;
     margin-right: 2% !important;
 }
 
@@ -606,10 +606,6 @@ header h1 {
     margin-bottom: 30px;
     max-height: 60px;
     max-width: 80%;
-}
-
-#sponsor-section .three-columns {
-
 }
 
 /*FOOTER*/
