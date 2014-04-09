@@ -7,6 +7,10 @@ p {
     font-size: 11pt;
 }
 
+ul li {
+    font-family: questrial, sans-serif;
+}
+
 h2, h3, h4, h5 {
     color: #666666;
 }
@@ -565,20 +569,47 @@ header h1 {
     margin-right: 0px !important;
 }
 
-#sponsor-section h3 {
-    color: #FFAF9C !important;
+#sponsor-section h2 {
+    color: #666 !important;
     text-align: center;
+    margin-bottom: 30px;
+}
+
+#sponsor-section a {
+    display: block;
+    width: 100%;
+}
+
+#sponsor-section i {
+    display: block;
+    font-size: 30pt;
+    padding-bottom: 10px;
+}
+
+#sponsor-section i.gold {
+    color: #F4C110;
+}
+
+#sponsor-section i.silver {
+    color: #ABA9AC;
 }
 
 #sponsor-section p {
     text-align: center;
+    margin-bottom: 40px;
 }
 
 #sponsor-section img {
-    margin: 20px 0px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 30px;
     max-height: 60px;
     max-width: 80%;
-    margin-left: 10%;
+}
+
+#sponsor-section .three-columns {
+
 }
 
 /*FOOTER*/
