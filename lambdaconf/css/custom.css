@@ -18,6 +18,10 @@ ul.tracks {
 padding-left: 40px;
 }
 
+div.schedule li {
+margin-left: 2em;
+}
+
 #to-top {
     border-top: 4px solid rgba(0, 0, 0, 0.5);
     font-size: 36pt;
