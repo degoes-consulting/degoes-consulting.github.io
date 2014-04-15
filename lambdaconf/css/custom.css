@@ -67,7 +67,7 @@ header h1 {
 }
 
 #header-menu {
-    width: 590px;
+    width: 450px;
     margin-top: 14px;
     margin-right: auto;
     margin-left: auto;
@@ -401,6 +401,15 @@ header h1 {
 
 .schedule ul.special > li {
     height: 150px;
+}
+
+.schedule li {
+    font-size: 11pt;
+    color: #666666;
+}
+
+.schedule a {
+    color: #61BDFF;
 }
 
 .repeat-scheduleblue {
