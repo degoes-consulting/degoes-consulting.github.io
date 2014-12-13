@@ -132,6 +132,12 @@
         font-size: 30px;
 
       }
+      #splash {
+        margin-top: 90px;
+        background: url(images/burning-bg.png) no-repeat;
+        background-size: cover;
+        z-index: -200;
+      }
       #splash video {
         position: absolute;
         right: 0; 
@@ -140,8 +146,6 @@
         width: auto; 
         height: auto;
         z-index: -100;
-        background: url(images/burning-bg.png) no-repeat;
-        background-size: cover;
       }
       .boxshadow {
         -moz-box-shadow:    inset 0 0 4px #000000;
@@ -278,8 +282,18 @@
         var video  = $("#splash video");
         var splash = $("#splash");
 
+        var ratio = 500 / 1920;
+
+        function setHeight() {
+          var height = $(window).width() * ratio;
+
+          splash.height(height);
+        }
+
+        setHeight();
+
         setInterval(function() {
-          splash.height(video.height());
+          setHeight();
         }, 10);
       });
     </script>
@@ -295,7 +309,7 @@
     </nav>
     <div id="content">
       <div id="splash">
-        <video autoplay poster="images/burning-bg.png" loop id="bgvid">
+        <video autoplay poster="images/burning-bg.png" loop>
           <source src="video/background.mp4" type="video/mp4">
         </video>
         <div class="box">
