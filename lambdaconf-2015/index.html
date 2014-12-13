@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>LambdaConf 2015: Bigger, Better, Boulder</title>
+    <link href='http://fonts.googleapis.com/css?family=Sarpanch:700|Roboto:400,300' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+    </script>
+    <style>
+      * {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Sarpanch', sans-serif;
+      }
+      body {
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        color: white;
+      }
+      nav {
+        position: fixed;
+
+        top: 0;
+        width: 100%;
+        height: 90px;
+        
+        background-color: #1a1a1a;
+        color: white;
+        text-align: left;
+        
+        z-index: 100;
+      }
+      nav a {
+        font-family: 'Sarpanch', sans-serif;
+        position: relative;
+        font-size: 20px;
+        top: 40%;
+        padding-left: 50px;
+      }
+      nav a:link, nav a:visited {
+        color: white;
+        text-decoration: none;
+      }
+      nav a:visited, nav a:active {
+        color: white;
+        text-decoration: none;
+      }
+      nav a:hover {
+        text-decoration: none;
+        text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
+      }
+      #main p ~ p, 
+      #main p ~ ul, 
+      #main ul ~ p, 
+      #main p ~ ol, 
+      #main ol ~ p {
+        padding-top: 1em;
+      }
+      #main ul li {
+        margin-left: 1em;
+        margin-right: 1em;
+      }
+      #main a {
+        color: gray;
+        text-decoration: none;
+      }
+      #main div.inner {
+        width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+      #main strong {
+        color: orange;
+      }
+      #main h1 {
+        font-size: 40px;
+      }
+      #main h2 {
+        font-size: 35px;
+      }
+      #main h3 {
+        font-size: 30px;
+      }
+      #splash h1 {
+        color: red;
+      }
+      #main h1, #main h2, #main h3, #main h4, #main h5 {
+        color: orange;
+        padding-top: 1.5em;
+      }
+      #main h1:hover {
+        background-color: #202020;
+      }
+      #content p#legal {
+        text-align: center;
+        font-size: 13px;
+        font-style: italic;
+      }
+      #content {
+        width: 100%;
+        margin-top: 90px;
+      }
+      #content p, li {
+        font-size: 25px;
+      }
+      #splash {
+        position: relative;
+        background-color: transparent;
+        color: white;
+        text-align: right;
+        width: 100%;
+      }
+      #splash h1, #splash h2 {
+        padding-right: 30px;
+      }
+      #splash .box {
+        position: relative;
+        top: 50%;
+        margin-top: -56px;
+      }
+      #splash h1 { 
+        font-size: 50px;
+        padding-bottom: 10px;
+      }
+      #splash h2 { 
+        font-size: 30px;
+
+      }
+      #splash video {
+        position: absolute;
+        right: 0; 
+        top: 0;
+        min-width: 100%; /*min-height: 100%;*/
+        width: auto; 
+        height: auto;
+        z-index: -100;
+        background: url(images/burning-bg.png) no-repeat;
+        background-size: cover;
+      }
+      .boxshadow {
+        -moz-box-shadow:    inset 0 0 4px #000000;
+        -webkit-box-shadow: inset 0 0 4px #000000;
+        box-shadow:         inset 0 0 4px #000000;
+      }
+      #main ul {
+        list-style-type: none;
+      }
+      #main li {
+        padding-left: 20px; 
+        padding-right: 20px; 
+        padding-top: 30px; 
+        padding-bottom: 30px; 
+      }
+      #main li:nth-child(even) {
+        background-color: #1a1a1a;
+      }
+      #main li:nth-child(odd) {
+        background-color: #121212;
+      }
+      #main h1 {
+        clear: both;
+        width: 100%;
+        background-color: #1a1a1a;
+        text-align: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+        -moz-box-shadow:    inset 0 0 2px #000000;
+        -webkit-box-shadow: inset 0 0 2px #000000;
+        box-shadow:         inset 0 0 2px #000000;
+      }
+      #main #credintro {
+        text-align: center;
+        padding-bottom: 1.5em;
+        font-size: 15px;
+      }
+      #cred div.quote:hover {
+        background-color: #202020;
+      }
+      #cred div.quote {
+        position: relative;
+        float: left;
+        width: 200px;
+        padding: 40px;
+        margin: 10px;
+        height: 120px;
+        margin-bottom: 50px;
+        border-radius: 15px;
+        background-color: #1a1a1a;
+        -moz-box-shadow:    inset 0 0 2px #000000;
+        -webkit-box-shadow: inset 0 0 2px #000000;
+        box-shadow:         inset 0 0 2px #000000;
+        display: table-cell;
+      }
+      #cred p {
+        font-size: 15px;
+      }
+      #cred p.attr {        
+        position: absolute;
+        bottom: 40px;
+        right: 40px;
+        text-align: right;
+      }
+      #cred div.inner {
+        width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      #cred p ~ p, 
+      #cred p ~ ul, 
+      #cred ul ~ p, 
+      #cred p ~ ol, 
+      #cred ol ~ p {
+        padding-top: 40px;
+      }
+      #schedule h2 {
+        padding-top: 0;
+        margin-top: 1.5em;
+        font-size: 15px;
+        height: 70px;
+      }
+      #schedule div.day {
+        width: 300px;
+        float: left;
+        margin-bottom: 50px;
+      }
+      #schedule p {
+        margin-left: 7px;
+        margin-right: 7px;
+      }
+      #schedule p ~ p {
+        margin-top: 15px;
+        padding-top: 0;
+      }
+      #schedule p.hour {
+        height: 100px;
+        border: 1px solid #1a1a1a;
+      }
+      #schedule p.hour:hover {
+        background-color: #202020;
+      }
+      #schedule p.twohour {
+        height: 217px;
+        border: 1px solid #1a1a1a;
+      }
+      #schedule div.day p {
+        font-size: 12px;
+      }
+      #schedule p.twohour:hover {
+        background-color: #202020;
+      }
+      #boulder div.gallery img {
+        width: 440px;
+        height: 309px;
+        margin-left: 25px;
+        margin-right: 25px;
+        border-radius: 10px;
+        border: 1px solid transparent;
+      }
+      #boulder div.gallery img:hover {
+        border: 1px solid orange;
+      }
+      #boulder div.gallery {
+        padding-bottom: 1.5em;
+      }
+      #social p:first-child {
+        padding-bottom: 1.5em;
+      }
+    </style>
+    <script type="text/javascript">
+      $(function() {
+        var video  = $("#splash video");
+        var splash = $("#splash");
+
+        setInterval(function() {
+          splash.height(video.height());
+        }, 10);
+      });
+    </script>
+  </head>
+  <body>
+    <nav>
+      <a href="#call-for-speakers-h1">Call for Speakers</a>
+      <a href="#schedule-h1">Schedule</a>
+      <a href="#boulder-h1">Travel</a>
+      <a href="#register-h1">Register</a>
+      <a href="#volunteer-h1">Volunteer</a>
+      <a href="#social-h1">Discuss</a>
+    </nav>
+    <div id="content">
+      <div id="splash">
+        <video autoplay poster="images/burning-bg.png" loop id="bgvid">
+          <source src="video/background.mp4" type="video/mp4">
+        </video>
+        <div class="box">
+          <h1>LambdaConf 2015</h2>
+          <h2>Bigger, Better, Boulder.</h1>
+        </div>
+      </div>
+      <div id="main">
+        <div id="cred">
+          <h1>Unleash your inner functional programmer</h1>
+          <div class="inner">
+            <!-- <p id="credintro">Feedback from LambdaConf 2014</p> -->
+            <div class="quote">
+              <p>
+                &ldquo;It was awesome. Be sure to go next year!&rdquo;
+              </p>
+              <p class="attr">
+                &mdash; <a href="http://tpolecat.github.io/2014/04/22/lambdaconf.html">@tpolecat</a> 
+              </p>
+            </div>
+            <div class="quote">
+              <p>
+                &ldquo;I just wanted to say this explicitly: #LambdaConf was amazing.&rdquo;
+              </p>
+              <p class="attr">
+                &mdash; <a href="https://twitter.com/sellout/status/458390823021723648">@sellout</a>
+              </p>
+            </div>
+            <div class="quote">
+              <p>
+                &ldquo;Very well organized; great speakers with thoughtful talks. Lots of challenging material for me. Brain full.&rdquo;
+              </p>
+              <p class="attr">
+                &mdash; <a href="https://twitter.com/CJPhelps/status/457718393982812160">@cjphelps</a>
+              </p>
+            </div>
+            <div class="quote">
+              <p>
+                &ldquo;So much awesome at #lambdaconf!&rdquo; 
+              </p>
+              <p class="attr">
+                &mdash; <a href="https://twitter.com/pdxleif/status/457739569853526016">@pdfleif</a>
+              </p>
+            </div>
+            <div class="quote">
+              <p>
+                &ldquo;Paul Phillips presentation at LamdaConf is one of the best I've seen in a long while.&rdquo;
+              </p>
+              <p class="attr">
+                &mdash; <a href="https://twitter.com/dcsobral/status/457531790794559488">@dcsobral</a>
+              </p>
+            </div>
+            <div class="quote">
+              <p>
+                &ldquo;On a bus headed home from #lambdaconf.  I have tons of things to research and met a bunch of awesome people.&rdquo;
+              </p>
+              <p class="attr">
+                &mdash; <a href="https://twitter.com/trinary/status/457716040659529728">@trinary</a>
+              </p>
+            </div>
+            <div class="quote">
+              <p>
+                &ldquo;Really good to meet so many smart people at LambdaConf. Great conference!&rdquo; 
+              </p>
+              <p class="attr">
+                &mdash; <a href="https://twitter.com/propensive/status/459092252418387968">@propensive</a>
+              </p>
+            </div>
+            <div class="quote">
+              <p>
+                &ldquo;Inspired to demand more of our tools and that we can do better after #lambdaconf.&rdquo;
+              </p>
+              <p class="attr">
+                &mdash; <a href="https://twitter.com/NathanLubchenco/status/457923341945290752">@NathanLubchenco</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="call-for-speakers">
+          <h1 id="call-for-speakers-h1">Call for Speakers</h1>
+          <div class="inner">
+            <p>At <a href="http://www.degoesconsulting.com/lambdaconf/">LamdbaConf 2014</a>, one-hundred and thirty functional programmers assembled from around the world in the foothills of the Rocky Mountains to take their skills to the next level.</p>
+            <p>Skills and friendships were forged in a day of intense workshops and talks, covering a variety of languages including Scala, Haskell, Clojure, Racket, Idris, and Purescript.</p>
+            <p>At LambdaConf 2015, we're shooting for more attendees, more lightning talks, more workshops, more talks, and more cross-pollination.</p>
+            <p>Please <a href="mailto:john@degoes.net">contact us</a> if you have any one of the following topics you'd like to share with fellow enthusiasts:</p>
+            <ul>
+              <li><strong>Languages</strong>. Want to cover a functional programming language? From Scala to Swift to Prolog and Rust, we want to open people's mind to new languages, or new ways to use old languages in a functional or declarative way.</li>
+              <li><strong>FP 101</strong>. Interested in helping object-oriented and procedural programmers learn a new trick or two in the world of functional programming? FP 101-style workshops and talks help make functional programming accessible and grow the size of the community.</li>
+              <li><strong>Libraries</strong>. The ecosystem of functional libraries is exploding for many languages, like Purescript, Haskell and Scala. Is there a library you know well that can help developers solve real-world problems, and demonstrate the power of functional programming?</li>
+              <li><strong>Theory</strong>. Type theory, category theory, F-algebras &mdash; all of these and more have helped many learn to become better developers. Can you make one of these topics accessible and relevant to aspiring functional programmers?</li>
+              <li><strong>Case Studies</strong>. Has a functional programming language or library done great things for your company? Present a case study that discusses how you solved some problem in a functional way.</li>
+            </ul>
+            <p>
+              Lightning talks are between 5 - 10 minutes in length. Workshops are 2 hours in length, and are expected to have a hands-on component. Talks are between 25 minutes (for a half hour session) and 50 minutes (for an hour session), and may include interactive components at the speaker's discretion.
+            </p>
+            <p>
+              Speakers get free conference registration, as well as a special LambdaConf hoodie designed just for speakers.
+            </p>
+          </div>
+        </div>
+        <div id="schedule">
+          <h1 id="schedule-h1">Schedule</h1>
+          <div class="inner">
+            <p>
+              Come early and stay late!
+            </p>
+            <p>
+              LambdaConf 2015 is bigger than even before, with one full day for intensive, hands-on workshops, another day for talks, and a third half-day for unconference talks.
+            </p>
+            <div class="day">
+              <h2><strong>Friday</strong><br>Workshops, Conference Dinner, Lightning Talks</h2>
+              <p class="hour">8:00 AM - Breakfast</p>
+              <p class="twohour">9:00 AM</p>
+              <p class="twohour">11:00 AM</p>
+              <p class="hour">1:00 PM - Lunch</p>
+              <p class="twohour">2:00 PM</p>
+              <p class="twohour">4:00 PM</p>
+              <p class="hour">Free time</p>
+              <p class="twohour">7:00 PM - Conference Dinner, Lightning Talks</p>
+            </div>
+            <div class="day">
+              <h2><strong>Saturday</strong><br>Keynotes, Talks, Drink-Up</h2>
+              <p class="hour">8:00 AM - Breakfast</p>
+              <p class="hour">9:00 AM - Keynotes</p>
+              <p class="hour">10:00 AM</p>
+              <p class="hour">11:00 AM</p>
+              <p class="hour">12:00 PM</p>
+              <p class="hour">1:00 PM - Lunch</p>
+              <p class="hour">2:00 PM</p>
+              <p class="hour">3:00 PM</p>
+              <p class="hour">4:00 PM</p>
+              <p class="hour">5:00 PM</p>
+              <p class="hour">Free time</p>
+              <p class="twohour">7:00 PM - Drink-Up</p>
+            </div>
+            <div class="day">
+              <h2><strong>Sunday</strong><br>Mountain Hike, Unconference</h2>
+              <p class="twohour">8:00 AM - Hike &amp; Breakfast</p>
+              <p class="hour">10:00 AM</p>
+              <p class="hour">11:00 AM</p>
+              <p class="hour">12:00 AM</p>
+            </div>
+          </div>
+        </div>
+        <div id="boulder">
+          <h1 id="boulder-h1">Travel</h1>
+          <div class="inner">
+            <div class="gallery">
+              <img src="images/flatirons.jpg">
+              <img src="images/courthouse.jpg">
+            </div>
+            <p>
+              Boulder is a beautiful mountain town nestled in the heart of Colorado, boasting a thriving tech scene and a burgeoning community of functional programmers.
+            </p>
+
+            <p>Boulder has gathered numerous top rankings in recent years, including:</p>
+
+            <ul>
+              <li>The 10 Happiest Cities – # 1 – Moneywatch.bnet.com</li>
+              <li>Top Brainiest Cities – No. 1 – Portfolio.com</li>
+              <li>Ten Best Cities for the Next Decade – 4th – Kiplinger's Personal Finance magazine</li>
+              <li>Gallup-Healthways Well-Being Index – No. 1 – USA Today</li>
+              <li>Best Cities to Raise an Outdoor Kid – No. 1 – Backpacker Magazine</li>
+              <li>America's Top 25 Towns to Live Well – No. 1 – Forbes.com</li>
+              <li>Top 10 Healthiest Cities to Live and Retire – No. 6 – AARP magazine</li>
+              <li>Top 10 Cities for Artists – No. 8 – Business Week</li>
+              <li>Lesser-Known LGBT Family-Friendly Cities – No. 1 – Wearegoodkin.com</li>
+              <li>America's Foodiest Town – No. 1 – Bon Appetit magazine</li>
+            </ul>
+
+            <p>The city is very compact, making it easy to get around on foot or bicycle, and boasts an incredible variety of great dining options, local musicians, street performers, and live shows.</p>
+
+            <p>Boulder has hundreds of miles of maintained hiking trails, is 30 minutes away from the nearest ski resort, and has one of the most physically active communities in America.</p>
+
+            <h2>Airport</h2>
+
+            <p>Boulder is served by the <a href="http://flydenver.com">Denver International Airport</a> (symbol: DEN).</p>
+
+            <p>Low-cost national carriers into Denver include <a href="http://flyfrontier.com">Frontier Airlines</a> and <a href="http://southwest.com">Southwest</a>. These carriers fly from most major cities in the United States, and you can often find a round-trip fare for around $200.</p>
+
+            <p><a href="http://www.britishairways.com/en-gb/destinations/denver/flights-to-denver">British Airways</a> has direct, non-stop flights from London Heathrow to Denver.</p>
+
+            <p>
+              The best way of getting from the airport to Boulder is the <a href="http://www3.rtd-denver.com/schedules/getSchedule.action?routeId=AB">RTD Boulder AB Bus Route</a>. The bus takes about an hour and drops you off at the <a href="https://foursquare.com/v/boulder-transit-center-boulder-co/4b47e175f964a520a14226e3">Boulder Transit Station</a>, which is located in the heart of downtown Boulder, and a short walk away from our recommended hotels.
+            </p>
+
+            <p>
+              Unless you will be staying outside of Boulder, you probably do not need to rent a car. Boulder is extremely walkable and bikable and also has excellent public transit options.
+            </p>
+
+            <h2>Accommodations</h2>
+
+            <p>
+              If you are coming from out of town, we recommend staying in downtown Boulder, for ease of access to the conference events.
+            </p>
+
+            <p>Two great choices include the Hotel Boulderado and St Julien Hotel:</p>
+
+            <ul>
+              <li><strong>Hotel Boulderado</strong>. 
+                (303) 442-4344 - <a href="http://boulderado.com">boulderado.com</a></li>
+              <li><strong>St Julien Hotel</strong>. 
+                (720) 406-9696 - <a href="http://stjulien.com">stjulien.com</a></li>
+            </ul>
+
+            <p>
+              Other options include Quality Inn &amp; Suites, Millennium Harvest House, Marriott, and Boulder University Inn, all within walking distance to downtown Boulder.
+            </p>
+
+            <p>
+              You may also find good deals on <a href="https://www.airbnb.com/s/Boulder--CO">AirBnB Boulder</a>, especially if you are considering <a href="#social">rooming with fellow conference attendees</a>.
+            </p>
+          </div>
+        </div>
+        <div id="register">
+          <h1 id="register-h1">Register</h1>
+          <div class="inner">
+            <p>Registration opens in January. Sign up early to get the best price!</p>
+          </div>
+        </div>
+        <div id="volunteer">
+          <h1 id="volunteer-h1">Volunteer</h1>
+          <div class="inner">
+            <p>Are you a student? Or maybe just flat broke but absolutely have to attend LambdaConf, anyway?</p>
+
+            <p>We're looking for a few good volunteers! Volunteers get free conference passes in exchange for help organizing the conference. Typical responsibilities include:</p>
+
+            <ul>
+              <li><strong>Promotion</strong>. Notifying newsgroups, websites, and meetups about the conference.</li>
+              <li><strong>Facilitation</strong>. Help out at the signup tables, get speakers setup, and direct attendees around the facilities.</li>
+              <li><strong>Setup &amp; Cleanup</strong>. Help setup, tear down, and cleanup for meals and the conference dinner.</li>
+              <li><strong>Sponsorships</strong>. Reach out to selected companies to obtain sponsorships to help defray the costs of organizing the conference.</p>
+            </ul>
+
+            <p>In addition to a free conference pass, LambdaConf volunteers get a special hoodie designed just for volunteers.</p>
+
+            <p>Apply to become a volunteer by <a href="mailto:john@degoes.net">sending us an email</a> describing how you can help make LambdaConf 2015 an event to remember.</p>
+          </div>
+        </div>
+        <div id="social">
+          <h1 id="social-h1">Discuss</h1>
+          <div class="inner">
+            <p>Here you can chat about the conference, discuss joint reservations or accommodations, and coordinate social activities with fellow attendees.</p>
+
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+              var disqus_shortname = 'lambdaconf2015';
+
+              /* * * DON'T EDIT BELOW THIS LINE * * */
+              (function() {
+                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script>              
+            <p id="legal">Copyright &copy; 2014 - 2015 De Goes Consulting Inc. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
