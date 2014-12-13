@@ -116,21 +116,22 @@
         text-align: right;
         width: 100%;
       }
-      #splash h1, #splash h2 {
+      #splash h1, #splash h2, #splash h3 {
         padding-right: 30px;
       }
       #splash .box {
         position: relative;
         top: 50%;
-        margin-top: -56px;
+        margin-top: -100px;
       }
       #splash h1 { 
         font-size: 50px;
-        padding-bottom: 10px;
       }
       #splash h2 { 
         font-size: 30px;
-
+      }
+      #splash h3 { 
+        font-size: 15px;
       }
       #splash {
         margin-top: 90px;
@@ -311,11 +312,13 @@
     <div id="content">
       <div id="splash">
         <video autoplay poster="images/burning-bg.jpg" loop>
+          <source src="video/background.webm" type="video/webm">
           <source src="video/background.mp4" type="video/mp4">
         </video>
         <div class="box">
           <h1>LambdaConf 2015</h2>
-          <h2>Bigger, Better, Boulder.</h1>
+          <h2>Bigger, Better, Boulder</h1>
+          <h3>May 2015, Boulder, Colorado</h3>
         </div>
       </div>
       <div id="main">
