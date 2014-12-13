@@ -284,9 +284,10 @@
 
         var ratio = 500 / 1920;
 
-        function setHeight() {
+        function setHeight(v) {
           var height = $(window).width() * ratio;
 
+          video.height(height);
           splash.height(height);
         }
 
