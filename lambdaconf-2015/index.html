@@ -16,6 +16,12 @@
         clear: both;
         padding-top: 1em;
       }
+      .toggleable {
+        cursor: pointer;
+      }
+      .toggleable:after {
+        content: " » ";
+      }
       h1, h2, h3, h4, h5, h6 {
         font-family: 'Sarpanch', sans-serif;
       }
@@ -309,6 +315,10 @@
         setInterval(function() {
           setHeight();
         }, 10);
+
+        $('.toggleable').click(function() {
+          $(this).nextAll().slideToggle();
+        }).nextAll().hide();
       });
     </script>
   </head>
@@ -575,9 +585,31 @@
               <li><strong>Sponsorships</strong>. Reach out to selected companies to obtain sponsorships to help defray the costs of organizing the conference.</p>
             </ul>
 
-            <p>In addition to a free conference pass, LambdaConf volunteers get a special hoodie designed just for volunteers.</p>
+            <p>In addition to a free conference pass, LambdaConf volunteers get an <em>awesome</em> hoodie designed just for volunteers.</p>
 
-            <p>Apply to become a volunteer by <a href="mailto:john@degoes.net">sending us an email</a> describing how you can help make LambdaConf 2015 an event to remember.</p>
+            <p>Apply to become a volunteer by <a href="mailto:john@degoes.net">sending us</a> a signed copy of the Volunteer Pledge, as well as a brief description of how you want to help make LambdaConf 2015 an event to remember!</p>
+
+            <h2 class="toggleable" id="volunteer-pledge">The Volunteer Pledge</h2>
+
+            <p>I hereby acknowledge that I am being granted status as a LambdaConf volunteer, in exchange for my assistance helping to organize the conference, including such duties as promotion, setup and cleanup, search for sponsorships, and facilitation, as agreed between myself and the conference organizers.</p>
+
+            <p>In my capacity as volunteer of LambdaConf, I hereby promise:</p>
+
+            <ul>
+              <li>That I shall not talk or act in ways that could make people different than me feel bullied, harassed, intimidated, stalked, stereotyped, or belittled;</li>
+
+              <li>That I will respect and celebrate individual differences in others, such as sexual orientation, intelligence, disability, gender, gender identity, gender expression, physical appearance, body size, race, age, religion, nationality, and political beliefs; and that I will show no preferences or biases towards anyone on the basis of these differences;</li>
+
+              <li>That I will treat everyone with the same measure of respect and dignity, and that in every word I speak and every action I take, I will show genuine concern for helping others achieve their goals;</li>
+
+              <li>That if I become aware of any behavior by others which is inconsistent with these promises, I will take immediate action to report such behavior to the conference organizers;</li>
+
+              <li>That if there comes a time when I no longer wish to keep these promises, or I behave in a manner inconsistent with these promises, I shall immediately step down as a LambdaConf volunteer.</li>
+            </ul>
+
+            <p>
+              I hereby acknowledge that my status as LambdaConf volunteer may be terminated at any time if, in the sole opinion of the conference organizers, I have been determined to break any of these promises.
+            </p>
           </div>
         </div>
         <div id="social">
@@ -604,6 +636,7 @@
             </script>              
           </div>
         </div>
+        <!-- Courtney is one of the founding members and organizers of LambdaConf. She is acting Event Coordinator, and is responsible for making your LambdaConf experience smooth and enjoyable.  -->
         <div id="etc">
           <h1 id="etc-h1">Code of Conduct</h1>
           <div class="inner">
