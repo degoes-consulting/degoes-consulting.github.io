@@ -303,8 +303,13 @@
 
         var ratio = 500 / 1920;
 
+        $("video").on("play", function (_) {
+          splash.css('background', 'none');
+        });
+        
         function setHeight(v) {
-          var height = Math.floor($(window).width() * ratio);
+          var width  = $(window).width();
+          var height = Math.floor(width * ratio);
 
           video.height(height);
           splash.height(height);
