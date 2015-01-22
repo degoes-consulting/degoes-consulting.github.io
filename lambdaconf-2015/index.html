@@ -298,29 +298,39 @@
       #credits h3, #speakers h3, #talks h3 {
         color: #666;
         padding-top: 0em;
+        font-size: 30px;
       }
       #credits .individual, #speakers .individual, #talks .individual {
-        margin-top: 2.5em;
+        margin-top: 30px;
       }
       #credits img, #speakers img, #talks img {
         width: 100px;
+
+        border:1px solid #;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;  
       }
       #credits .image, #speakers .image, #talks .image {
         float: left;
         width: 12%;
         margin-right: 3%;
       }
-      #credits .copy, #speakers .copy, #talks .copy {
-        float: left; 
-        width: 85%;
+      #credits h2, #speakers h2 {
+        padding-top: 0;
       }
-      #credits .copy:after, #speakers .copy:after, #talks .copy:after {
-        content: '';
-        display:block;
-        clear: both;
+      #credits .author-info h2, #speakers .author-info h2 {
+        padding: 0;
+        margin: 0;
       }
-      .clear-inline {
+      #credits div.author-info, #speakers div.author-info {
+        float: left;
+        height: 100px;
+      }
+      #credits p, #speakers p {
         clear: both;
+        padding-top: 20px;
+        padding-bottom: 30px;
       }
     </style>
     <script type="text/javascript">
@@ -372,7 +382,7 @@
         </video>
         <div class="box">
           <h1>LambdaConf 2015</h2>
-          <h2>Bigger, Better, Boulder*</h1>
+          <h2>Bigger, Better, Boulder</h1>
           <h3>May 22-24 - Boulder CO</h3>
         </div>
       </div>
@@ -681,18 +691,19 @@
           <h1 id="etc-h1">Code of Conduct</h1>
           <div class="inner">
             <p>
-              LambdaConf's code of conduct is simple: <strong>be a decent human being</strong>. Celebrate and embrace diversity, treat everyone with respect and dignity, and in the words you speak and the actions you take, show genuine care and concern for helping others achieve their goals.
+              LambdaConf's code of conduct is simple: <strong>be a decent human being</strong>.</p>
+            <p>
+              Celebrate and embrace diversity, treat everyone with respect and dignity, and in the words you speak and the actions you take, show genuine care and concern for helping others achieve their goals.
             </p>
             <p>
-              We have a zero tolerance policy towards written or spoken words, behaviors, artifacts, and media that make minority groups feel bullied, harassed, intimidated, stalked, stereotyped, or belittled. These groups include (but are not limited to) the following: women, people of color, disabled individuals, lesbians, gays, bisexuals, transsexuals, asexuals, intersex people, transgender people, and gender-variant people.
+              We have a zero tolerance policy towards written or spoken words, behaviors, artifacts, and media that make minority groups feel bullied, harassed, intimidated, stalked, stereotyped, or belittled. These groups include the following: women, people of color, disabled individuals, lesbians, gays, bisexuals, transsexuals, asexuals, intersex people, transgender people, and gender-variant people.
             </p>
             <p>
-              Violations of this code of conduct should be reported immediately to conference organizers or volunteers. All organizers and volunteers will be wearing 'Team LambdaConf' apparel.
+              Violations of this code of conduct should be reported immediately to conference staff or volunteers. All staff and volunteers will be wearing <em>Team LambdaConf</em> apparel.
             </p>
             <p>
               Attendees acting like jerks will be thrown out <a href="images/john-a-de-goes.jpg">by this guy</a>. Don't say we didn't warn you.
             </p>
-            <p class="legal">* Horrible pun, we know. Feel free to <a href="mailto:john@degoes.net">suggest</a> a better tagline. :-) </p>
           </div>
         </div>
         <div id="speakers">
@@ -702,261 +713,235 @@
                 <div class="image">
                   <img src="images/speakers/mlanna.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Marconi Lanna</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Marconi Lanna</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/agreenburg.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Aysylu Greenberg</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Aysylu Greenberg</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <!--<img src="images/speakers/tmurphy.jpg" alt="person">-->
                 </div>
-                <div class="copy">
-                  <h3>Tom Murphy</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Tom Murphy</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/zlakhani.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Zeeshan Lakhani</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Zeeshan Lakhani</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/vpatryshev.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Vlad Patryshev</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Vlad Patryshev</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/sdymchenko.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Sergii Dymchenko</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Sergii Dymchenko</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/aserranomena.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Alejandro Serrano Mena</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Alejandro Serrano Mena</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/jroesch.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Jared Roesch</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Jared Roesch</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/dmcilroy.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Doug McIlroy</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Doug McIlroy</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/rjhala.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Ranjit Jhala</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Ranjit Jhala</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/pphillips.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Paul Phillips</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Paul Phillips</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/achang.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Adelbert Chang</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Adelbert Chang</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/jcampbell.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Justin Campbell</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Justin Campbell</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/gbazerman.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Gershom Bazerman</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Gershom Bazerman</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/rterrell.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Riccardo Terrell</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Riccardo Terrell</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <!--<img src="images/speakers/agremm.jpg" alt="person">-->
                 </div>
-                <div class="copy">
-                  <h3>Alex Gremm</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Alex Gremm</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/reisenberg.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Richard Eisenberg</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Richard Eisenberg</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/pbaily.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Paige Baily</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Paige Baily</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/rnorris.png" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Rob Norris</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Rob Norris</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/jdegoes.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>John A. De Goes</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>John A. De Goes</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/jsterling.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Jon Sterling</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Jon Sterling</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/pfreeman.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Phil Freeman</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Phil Freeman</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/cfrederickson.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Colt Frederickson</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Colt Frederickson</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/callen.png" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Chris Allen</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Chris Allen</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/bbrudette.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Ben Brudette</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Ben Brudette</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/bmckenna.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Brian McKenna</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2>Brian McKenna</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
           </div>
         </div>
@@ -968,91 +953,92 @@
                 <div class="image">
                   <img src="images/staff/jdegoes.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>John A De Goes</h3>
-                  <h4>Event Organizer</h4>
-                  <p>John is the main organizer for LambdaConf, and an avid (wanna-be) functional programmer. When not starting analytics companies or hacking on open source, John spends his time in front of a mirror practicing his best Vulcan impression (we're just kidding, but he's still a complete dork!).</p>
+                <div class="author-info">
+                  <h2>John A De Goes</h2>
+                  <h3>Event Organizer</h3>
                 </div>
-                <div class="clear-inline"></div>
+                <p>John is the main organizer for LambdaConf, and an avid (wanna-be) functional programmer. When not starting analytics companies or hacking on open source, John spends his time in front of a mirror practicing his best Vulcan impression (we're just kidding, but he's still a complete dork!).</p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/staff/cdegoes.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Courtney De Goes</h3>
-                  <h4>Event Logistics and Coordination</h4>
-                  <p>Courtney is the amazing event coordinator for LambdaConf, responsible for ensuring you come back for more. In her free time, Courtney enjoys lifting weights, and can probably take you in the gym. She also has mad car dancing skills, but you're going to have to take her word on that.</p>
+                <div class="author-info">
+                  <h2>Courtney De Goes</h2>
+                  <h3>Event Logistics and Coordination</h3>
                 </div>
-                <div class="clear-inline"></div>
+                <p>Courtney is the amazing event coordinator for LambdaConf, responsible for ensuring you come back for more. In her free time, Courtney enjoys lifting weights, and can probably take you in the gym. She also has mad car dancing skills, but you're going to have to take her word on that.</p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/staff/mdegoes.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Matthew De Goes</h3>
-                  <h4>Brand, Web Designer and Developer</h4>
-                  <p>Matthew is the designer for the LambdaConf brand, conference website, conference signage, and all LambdaConf swag. Despite starting to bald at the tender age of 23, Matthew is really as warm and cuddly as a teddy bear (at least for his wife and kittens). Rumor has it, he can fix anything with duct tape.</p>
+                <div class="author-info">
+                  <h2>Matthew De Goes</h2>
+                  <h3>Brand, Web Designer and Developer</h3>
                 </div>
-                <div class="clear-inline"></div>
+                <p>Matthew is the designer for the LambdaConf brand, conference website, conference signage, and all LambdaConf swag. Despite starting to bald at the tender age of 23, Matthew is really as warm and cuddly as a teddy bear (at least for his wife and kittens). Rumor has it, he can fix anything with duct tape.</p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/staff/sdegoes.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Sophia De Goes</h3>
-                  <h4>MD and Assistant Coordinator</h4>
-                  <p>Sophia is the conference's onsite Doctor (M.D.), and assists Courtney in coordinating at the events. As John's better-looking, better-educated, higher-earning counterpart, Sophia spends much of her free time putting up with his all-around geeky entrepreneurial self.</p>
+                <div class="author-info">
+                  <h2>Sophia De Goes</h2>
+                  <h3>MD and Assistant Coordinator</h3>
                 </div>
-                <div class="clear-inline"></div>
+                <p>Sophia is the conference's onsite Doctor (M.D.), and assists Courtney in coordinating at the events. As John's better-looking, better-educated, higher-earning counterpart, Sophia spends much of her free time putting up with his all-around geeky entrepreneurial self.</p>
               </div>
             <h2>Volunteers</h2>
               <div class="individual">
                 <div class="image">
                   <img src="images/staff/fcash.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Frank Cash</h3>
+                <div class="author-info">
+                  <h2>Frank Cash</h2>
+                  <h3>Volunteer</h3>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/staff/mchan.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Matthew Chan</h3>
+                <div class="author-info">
+                  <h2>Matthew Chan</h2>
+                  <h3>Volunteer</h3>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/staff/jtorre.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Jimmy Torre</h3>
+                <div class="author-info">
+                  <h2>Jimmy Torre</h2>
+                  <h3>Volunteer</h3>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/staff/pbailey.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Paige Bailey</h3>
+                <div class="author-info">
+                  <h2>Paige&nbsp;Bailey</h2>
+                  <h3>Volunteer</h3>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/staff/jclaus.png" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>John Claus</h3>
+                <div class="author-info">
+                  <h2>John Claus</h2>
+                  <h3>Volunteer</h3>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
           </div>
         </div>
