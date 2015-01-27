@@ -63,11 +63,13 @@
         text-decoration: none;
         text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
       }
-      #main p ~ p, 
-      #main p ~ ul, 
-      #main ul ~ p, 
-      #main p ~ ol, 
-      #main ol ~ p {
+      #main p ~ p, #main p ~ ul, #main ul ~ p, #main p ~ ol, #main ol ~ p,
+      #main h1 ~ p, #main h2 ~ p, #main h3 ~ p, #main h4 ~ p,
+      #main h1 ~ ol, #main h2 ~ ol, #main h3 ~ ol, #main h4 ~ ol,
+      #main h1 ~ ul, #main h2 ~ ul, #main h3 ~ ul, #main h4 ~ ul {
+        padding-top: 1em;
+      }
+      #main p ~ h1, #main p ~ h2, #main p ~ h3, #main ol ~ h1, #main ol ~ h2, #main ol ~ h3, #main ul ~ h1, #main ul ~ h2, #main ul ~ h3 {
         padding-top: 1em;
       }
       #main ul li {
@@ -107,7 +109,6 @@
       }
       #main h1, #main h2, #main h3, #main h4, #main h5 {
         color: orange;
-        padding-top: 1.5em;
       }
       #main h1:hover {
         background-color: #202020;
@@ -116,7 +117,7 @@
         width: 100%;
         margin-top: 90px;
       }
-      #content p, li {
+      #content p, li, td {
         font-size: 25px;
       }
       #splash {
@@ -234,7 +235,7 @@
       #cred ol ~ p {
         padding-top: 40px;
       }
-      #schedule h2 {
+      #schedule .day h2 {
         padding-top: 0;
         margin-top: 1.5em;
         font-size: 15px;
@@ -248,6 +249,38 @@
       #schedule p {
         margin-left: 7px;
         margin-right: 7px;
+      }
+      #schedule table {
+        margin-left: -100px;
+        width: 1100px;
+        border-collapse: separate;
+        border-spacing: 0px 20px;
+      }
+      #schedule td:first-child {
+        width: 100px;
+        color: orange;
+        font-size: 10px;
+        padding-right: 10px;
+        text-align: right;
+        vertical-align: middle;
+      }
+      #schedule td:nth-child(2):hover {
+        background-color: #202020;
+      }
+      #schedule td:nth-child(2) {
+        border-radius: 15px;
+        background-color: #1a1a1a;
+        -moz-box-shadow:    inset 0 0 2px #000000;
+        -webkit-box-shadow: inset 0 0 2px #000000;
+        box-shadow:         inset 0 0 2px #000000;
+        padding: 20px 30px;
+      }
+      #schedule td:nth-child(3) {
+        width: 200px;
+        padding-left: 30px;
+      }
+      #schedule tr {
+        padding-bottom: 20px;
       }
       #schedule p ~ p {
         margin-top: 15px;
@@ -298,29 +331,39 @@
       #credits h3, #speakers h3, #talks h3 {
         color: #666;
         padding-top: 0em;
+        font-size: 30px;
       }
       #credits .individual, #speakers .individual, #talks .individual {
-        margin-top: 2.5em;
+        margin-top: 30px;
       }
       #credits img, #speakers img, #talks img {
         width: 100px;
+
+        border:1px solid #;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;  
       }
       #credits .image, #speakers .image, #talks .image {
         float: left;
         width: 12%;
         margin-right: 3%;
       }
-      #credits .copy, #speakers .copy, #talks .copy {
-        float: left; 
-        width: 85%;
+      #credits h2, #speakers h2 {
+        padding-top: 0;
       }
-      #credits .copy:after, #speakers .copy:after, #talks .copy:after {
-        content: '';
-        display:block;
-        clear: both;
+      #credits .author-info h2, #speakers .author-info h2 {
+        padding: 0;
+        margin: 0;
       }
-      .clear-inline {
+      #credits div.author-info, #speakers div.author-info {
+        float: left;
+        height: 100px;
+      }
+      #credits p, #speakers p {
         clear: both;
+        padding-top: 20px;
+        padding-bottom: 30px;
       }
     </style>
     <script type="text/javascript">
@@ -356,13 +399,13 @@
   </head>
   <body>
     <nav>
-      <a href="#call-for-speakers-h1">Call for Speakers</a>
+      <a href="#lambdaconf-h1">Intro</a>
       <a href="#schedule-h1">Schedule</a>
       <a href="#boulder-h1">Travel</a>
-      <a href="#register-h1">Register</a>
+      <a href="https://www.eventbrite.com/e/lambdaconf-2015-registration-15052309864">Register</a>
       <a href="#volunteer-h1">Volunteer</a>
-      <a href="#social-h1">Discuss</a>
       <a href="#speakers-h1">Speakers</a>
+      <a href="#social-h1">Discuss</a>
     </nav>
     <div id="content">
       <div id="splash">
@@ -372,7 +415,7 @@
         </video>
         <div class="box">
           <h1>LambdaConf 2015</h2>
-          <h2>Bigger, Better, Boulder*</h1>
+          <h2>Bigger, Better, Boulder</h1>
           <h3>May 22-24 - Boulder CO</h3>
         </div>
       </div>
@@ -447,9 +490,54 @@
             </div>
           </div>
         </div>
-        <div id="call-for-speakers">
-          <h1 id="call-for-speakers-h1">Call for Speakers</h1>
+        <div id="lambdaconf">
+          <h1 id="lambdaconf-h1">Intro</h1>
           <div class="inner">
+            <p>
+              Ignite your functional programming skills at the second annual LambdaConf &mdash; the largest interdisciplinary functional programming conference in the Mountain West.
+            </p>
+            <p>
+              With more than 40 speakers and two and a half days worth of content, LambdaConf brings together attendees with a diverse set of skills and backgrounds, united by a common passion for the power of functional programming.
+            </p>
+            <p>
+              Students, researchers, and programming professionals of all persuasions will find relevant topics, including introductory material on functional programming, PL and type theory, industry case studies, language workshops, and library tutorials.
+            </p>
+            <p>
+              In addition to two and a half days of content, the conference has ample opportunity for networking, including five group meals, one drink social, one group activity (hiking or tea), a half day unconference, and unscheduled time Saturday evening.
+            </p>
+            <ul>
+              <li>
+                <strong>2.5 Days of Fun</strong>. 
+
+                Hands-on workshops, lightning talks, presentations, awesome food, fun activities, and loads of professional networking in beautiful Boulder, Colorado. Come early and stay late!
+              </li>
+              <li>
+                <strong>Beginner-Friendly</strong>. 
+
+                Specially prepared workshops and talks help beginners learn the basics of functional programming: what it means, why it's useful, and how to think functionally.
+              </li>
+              <li>
+                <strong>On-site Daycare</strong>. 
+
+                Check your kids into our on-site daycare, available for all events. Then check them out and take them to Pearl Street Mall, the Boulder Creek Path, or the mountains &mdash; all of which are in easy walking distance from the conference.
+              </li>
+              <li>
+                <strong>Local Food</strong>.
+                
+                Chow down on Boulder's highly-rated local cuisine. Food requirements or allergies? No problem, just let us know and we'll have something special made just for you.
+              </li>
+              <li>
+                <strong>Welcoming</strong>. 
+
+                The main venue is ADA compliant and has two single-stall, all-gender restrooms. If you have any special needs, just let us know during registration, and we'll do our best to help out.
+              </li>
+              <li>
+                <strong>Responsive</strong>.
+
+                LambdaConf will have six volunteers and four staff on-site, all wearing clearly marked apparel. Every attendee will be able to text conference staff directly with any questions, comments, or issues.
+              </li>
+            </ul>
+            <h2 class="toggleable">Call for Speakers</h2>
             <p>
               At <a href="http://www.degoesconsulting.com/lambdaconf/">LamdbaConf 2014</a>, one-hundred and thirty functional programmers assembled from around the world in the foothills of the Rocky Mountains to take their skills to the next level.
             </p>
@@ -494,27 +582,79 @@
         <div id="schedule">
           <h1 id="schedule-h1">Schedule</h1>
           <div class="inner">
-            <p>
-              Come early and stay late! LambdaConf 2015 is bigger than even before, with one full day for intensive, hands-on workshops, another day for talks, and a third half-day for unconference talks.
-            </p>
+            <h2>Lightning Talks</h2>
+
+            <table>
+              <tr><td>Haskell</td><td>Hole-driven Development with GHC-mod</td><td><a href="#alejandro-serrano-mena">Alejandro Serrano Mena</a></td></tr>
+              <tr><td>All</td><td>Code Literacy is Literacy Too</td><td><a href="#gershom-bazerman">Gershom Bazerman</a></td></tr>
+              <tr><td>Erlang</td><td>Feel the Rush: CRDTs in Riak</td><td><a href="#zeeshan-lakhani">Zeeshan Lakhani</a></td></tr>
+              <tr><td>Haskell</td><td>An ARM-Powered Musical Instrument Using Haskell</td><td><a href="#ben-burdette">Ben Burdette</a></td></tr>
+              <tr><td>Haskell</td><td>A Microservices Architecture with Haskell: An Experience Report</td><td><a href="#phil-freeman">Phil Freeman</a></td></tr>
+              <tr><td>Haskell</td><td>Results from using Haskell in Scientific Computing </td><td><a href="#alex-gremm">Alex Gremm</a></td></tr>
+              <tr><td>Scala</td><td>Trampolines and Lifting: AKA Save Your Stack</td><td><a href="#vincent-marquez">Vincent Marquez</a></td></tr>
+            </table>
+
+            <h2>Workshops</h2>
+
+            <table>
+              <tr><td>Haskell</td><td>LiquidHaskell: Refinement Types for Haskell</td><td><a href="#ranjit-jhala">Ranjit Jhala</a></td></tr>
+              <tr><td>Rust</td><td>An Introduction to Rust: Or, "Who Got Types in My Systems Programming!"</td><td><a href="#jared-roesch">Jared Roesch</a></td></tr>
+              <tr><td>Haskell</td><td>The Art of Program Derivation and Parallel Computation</td><td><a href="#gershom-bazerman">Gershom Bazerman</a></td></tr>
+              <tr><td>Purescript</td><td>Learn Functional Programming with Purescript</td><td><a href="#john-a-de-goes">John A. De Goes</a></td></tr>
+              <tr><td>Prolog</td><td>Introduction to Constraint Logic Programming</td><td><a href="#sergii-dymchenko">Sergii Dymchenko</a></td></tr>
+              <tr><td>Haskell</td><td>A Practical Introduction to Haskell GADTs</td><td><a href="#richard-eisenberg">Richard Eisenberg</a></td></tr>
+              <tr><td>F#</td><td>Freya (F#) for HTTP Systems</td><td><a href="#andrew-cherry">Andrew Cherry</a></td></tr>
+              <tr><td>Clojure</td><td>Introduction to Clojure</td><td><a href="#paige-bailey">Paige Bailey</a></td></tr>
+              <tr><td>ClojureScript</td><td>Data-Driven Webapps with ClojureScript and Om</td><td><a href="#chandu-tennety">Chandu Tennety</a></td></tr>
+              <tr><td>Elm</td><td>Introduction to Elm: Functional Front-End Development</td><td><a href="#joe-nash">Joe Nash</a></td></tr>
+              <tr><td>Haskell</td><td> Introduction to Haskell with a focus on High-Performance Computing</td><td><a href="#alex-gremm">Alex Gremm</a></td></tr>
+            </table>
+
+            <h2>Presentations</h2>
+
+            <table>
+              <tr><td>Scala</td><td>What's New in Scala</td><td><a href="#marconi-lanna">Marconi Lanna</a></td></tr>
+              <tr><td>Haskell</td><td>Pattern Functors: Wandering Around Fix-points, Free Monads and Generics</td><td><a href="#alejandro-serrano-mena">Alejandro Serrano Mena</a></td></tr>
+              <tr><td>All</td><td>Why I Like Functional Programming</td><td><a href="#adelbert-chang">Adelbert Chang</a></td></tr>
+              <tr><td>All</td><td>The Abstract Method, In General</td><td><a href="#gershom-bazerman">Gershom Bazerman</a></td></tr>
+              <tr><td>F#</td><td>Building Concurrent, Fault-Tolerant, Scalable Applications in F# using Akka.Net</td><td><a href="#riccardo-terrell">Riccardo Terrell</a></td></tr>
+              <tr><td>Scala</td><td>Programs as Values: Pure Composable Database Access in Scala</td><td><a href="#rob-norris">Rob Norris</a></td></tr>
+              <tr><td>All</td><td>Make Up Your Own: "Hello World!"</td><td><a href="#justin-campbell">Justin Campbell</a></td></tr>
+              <tr><td>Lisp-Flavored Erlang</td><td>The Meaning of LFE</td><td><a href="#zeeshan-lakhani">Zeeshan Lakhani</a></td></tr>
+              <tr><td>Scala</td><td>Scalaz 102 - Taking Your Scalaz Usage Up a Notch!</td><td><a href="#colt-fredrickson">Colt Fredrickson</a></td></tr>
+              <tr><td>Haskell</td><td>How to Learn Haskell in Less Than 5 Years</td><td><a href="#chris-allen">Chris Allen</a></td></tr>
+              <tr><td>Clojure</td><td>Loom and Functional Graphs in Clojure</td><td><a href="#aysylu-greenberg">Aysylu Greenberg</a></td></tr>
+              <tr><td>All</td><td>Dynamic vs. Static: Having a Discussion without Sounding Like a Lunatic</td><td><a href="#david-greenberg">David Greenberg</a></td></tr>
+              <tr><td>F#</td><td>Building Concurrent, Fault Tolerant, Scalable Application in F# using Akka.Net</td><td><a href="#riccardo-terrell ">Riccardo Terrell</a></td></tr>
+              <tr><td>All</td><td>Type Theory and its Meaning Explanations</td><td><a href="#jon-sterling">Jon Sterling</a></td></tr>
+              <tr><td>Purescript</td><td>Purely Functional Web Apps using React and PureScript</td><td><a href="#phil-freeman">Phil Freeman</a></td></tr>
+              <tr><td>All</td><td>HTTP through Functional Programming</td><td><a href="#andrew-cherry">Andrew Cherry</a></td></tr>
+              <tr><td>ooErlang</td><td>ooErlang: A Programmer-Friendly Approach to OOP in Erlang</td><td><a href="#emiliano-firmino">Emiliano Firmino</a></td></tr>
+              <tr><td>ClojureScript</td><td>A Bird's Eye View of ClojureScript</td><td><a href="#chandu-tennety">Chandu Tennety</a></td></tr>
+              <tr><td>Scala</td><td>Scalaz-Streams: A Functional Approach to Compositional, Streaming I/O</td><td><a href="#derek-chen-becker">Derek Chen-Becker</a></td></tr>
+              <tr><td>Scala</td><td>Reactive Programming with Algebra</td><td><a href="#andre-van-delft">André van Delft</a>, <a href="#anatoliy-kmetyuk">Anatoliy Kmetyuk</a></td></tr>
+            </table>
+
+            <h2 class="toggleable">Daily Schedule</h2>
+
             <p>
               <strong>Note</strong>: All talks will be announced by March 1st, although the full schedule will not come out until April. Early registered attendees will fill out a survey in March to help optimize the schedule.
             </p>
             <p>
             <div class="day">
-              <h2><strong>Friday</strong><br>Workshops, Conference Dinner / Drinkup, Lightning Talks</h2>
-              <p class="hour">8:00 AM - Breakfast</p>
+              <h2><strong>Friday</strong><br>Workshops, Dinner</h2>
+              <p class="hour">8:00 AM - Breakfast / Coffee Social</p>
               <p class="twohour">9:00 AM</p>
               <p class="twohour">11:00 AM</p>
               <p class="hour">1:00 PM - Lunch</p>
               <p class="twohour">2:00 PM</p>
               <p class="twohour">4:00 PM</p>
               <p class="hour">Free time</p>
-              <p class="twohour">7:00 PM - Conference Dinner / Drinkup, Lightning Talks</p>
+              <p class="twohour">7:00 PM - Conference Dinner / Drink Social, Lightning Talks</p>
             </div>
             <div class="day">
-              <h2><strong>Saturday</strong><br>Keynotes, Talks, Free Time</h2>
-              <p class="hour">8:00 AM - Breakfast</p>
+              <h2><strong>Saturday</strong><br>Talks</h2>
+              <p class="hour">8:00 AM - Breakfast / Coffee Social</p>
               <p class="hour">9:00 AM - Keynotes</p>
               <p class="hour">10:00 AM</p>
               <p class="hour">11:00 AM</p>
@@ -584,31 +724,27 @@
             <h2>Accommodations</h2>
 
             <p>
-              If you are coming from out of town, we recommend staying in downtown Boulder, for ease of access to the conference events.
+              If you are coming from out of town, we recommend staying in downtown Boulder or around the University of Colorado Boulder, for ease of access to the conference events.
             </p>
 
-            <p>Two great choices include the Hotel Boulderado and St Julien Hotel:</p>
+            <p>We have a small number of reserved rooms at the following two hotels:</p>
 
             <ul>
-              <li><strong>Hotel Boulderado</strong>. 
-                (303) 442-4344 - <a href="http://boulderado.com">boulderado.com</a></li>
-              <li><strong>St Julien Hotel</strong>. 
-                (720) 406-9696 - <a href="http://stjulien.com">stjulien.com</a></li>
+              <li>
+                <a href="http://www.marriott.com/meeting-event-hotels/group-corporate-travel/groupCorp.mi?resLinkData=Lambda%20Conference%5Edenbo%60LAMLAMA%60179%60USD%60false%605/21/15%605/25/15%6004/21/15&app=resvlink&stop_mobi=yes">Boulder Marriott</a> for $179 per night.
+              </li>
+              <li>
+                <a href="http://www.boulderinn.com">The Boulder Inn</a> for $174 per night. Call 800-233-8469 and reference code "LambdaConf 2015".
+              </li>
             </ul>
 
             <p>
-              Other options include Quality Inn &amp; Suites, Millennium Harvest House, Marriott, and Boulder University Inn, all within walking distance to downtown Boulder.
+              Other options include <a href="http://boulderado.com">Hotel Boulderado</a>, <a href="http://stjulien.com">St Julien</a>, Quality Inn &amp; Suites, Millennium Harvest House, and Boulder University Inn, all within walking distance to downtown Boulder.
             </p>
 
             <p>
               You may also find good deals on <a href="https://www.airbnb.com/s/Boulder--CO">AirBnB Boulder</a>, especially if you are considering <a href="#social">rooming with fellow conference attendees</a>.
             </p>
-          </div>
-        </div>
-        <div id="register">
-          <h1 id="register-h1">Register</h1>
-          <div class="inner">
-            <p>Registration opens in January. Sign up early to get the best price!</p>
           </div>
         </div>
         <div id="volunteer">
@@ -622,7 +758,7 @@
               <li><strong>Promotion</strong>. Notifying newsgroups, websites, and meetups about the conference.</li>
               <li><strong>Facilitation</strong>. Help out at the signup tables, help speakers with A/V equipment, and help direct attendees around the facilities.</li>
               <li><strong>Setup &amp; Cleanup</strong>. Help setup, tear down, and cleanup for meals and the conference dinner.</li>
-              <li><strong>Sponsorships</strong>. Reach out to selected companies to obtain sponsorships to help defray the costs of organizing the conference.</p>
+              <li><strong>Sponsorships</strong>. Reach out to selected companies to obtain sponsorships to help pay travel expenses for speakers and cover major conference costs.</p>
             </ul>
 
             <p>In addition to a free conference pass, LambdaConf volunteers get an <em>awesome</em> hoodie designed just for volunteers.</p>
@@ -652,49 +788,6 @@
             </p>
           </div>
         </div>
-        <div id="social">
-          <h1 id="social-h1">Discuss</h1>
-          <div class="inner">
-            <p>
-              Be sure to <a href="http://twitter.com/lambda_conf">follow LambdaConf on Twitter</a> for up-to-the-minute news on changes to conference schedule or venues.
-            </p>
-
-            <p>
-              Below, you can chat about the conference, discuss sharing accommodations or transportations (road trips!), and coordinate social activities with fellow attendees.
-            </p>
-
-            <div id="disqus_thread"></div>
-            <script type="text/javascript">
-              var disqus_shortname = 'lambdaconf2015';
-
-              /* * * DON'T EDIT BELOW THIS LINE * * */
-              (function() {
-                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-              })();
-            </script>              
-          </div>
-        </div>
-        <!-- Courtney is one of the founding members and organizers of LambdaConf. She is acting Event Coordinator, and is responsible for making your LambdaConf experience smooth and enjoyable.  -->
-        <div id="etc">
-          <h1 id="etc-h1">Code of Conduct</h1>
-          <div class="inner">
-            <p>
-              LambdaConf's code of conduct is simple: <strong>be a decent human being</strong>. Celebrate and embrace diversity, treat everyone with respect and dignity, and in the words you speak and the actions you take, show genuine care and concern for helping others achieve their goals.
-            </p>
-            <p>
-              We have a zero tolerance policy towards written or spoken words, behaviors, artifacts, and media that make minority groups feel bullied, harassed, intimidated, stalked, stereotyped, or belittled. These groups include (but are not limited to) the following: women, people of color, disabled individuals, lesbians, gays, bisexuals, transsexuals, asexuals, intersex people, transgender people, and gender-variant people.
-            </p>
-            <p>
-              Violations of this code of conduct should be reported immediately to conference organizers or volunteers. All organizers and volunteers will be wearing 'Team LambdaConf' apparel.
-            </p>
-            <p>
-              Attendees acting like jerks will be thrown out <a href="images/john-a-de-goes.jpg">by this guy</a>. Don't say we didn't warn you.
-            </p>
-            <p class="legal">* Horrible pun, we know. Feel free to <a href="mailto:john@degoes.net">suggest</a> a better tagline. :-) </p>
-          </div>
-        </div>
         <div id="speakers">
           <h1 id="speakers-h1">Speakers</h1>
           <div class="inner">
@@ -702,261 +795,235 @@
                 <div class="image">
                   <img src="images/speakers/mlanna.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Marconi Lanna</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="marconi-lanna">Marconi Lanna</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/agreenburg.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Aysylu Greenberg</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="aysylu-greenberg">Aysylu Greenberg</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
-              <div class="individual">
+              <!-- <div class="individual">
                 <div class="image">
-                  <!--<img src="images/speakers/tmurphy.jpg" alt="person">-->
+                  <img src="images/speakers/tmurphy.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Tom Murphy</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="tom-murphy">Tom Murphy</h2>
                 </div>
-                <div class="clear-inline"></div>
-              </div>
+                <p></p>
+              </div> -->
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/zlakhani.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Zeeshan Lakhani</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="zeeshan-lakhani">Zeeshan Lakhani</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/vpatryshev.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Vlad Patryshev</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="vlad-patryshev">Vlad Patryshev</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/sdymchenko.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Sergii Dymchenko</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="sergii-dymchenko">Sergii Dymchenko</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/aserranomena.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Alejandro Serrano Mena</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="alejandro-serrano-mena">Alejandro Serrano Mena</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/jroesch.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Jared Roesch</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="jared-roesch">Jared Roesch</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/dmcilroy.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Doug McIlroy</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="doug-mcilroy">Doug McIlroy</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/rjhala.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Ranjit Jhala</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="ranjit-jhala">Ranjit Jhala</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/pphillips.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Paul Phillips</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="paul-phillips">Paul Phillips</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/achang.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Adelbert Chang</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="adelbert-chang">Adelbert Chang</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/jcampbell.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Justin Campbell</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="justin-campbell">Justin Campbell</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/gbazerman.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Gershom Bazerman</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="gershom-bazerman">Gershom Bazerman</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/rterrell.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Riccardo Terrell</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="riccardo-terrell">Riccardo Terrell</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/agremm.png" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Alex Gremm</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="alex-gremm">Alex Gremm</h2>
                 </div>
-                <div class="clear-inline"></div>
-              </div>
+                <p></p>
+              </div> -->
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/reisenberg.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Richard Eisenberg</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="richard-eisenberg">Richard Eisenberg</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/pbaily.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Paige Baily</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="paige-baily">Paige Baily</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/rnorris.png" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Rob Norris</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="rob-norris">Rob Norris</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/jdegoes.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>John A. De Goes</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="john-a-de-goes">John A. De Goes</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/jsterling.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Jon Sterling</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="jon-sterling">Jon Sterling</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/pfreeman.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Phil Freeman</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="phil-freeman">Phil Freeman</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/cfrederickson.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Colt Frederickson</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="colt-frederickson">Colt Frederickson</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/callen.png" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Chris Allen</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="chris-allen">Chris Allen</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/bbrudette.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Ben Brudette</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="ben-burdette">Ben Burdette</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/bmckenna.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Brian McKenna</h3>
-                  <!--<p></p>-->
+                <div class="author-info">
+                  <h2 id="brian-mckenna">Brian McKenna</h2>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
@@ -1050,6 +1117,50 @@
               </div>
           </div>
         </div>
+        <div id="social">
+          <h1 id="social-h1">Discuss</h1>
+          <div class="inner">
+            <p>
+              Be sure to <a href="http://twitter.com/lambda_conf">follow LambdaConf on Twitter</a> for up-to-the-minute news on changes to conference schedule or venues.
+            </p>
+
+            <p>
+              Below, you can chat about the conference, discuss sharing accommodations or transportations (road trips!), and coordinate social activities with fellow attendees.
+            </p>
+
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+              var disqus_shortname = 'lambdaconf2015';
+
+              /* * * DON'T EDIT BELOW THIS LINE * * */
+              (function() {
+                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script>              
+          </div>
+        </div>
+        <!-- Courtney is one of the founding members and organizers of LambdaConf. She is acting Event Coordinator, and is responsible for making your LambdaConf experience smooth and enjoyable.  -->
+        <div id="etc">
+          <h1 id="etc-h1">Code of Conduct</h1>
+          <div class="inner">
+            <p>
+              LambdaConf's code of conduct is simple: <strong>be a decent human being</strong>.</p>
+            <p>
+              Embrace and celebrate diversity, treat everyone with respect and dignity, and in the words you speak and the actions you take, show genuine care and concern for helping others achieve their goals.
+            </p>
+            <p>
+              We have a zero tolerance policy towards written or spoken words, behaviors, artifacts, and media that make minority groups feel bullied, harassed, intimidated, stalked, stereotyped, or belittled. These groups include women, people of color, disabled individuals, lesbians, gays, bisexuals, transsexuals, asexuals, intersex people, transgender people, and gender-variant people.
+            </p>
+            <p>
+              Violations of this code of conduct should be reported immediately to conference volunteers or staff. All staff and volunteers will be wearing clearly marked <em>Team LambdaConf</em> apparel.
+            </p>
+            <p>
+              Attendees acting like jerks will be thrown out <a href="images/john-a-de-goes.jpg">by this guy</a>. Don't say we didn't warn you.
+            </p>
+          </div>
+        </div>        
         <div id="credits">
           <h1 id="credits-h1">Credits</h1>
           <div class="inner">
@@ -1058,91 +1169,92 @@
                 <div class="image">
                   <img src="images/staff/jdegoes.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>John A De Goes</h3>
-                  <h4>Event Organizer</h4>
-                  <p>John is the main organizer for LambdaConf, and an avid (wanna-be) functional programmer. When not starting analytics companies or hacking on open source, John spends his time in front of a mirror practicing his best Vulcan impression (we're just kidding, but he's still a complete dork!).</p>
+                <div class="author-info">
+                  <h2>John A De Goes</h2>
+                  <h3>Event Organizer</h3>
                 </div>
-                <div class="clear-inline"></div>
+                <p>John is the main organizer for LambdaConf, and an avid (wanna-be) functional programmer. When not starting analytics companies or hacking on open source, John spends his time in front of a mirror practicing his best Vulcan impression (we're just kidding, but he's still a complete dork!).</p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/staff/cdegoes.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Courtney De Goes</h3>
-                  <h4>Event Logistics and Coordination</h4>
-                  <p>Courtney is the amazing event coordinator for LambdaConf, responsible for ensuring you come back for more. In her free time, Courtney enjoys lifting weights, and can probably take you in the gym. She also has mad car dancing skills, but you're going to have to take her word on that.</p>
+                <div class="author-info">
+                  <h2>Courtney De Goes</h2>
+                  <h3>Event Logistics and Coordination</h3>
                 </div>
-                <div class="clear-inline"></div>
+                <p>Courtney is the amazing event coordinator for LambdaConf, responsible for ensuring you come back for more. In her free time, Courtney enjoys lifting weights, and can probably take you in the gym. She also has mad car dancing skills, but you're going to have to take her word on that.</p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/staff/mdegoes.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Matthew De Goes</h3>
-                  <h4>Brand, Web Designer and Developer</h4>
-                  <p>Matthew is the designer for the LambdaConf brand, conference website, conference signage, and all LambdaConf swag. Despite starting to bald at the tender age of 23, Matthew is really as warm and cuddly as a teddy bear (at least for his wife and kittens). Rumor has it, he can fix anything with duct tape.</p>
+                <div class="author-info">
+                  <h2>Matthew De Goes</h2>
+                  <h3>Brand, Web Designer and Developer</h3>
                 </div>
-                <div class="clear-inline"></div>
+                <p>Matthew is the designer for the LambdaConf brand, conference website, conference signage, and all LambdaConf swag. Despite starting to bald at the tender age of 23, Matthew is really as warm and cuddly as a teddy bear (at least for his wife and kittens). Rumor has it, he can fix anything with duct tape.</p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/staff/sdegoes.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Sophia De Goes</h3>
-                  <h4>MD and Assistant Coordinator</h4>
-                  <p>Sophia is the conference's onsite Doctor (M.D.), and assists Courtney in coordinating at the events. As John's better-looking, better-educated, higher-earning counterpart, Sophia spends much of her free time putting up with his all-around geeky entrepreneurial self.</p>
+                <div class="author-info">
+                  <h2>Sophia De Goes</h2>
+                  <h3>MD and Assistant Coordinator</h3>
                 </div>
-                <div class="clear-inline"></div>
+                <p>Sophia is the conference's onsite Doctor (M.D.), and assists Courtney in coordinating at the events. As John's better-looking, better-educated, higher-earning counterpart, Sophia spends much of her free time putting up with his all-around geeky entrepreneurial self.</p>
               </div>
             <h2>Volunteers</h2>
               <div class="individual">
                 <div class="image">
-                  <img src="images/staff/fcash.jpg" alt="person">
+                  <img src="images/staff/pbailey.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Frank Cash</h3>
+                <div class="author-info">
+                  <h2>Paige&nbsp;Bailey</h2>
+                  <h3>Volunteer</h3>
                 </div>
-                <div class="clear-inline"></div>
-              </div>
+                <p></p>
+              </div>              
               <div class="individual">
                 <div class="image">
                   <img src="images/staff/mchan.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Matthew Chan</h3>
+                <div class="author-info">
+                  <h2>Matthew Chan</h2>
+                  <h3>Volunteer</h3>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
-                  <img src="images/staff/jtorre.jpg" alt="person">
+                  <img src="images/staff/fcash.jpg" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>Jimmy Torre</h3>
+                <div class="author-info">
+                  <h2>Frank Cash</h2>
+                  <h3>Volunteer</h3>
                 </div>
-                <div class="clear-inline"></div>
-              </div>
-              <div class="individual">
-                <div class="image">
-                  <img src="images/staff/pbailey.jpg" alt="person">
-                </div>
-                <div class="copy">
-                  <h3>Paige Bailey</h3>
-                </div>
-                <div class="clear-inline"></div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/staff/jclaus.png" alt="person">
                 </div>
-                <div class="copy">
-                  <h3>John Claus</h3>
+                <div class="author-info">
+                  <h2>John Claus</h2>
+                  <h3>Volunteer</h3>
                 </div>
-                <div class="clear-inline"></div>
+                <p></p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <img src="images/staff/jtorre.jpg" alt="person">
+                </div>
+                <div class="author-info">
+                  <h2>Jimmy Torre</h2>
+                  <h3>Volunteer</h3>
+                </div>
+                <p></p>
               </div>
               <div class="individual">
                 <div class="image">
