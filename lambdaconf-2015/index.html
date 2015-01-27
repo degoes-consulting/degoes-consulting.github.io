@@ -31,7 +31,8 @@
         background-color: black;
         color: white;
       }
-      nav {
+      header {
+        -webkit-transform: translate3d(0, 0, 0);
         position: fixed;
 
         top: 0;
@@ -44,22 +45,22 @@
         
         z-index: 100;
       }
-      nav a {
+      header a {
         font-family: 'Sarpanch', sans-serif;
         position: relative;
         font-size: 20px;
         top: 40%;
         padding-left: 50px;
       }
-      nav a:link, nav a:visited {
+      header a:link, nav a:visited {
         color: white;
         text-decoration: none;
       }
-      nav a:visited, nav a:active {
+      header a:visited, nav a:active {
         color: white;
         text-decoration: none;
       }
-      nav a:hover {
+      header a:hover {
         text-decoration: none;
         text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
       }
@@ -387,9 +388,9 @@
 
         setHeight();
 
-        setInterval(function() {
+        $(window).resize(function(){
           setHeight();
-        }, 10);
+        })
 
         $('.toggleable').click(function() {
           $(this).nextAll().slideToggle();
@@ -398,7 +399,7 @@
     </script>
   </head>
   <body>
-    <nav>
+    <header>
       <a href="#lambdaconf-h1">Intro</a>
       <a href="#schedule-h1">Schedule</a>
       <a href="#boulder-h1">Travel</a>
@@ -406,7 +407,7 @@
       <a href="#volunteer-h1">Volunteer</a>
       <a href="#speakers-h1">Speakers</a>
       <a href="#social-h1">Discuss</a>
-    </nav>
+    </header>
     <div id="content">
       <div id="splash">
         <video autoplay poster="images/burning-bg.jpg" loop>
