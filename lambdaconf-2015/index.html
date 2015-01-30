@@ -31,7 +31,8 @@
         background-color: black;
         color: white;
       }
-      nav {
+      header {
+        -webkit-transform: translate3d(0, 0, 0);
         position: fixed;
 
         top: 0;
@@ -44,22 +45,22 @@
         
         z-index: 100;
       }
-      nav a {
+      header a {
         font-family: 'Sarpanch', sans-serif;
         position: relative;
         font-size: 20px;
         top: 40%;
         padding-left: 50px;
       }
-      nav a:link, nav a:visited {
+      header a:link, nav a:visited {
         color: white;
         text-decoration: none;
       }
-      nav a:visited, nav a:active {
+      header a:visited, nav a:active {
         color: white;
         text-decoration: none;
       }
-      nav a:hover {
+      header a:hover {
         text-decoration: none;
         text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
       }
@@ -387,9 +388,9 @@
 
         setHeight();
 
-        setInterval(function() {
+        $(window).resize(function(){
           setHeight();
-        }, 10);
+        })
 
         $('.toggleable').click(function() {
           $(this).nextAll().slideToggle();
@@ -398,7 +399,7 @@
     </script>
   </head>
   <body>
-    <nav>
+    <header>
       <a href="#lambdaconf-h1">Intro</a>
       <a href="#schedule-h1">Schedule</a>
       <a href="#boulder-h1">Travel</a>
@@ -406,7 +407,7 @@
       <a href="#volunteer-h1">Volunteer</a>
       <a href="#speakers-h1">Speakers</a>
       <a href="#social-h1">Discuss</a>
-    </nav>
+    </header>
     <div id="content">
       <div id="splash">
         <video autoplay poster="images/burning-bg.jpg" loop>
@@ -926,15 +927,15 @@
                 </div>
                 <p></p>
               </div>
-              <!-- <div class="individual">
+              <div class="individual">
                 <div class="image">
-                  <img src="images/speakers/agremm.jpg" alt="person">
+                  <img src="images/speakers/agremm.png" alt="person">
                 </div>
                 <div class="author-info">
                   <h2 id="alex-gremm">Alex Gremm</h2>
                 </div>
                 <p></p>
-              </div> -->
+              </div>
               <div class="individual">
                 <div class="image">
                   <img src="images/speakers/reisenberg.jpg" alt="person">
@@ -1022,6 +1023,87 @@
                 </div>
                 <div class="author-info">
                   <h2 id="brian-mckenna">Brian McKenna</h2>
+                </div>
+                <p></p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <!--<img src="images/speakers/.jpg" alt="person">-->
+                </div>
+                <div class="author-info">
+                  <h2>Andrew Cherry</h2>
+                </div>
+                <p></p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <img src="images/speakers/efirmino.jpg" alt="person">
+                </div>
+                <div class="author-info">
+                  <h2>Emiliano Firmino</h2>
+                </div>
+                <p></p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <img src="images/speakers/ctennety.jpg" alt="person">
+                </div>
+                <div class="author-info">
+                  <h2>Chandu Tennety</h2>
+                </div>
+                <p></p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <img src="images/speakers/dgreenberg.jpg" alt="person">
+                </div>
+                <div class="author-info">
+                  <h2>David Greenberg</h2>
+                </div>
+                <p></p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <img src="images/speakers/jnash.jpg" alt="person">
+                </div>
+                <div class="author-info">
+                  <h2>Joe Nash</h2>
+                </div>
+                <p></p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <img src="images/speakers/vmarquez.jpg" alt="person">
+                </div>
+                <div class="author-info">
+                  <h2>Vincent Marquez</h2>
+                </div>
+                <p></p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <img src="images/speakers/dchen-becker.jpg" alt="person">
+                </div>
+                <div class="author-info">
+                  <h2>Derek Chen-Becker</h2>
+                </div>
+                <p></p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <img src="images/speakers/avandelft.jpg" alt="person">
+                </div>
+                <div class="copy">
+                  <h2>André van Delft</h2>
+                </div>
+                <p></p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <!--<img src="images/speakers/akmetyuk.jpg" alt="person">-->
+                </div>
+                <div class="author-info">
+                  <h2>Anatoliy Kmetyuk</h2>
                 </div>
                 <p></p>
               </div>
@@ -1162,6 +1244,26 @@
                 </div>
                 <div class="author-info">
                   <h2>Jimmy Torre</h2>
+                  <h3>Volunteer</h3>
+                </div>
+                <p></p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <img src="images/staff/ttoriola.jpg" alt="person">
+                </div>
+                <div class="author-info">
+                  <h2>Temi Toriola</h2>
+                  <h3>Volunteer</h3>
+                </div>
+                <p></p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <img src="images/staff/dkua.png" alt="person">
+                </div>
+                <div class="author-info">
+                  <h2>David Kua</h2>
                   <h3>Volunteer</h3>
                 </div>
                 <p></p>
