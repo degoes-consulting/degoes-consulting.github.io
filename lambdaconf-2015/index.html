@@ -267,6 +267,7 @@
       }
       #schedule td.title:hover {
         background-color: #202020;
+        cursor: pointer;
       }
       #schedule td.title, #schedule td.abstract {
         width: 500px;
@@ -403,10 +404,8 @@
           $(this).nextUntil('h2').slideToggle();
         }).nextUntil('h2').hide();
 
-        $('td.title').parent().hover(function() {
-          $(this).next().show();
-        }, function() {
-          $(this).next().hide();
+        $('td.title').parent().click(function() {
+          $(this).next().slideToggle();
         });
 
         $('td.abstract').parent().hide();
