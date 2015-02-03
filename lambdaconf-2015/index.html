@@ -265,16 +265,23 @@
         text-align: right;
         vertical-align: middle;
       }
-      #schedule td:nth-child(2):hover {
+      #schedule td.title:hover {
         background-color: #202020;
       }
-      #schedule td:nth-child(2) {
+      #schedule td.title, #schedule td.abstract {
+        width: 500px;
+      }
+      #schedule td.title {
         border-radius: 15px;
         background-color: #1a1a1a;
         -moz-box-shadow:    inset 0 0 2px #000000;
         -webkit-box-shadow: inset 0 0 2px #000000;
         box-shadow:         inset 0 0 2px #000000;
         padding: 20px 30px;
+      }
+      #schedule td.abstract {
+        font-size: 16px;
+        padding: 0em 1em 1em 1em;
       }
       #schedule td:nth-child(3) {
         width: 200px;
@@ -392,9 +399,17 @@
           setHeight();
         })
 
-        $('.toggleable').click(function() {
-          $(this).nextAll().slideToggle();
-        }).nextAll().hide();
+        $('h2.toggleable').click(function() {
+          $(this).nextUntil('h2').slideToggle();
+        }).nextUntil('h2').hide();
+
+        $('td.title').parent().hover(function() {
+          $(this).next().show();
+        }, function() {
+          $(this).next().hide();
+        });
+
+        $('td.abstract').parent().hide();
       });
     </script>
   </head>
@@ -424,7 +439,6 @@
         <div id="cred">
           <h1>Ignite your functional programming skills</h1>
           <div class="inner">
-            <!-- <p id="credintro">Feedback from LambdaConf 2014</p> -->
             <div class="quote">
               <p>
                 &ldquo;It was awesome. Be sure to go next year!&rdquo;
@@ -586,54 +600,401 @@
             <h2>Lightning Talks</h2>
 
             <table>
-              <tr><td>Haskell</td><td>Hole-driven Development with GHC-mod</td><td><a href="#alejandro-serrano-mena">Alejandro Serrano Mena</a></td></tr>
-              <tr><td>All</td><td>Code Literacy is Literacy Too</td><td><a href="#gershom-bazerman">Gershom Bazerman</a></td></tr>
-              <tr><td>Erlang</td><td>Feel the Rush: CRDTs in Riak</td><td><a href="#zeeshan-lakhani">Zeeshan Lakhani</a></td></tr>
-              <tr><td>Haskell</td><td>An ARM-Powered Musical Instrument Using Haskell</td><td><a href="#ben-burdette">Ben Burdette</a></td></tr>
-              <tr><td>Haskell</td><td>A Microservices Architecture with Haskell: An Experience Report</td><td><a href="#phil-freeman">Phil Freeman</a></td></tr>
-              <tr><td>Haskell</td><td>Results from using Haskell in Scientific Computing </td><td><a href="#alex-gremm">Alex Gremm</a></td></tr>
-              <tr><td>Scala</td><td>Trampolines and Lifting: AKA Save Your Stack</td><td><a href="#vincent-marquez">Vincent Marquez</a></td></tr>
+              <tr><td>Haskell</td><td class="title">Hole-driven Development with GHC-mod</td><td><a href="#alejandro-serrano-mena">Alejandro Serrano Mena</a></td></tr>
+              
+              <tr><td>All</td><td class="title">Code Literacy is Literacy Too</td><td><a href="#gershom-bazerman">Gershom Bazerman</a></td></tr>
+              
+              <tr><td>Erlang</td><td class="title">Feel the Rush: CRDTs in Riak</td><td><a href="#zeeshan-lakhani">Zeeshan Lakhani</a></td></tr>
+              
+              <tr><td>Haskell</td><td class="title">An ARM-Powered Musical Instrument Using Haskell</td><td><a href="#ben-burdette">Ben Burdette</a></td></tr>
+              
+              <tr><td>Haskell</td><td class="title">A Microservices Architecture with Haskell: An Experience Report</td><td><a href="#phil-freeman">Phil Freeman</a></td></tr>
+              
+              <tr><td>Haskell</td><td class="title">Results from using Haskell in Scientific Computing </td><td><a href="#alex-gremm">Alex Gremm</a></td></tr>
+              
+              <tr><td>Scala</td><td class="title">Trampolines and Lifting: AKA Save Your Stack</td><td><a href="#vincent-marquez">Vincent Marquez</a></td></tr>
+
+              <tr><td>Haskell</td><td class="title">Haskell Nuggets: Power Series Brought to Life</td><td><a href="#doug-mcllroy">Doug McIlroy</a></td></tr>
             </table>
 
             <h2>Workshops</h2>
 
             <table>
-              <tr><td>Haskell</td><td>LiquidHaskell: Refinement Types for Haskell</td><td><a href="#ranjit-jhala">Ranjit Jhala</a></td></tr>
-              <tr><td>Rust</td><td>An Introduction to Rust: Or, "Who Got Types in My Systems Programming!"</td><td><a href="#jared-roesch">Jared Roesch</a></td></tr>
-              <tr><td>Haskell</td><td>The Art of Program Derivation and Parallel Computation</td><td><a href="#gershom-bazerman">Gershom Bazerman</a></td></tr>
-              <tr><td>Purescript</td><td>Learn Functional Programming with Purescript</td><td><a href="#john-a-de-goes">John A. De Goes</a></td></tr>
-              <tr><td>Prolog</td><td>Introduction to Constraint Logic Programming</td><td><a href="#sergii-dymchenko">Sergii Dymchenko</a></td></tr>
-              <tr><td>Haskell</td><td>A Practical Introduction to Haskell GADTs</td><td><a href="#richard-eisenberg">Richard Eisenberg</a></td></tr>
-              <tr><td>F#</td><td>Freya (F#) for HTTP Systems</td><td><a href="#andrew-cherry">Andrew Cherry</a></td></tr>
-              <tr><td>Clojure</td><td>Introduction to Clojure</td><td><a href="#paige-bailey">Paige Bailey</a></td></tr>
-              <tr><td>ClojureScript</td><td>Data-Driven Webapps with ClojureScript and Om</td><td><a href="#chandu-tennety">Chandu Tennety</a></td></tr>
-              <tr><td>Elm</td><td>Introduction to Elm: Functional Front-End Development</td><td><a href="#joe-nash">Joe Nash</a></td></tr>
-              <tr><td>Haskell</td><td> Introduction to Haskell with a focus on High-Performance Computing</td><td><a href="#alex-gremm">Alex Gremm</a></td></tr>
+              <tr>
+                <td>Haskell</td>
+                <td class="title">LiquidHaskell: Refinement Types for Haskell</td>
+                <td><a href="#ranjit-jhala">Ranjit Jhala</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="abstract">Haskell has many delightful features, perhaps the most beloved of which is its type system which allows developers to specify and verify a variety of program properties at compile time. However, many properties, typically those that depend on relationships between program values are impossible, or at the very least, cumbersome to encode within Haskell's type system. Refinement types enable the specification and verification of value-dependent properties by extending Haskell's type system with logical predicates drawn from efficiently decidable logics. In this talk, we will start with a high level description of Refinement Types. Next, we will present an overview of LiquidHaskell, a refinement type checker for Haskell. In particular, we will describe the kinds of properties that can be checked, ranging from generic requirements like like totality (will 'head' crash?) and termination (will 'mergeSort' loop forever?), to application specific concerns like memory safety (will my code 'SEGFAULT' ?) and data structure correctness invariants for various libraries like containers, hscolour, bytestring, text, vector-algorithms and xmonad.</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Rust</td>
+                <td class="title">An Introduction to Rust: Or, "Who Got Types in My Systems Programming!"</td>
+                <td><a href="#jared-roesch">Jared Roesch</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="abstract">This workshop is intended to be a deep dive into Rust starting from the very basics to advanced type level programming. Rust is a new experimental programming language currently being designed by Mozilla Research and the language's active community. The language is inspired by several variants of ML, Haskell, C++, as well as novel research ideas about the performance and safety of programming languages. One of the key features is the reification of memory as an explicit part of the language semantics. This provides low level control of memory allocation without sacrificing the safety of garbage collection. The goal of this workshop is to show how we can use Rust to write high level code that provides excellent safety and performance.</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Haskell</td>
+                <td class="title">The Art of Program Derivation and Parallel Computation</td>
+                <td><a href="#gershom-bazerman">Gershom Bazerman</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="abstract">Program Derivation is the practice of beginning with a specification of a function, and by a series of mechanical steps, deriving an efficient implementation. In the “Algebra of Programming” approach, pioneered by Richard Bird, Oege de Moor, and Lambert Merteens, we can derive efficient functional programs by a series of algebraic manipulations, much schoolchildren can take a typical algebraic function, “solve for x” and then simplify. In the early-mid 90s, this school of research turned its attention to the problem of parallel computing and developed many of the foundations for what is now called MapReduce. This workshop will run through some famous and nifty algorithms and derivations, parallel and sequential alike. Attendees should walk away with a few weird tricks to level up their equational reasoning in everyday programming contexts, and hopefully enough intuition to dive more deeply into this rich body of literature.</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Purescript</td>
+                <td class="title">Learn Functional Programming with Purescript</td>
+                <td><a href="#john-a-de-goes">John A. De Goes</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="abstract">This workshop is designed for programmers of any skill level who want to learn functional programming. Purescript is ideal for learning functional programming, because the language has simple, clean semantics, and runs on any platform because it compiles to ubiquitous Javascript. In this workshop, you'll learn what it means to think functionally and write functional code as you explore the core concepts in Purescript. By the end, you'll have written your first functional program (a simple game!) and be able to call yourself a rookie functional programmer.... or else the instructor promises to buy you a coffee!</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Haskell</td>
+                <td class="title">Modeling Data in Haskell for Beginners</td>
+                <td><a href="#chris-allen">Chris Allen</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="abstract">There are patterns for modeling data that are not obvious or widely covered in Haskell that only require the application of basic algebraic datatypes, we'll explore some of these approaches with the dual purpose of introducing thinking in terms of algebraic datatypes in Haskell. The audience is not expected to know Haskell.</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Prolog</td>
+                <td class="title">Introduction to Constraint Logic Programming</td>
+                <td><a href="#sergii-dymchenko">Sergii Dymchenko</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="abstract">Constraint logic programming is a paradigm that allows solving hard combinatorial problems with minimal programming effort. In this workshop you will learn the basics of the Prolog-based constraint logic programming system ECLiPSe, solve several puzzles, and get hints how constraint logic programming can be useful in your real-life projects.</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Haskell</td>
+                <td class="title">A Practical Introduction to Haskell GADTs</td>
+                <td><a href="#richard-eisenberg">Richard Eisenberg</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="abstract">A burgeoning Haskeller soon discovers that proper use of descriptive types helps to capture real-world ideas, catches errors, aids in refactoring, speeds development, and indeed makes programming more fun. But, once that Haskeller has drunk the well-typed Kool-Aid, where to go from there? The answer: even more types! A Generalized Algebraic Datatype (GADT), at its core, allows a compiler to make different assumptions about types within different branches of a pattern match. Leveraging this power allows a programmer to encode detailed invariants in a datatype or algorithm and have these invariants checked at compile time. Clever use of GADTs also lets you remove certain uses of unsafeCoerce, as long as these can be proved safe. This workshop will be a hands-on, interactive tutorial on using Haskell GADTs in a practical setting.</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>F#</td>
+                <td class="title">Freya (F#) for HTTP Systems</td>
+                <td><a href="#andrew-cherry">Andrew Cherry</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="abstract">Freya is a stack of libraries for F# which are designed to let you get close to HTTP in a functional, typed way. As well as providing a useful set of abstractions over HTTP, it also offers a graph based approach to modelling HTTP responses, enabling the creation of "well-behaved" HTTP applications simply (and correctly). We'll take a tour through the stack and exercise the various parts individually, before diving in to write a complete HTTP application. We'll see how easy it is to write applications which take full advantage of the HTTP standards, and then we'll look at ways of extending our application out past the world of RFCs in to the world of hypermedia - and we'll do it with graphs! After this session you'll be comfortable building an application using Freya, and you'll almost certainly have come up with some great ideas for how Freya, and the graph based approach to logical design, could be extended to do even more.</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>All</td>
+                <td class="title">Introduction to Clojure</td>
+                <td><a href="#paige-bailey">Paige Bailey</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="abstract">Grab your REPL and your prettiest pair of parentheses! In this beginner-friendly workshop (even if you've never coded before), you will learn how to think in Clojure, why you would want to, and you'll get the opportunity for some hands-on experimentation with Zach Oakes' Nightmod, a developer tool for making live-moddable games. Clojure is a relatively new, powerful, dynamic Lisp dialect that compiles to many target environments, including the JVM, JavaScript, and the CLR. The most important single principle behind Clojure is its simplicity: its abstractions are simple and orthogonal, which means no compromise on power. A la carte polymorphism, careful support for names and namespaces, the reference succession model, and a wide selection of small, composable protocols make Clojure programming swift, surgical, and accurate. Perfect for game development! So are you ready, brave programmers? It's time to get atomic!</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>ClojureScript</td><td class="title">Data-Driven Webapps with ClojureScript and Om</td>
+                <td><a href="#chandu-tennety">Chandu Tennety</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="abstract">Om is a flavor of Facebook's ReactJS that takes advantage of immutable data structures to make the virtual dom-diffing algorithm much faster in the ClojureScript environment. We will work through some simple examples to get an understanding of how state is represented and passed through to components in order to build fast, functional UIs.</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Haskell</td>
+                <td class="title">Developing Web Applications with Haskell</td>
+                <td><a href="#alejandro-serrano-mena">Alejandro Serrano Mena</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="abstract">Web development is easy and fun with Haskell... and of course, type safe! Let's take a birds-eye tour on creating a web application in Haskell from scratch, from the initial project creation to deployment in the cloud. By the end of the workshop, you will have deployed a small server for note-taking. The workshop is divided in four slots, each dealing with a different facet of web development. First of all, simple routing and building of HTML to be returned to the clients. Then, adding database capabilities using Persistent and Esqueleto. The next step is taking input from the user via digestive functors. Finally, deployment to Heroku will be considered, along with integrating other middleware in your application.</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Elm</td>
+                <td class="title">An Adventure in Elm: Writing an Adventure Game in Elm</td>
+                <td><a href="#joe-nash">Joe Nash</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Purescript</td>
+                <td class="title">Purely-Functional Web Apps using React and PureScript</td>
+                <td><a href="#phil-freeman">Phil Freeman</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="abstract">React has popularized the idea of user interfaces as pure functions of application state, an approach which is perfectly suited for a language like PureScript. In this workshop, we'll learn how to use React and PureScript to create clean, well-factored web applications. This workshop assumes basic knowledge of PureScript (or a related language such as Haskell), and for that reason, it can be considered a continuation of the earlier PureScript workshop for beginners.</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Haskell</td>
+                <td class="title">Introduction to Haskell with a focus on High-Performance Computing</td>
+                <td><a href="#alex-gremm">Alex Gremm</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="abstract">This workshop will give an introduction to the Haskell programming language. We will work through basic concepts of functional programming and specifically Haskell by implementing a simple diffusion algorithm with convergence check. Using our naive implementation, we will learn how to identify performance bottlenecks and how to overcome them in order to achieve high-performing, sequential code.</td>
+                <td></td>
+              </tr>
             </table>
 
             <h2>Presentations</h2>
 
             <table>
-              <tr><td>Scala</td><td>What's New in Scala</td><td><a href="#marconi-lanna">Marconi Lanna</a></td></tr>
-              <tr><td>Haskell</td><td>Pattern Functors: Wandering Around Fix-points, Free Monads and Generics</td><td><a href="#alejandro-serrano-mena">Alejandro Serrano Mena</a></td></tr>
-              <tr><td>All</td><td>Why I Like Functional Programming</td><td><a href="#adelbert-chang">Adelbert Chang</a></td></tr>
-              <tr><td>All</td><td>The Abstract Method, In General</td><td><a href="#gershom-bazerman">Gershom Bazerman</a></td></tr>
-              <tr><td>F#</td><td>Building Concurrent, Fault-Tolerant, Scalable Applications in F# using Akka.Net</td><td><a href="#riccardo-terrell">Riccardo Terrell</a></td></tr>
-              <tr><td>Scala</td><td>Programs as Values: Pure Composable Database Access in Scala</td><td><a href="#rob-norris">Rob Norris</a></td></tr>
-              <tr><td>All</td><td>Make Up Your Own: "Hello World!"</td><td><a href="#justin-campbell">Justin Campbell</a></td></tr>
-              <tr><td>Lisp-Flavored Erlang</td><td>The Meaning of LFE</td><td><a href="#zeeshan-lakhani">Zeeshan Lakhani</a></td></tr>
-              <tr><td>Scala</td><td>Scalaz 102 - Taking Your Scalaz Usage Up a Notch!</td><td><a href="#colt-fredrickson">Colt Fredrickson</a></td></tr>
-              <tr><td>Haskell</td><td>How to Learn Haskell in Less Than 5 Years</td><td><a href="#chris-allen">Chris Allen</a></td></tr>
-              <tr><td>Clojure</td><td>Loom and Functional Graphs in Clojure</td><td><a href="#aysylu-greenberg">Aysylu Greenberg</a></td></tr>
-              <tr><td>All</td><td>Dynamic vs. Static: Having a Discussion without Sounding Like a Lunatic</td><td><a href="#david-greenberg">David Greenberg</a></td></tr>
-              <tr><td>F#</td><td>Building Concurrent, Fault Tolerant, Scalable Application in F# using Akka.Net</td><td><a href="#riccardo-terrell ">Riccardo Terrell</a></td></tr>
-              <tr><td>All</td><td>Type Theory and its Meaning Explanations</td><td><a href="#jon-sterling">Jon Sterling</a></td></tr>
-              <tr><td>Purescript</td><td>Purely Functional Web Apps using React and PureScript</td><td><a href="#phil-freeman">Phil Freeman</a></td></tr>
-              <tr><td>All</td><td>HTTP through Functional Programming</td><td><a href="#andrew-cherry">Andrew Cherry</a></td></tr>
-              <tr><td>ooErlang</td><td>ooErlang: A Programmer-Friendly Approach to OOP in Erlang</td><td><a href="#emiliano-firmino">Emiliano Firmino</a></td></tr>
-              <tr><td>ClojureScript</td><td>A Bird's Eye View of ClojureScript</td><td><a href="#chandu-tennety">Chandu Tennety</a></td></tr>
-              <tr><td>Scala</td><td>Scalaz-Streams: A Functional Approach to Compositional, Streaming I/O</td><td><a href="#derek-chen-becker">Derek Chen-Becker</a></td></tr>
-              <tr><td>Scala</td><td>Reactive Programming with Algebra</td><td><a href="#andre-van-delft">André van Delft</a>, <a href="#anatoliy-kmetyuk">Anatoliy Kmetyuk</a></td></tr>
+              <tr>
+                <td>Emily, All</td>
+                <td class="title">Introducing Emily: Simplifying Functional Programming</td>
+                <td><a href="#andi-mcclure">Andi McClure</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="abstract">Emily is an experimental language project focusing on simplifying the basis of programming languages: it models all language operations through composition of function-like entities, equivalent to combinators with state. This means functions, objects, classes, and variable scopes have the same interface and are generally interchangeable. The goal is to make FP language capabilities accessible to entry-level and FP-wary programmers by means of simple concepts and a configurable, scripting-language-like syntax.</td>
+                <td></td>
+              </tr>
+
+              <tr><td>Scala</td><td class="title">What's New in Scala</td><td><a href="#marconi-lanna">Marconi Lanna</a></td></tr>
+              <tr>
+                <td></td>
+                <td class="abstract">
+                  "Programming in Scala", by Martin Odersky et al., is one of the most comprehensive and the de facto reference for Scala.However, the book, originally published in 2008 for Scala 2.7.2, has not been updated since its second edition in 2010, covering up until Scala 2.8.1. In the meantime, Scala had 3 major releases with numerous fresh and advanced features. While we wait for a third edition of "Programming in Scala" to describe all the latest and greatest Scala features introduced in the last 4 years, this talk presents the main features introduced in Scala: 2.9, 2.10, and 2.11, as well as an exciting peek into 2.12 and beyond (What's in Scala's future?).
+                </td>
+                <td></td>
+              </tr>
+
+              <tr><td>Haskell</td><td class="title">Pattern Functors: Wandering Around Fix-points, Free Monads and Generics</td><td><a href="#alejandro-serrano-mena">Alejandro Serrano Mena</a></td></tr>
+              <tr>
+                <td></td>
+                <td class="abstract">
+                  Free monads, generic programming, fix-points and coproducts of data types are usually considered advanced topics for a Haskell programmer. In this talk we will look at these concepts from an unifying lens: combining and enriching pattern functors. A pattern functor is the stripped-down description of a data type: only the shape of the constructors remain, but all the recursive structure is gone. Using Haskell, we can manipulate pattern functors to create new data types at will.
+                </td>
+                <td></td>
+              </tr>
+
+              <tr><td>All</td><td class="title">Why I Like Functional Programming</td><td><a href="#adelbert-chang">Adelbert Chang</a></td></tr>
+              <tr>
+                <td></td>
+                <td class="abstract">
+                  Shortly after Adelbert Chang entered college as a computer science major, he contemplated changing his major several times, usually in the direction of physics and mathematics. That all changed when he was introduced to functional programming, at once both mysterious and beautiful. In this talk, Adelbert will elaborate on his early perspectives on computer science, math, and physics, and discuss how he ended up so enamored with functional programming.
+                </td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Erlang, All</td>
+                <td class="title">Fault-Tolerance on the Cheap: Making Systems That (Probably) Won't Fall Over</td><td><a href="#brian-l-troutwine">Brian L. Troutwine</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="abstract">Building computer systems that are reliable is hard. The functional programming community has invested a lot of time and energy into up-front-correctness guarantees: types and the like. Unfortunately, absolutely correct software is time-consuming to write and expensive as a result. Fault-tolerant systems achieve system-total reliability by accepting that sub-components will fail and planning for that failure as a first-class concern of the system. As companies embrace the wave of "as-a-service" architectures, failure of sub-systems become a more pressing concern. Using examples from heavy industry, aeronautics and telecom systems, this talk will explore how you can design for fault-tolerance and how functional programming techniques get us most of the way there.</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>All</td>
+                <td class="title">The Abstract Method, In General</td>
+                <td><a href="#gershom-bazerman">Gershom Bazerman</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="abstract">
+                  “Programming is about abstraction.” But what is abstraction about? Surely not just programming. Why do we need it, why do we keep reinventing it? How do we even recognize it when we see it, across so many domains? When something is more abstract it is not necessarily more useless, even though, definitionally, it is further removed from any specific use. How can that even be the case? Too often, when we teach functional programming, we are met with the response “you have taught me some abstractions, but not what they are good for.” Certain realms of mathematics, such as category theory, often elicit similar responses. This talk is an investigation into how to consider not only abstractions, but the process of applying them.
+                </td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Elm, All</td>
+                <td class="title">Shipping a Production Web App in Elm</td>
+                <td><a href="#richard-feldman">Richard Feldman</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="abstract">
+                  What happens when you take a 2011 CoffeeScript web app designed to edit 100,000-word novels...and scratch-rewrite it in Elm? It turns out the result is faster, more robust, and massively easier to maintain. Elm's simple design means that even a functional programming novice can quickly get up to speed on its static type inference, pervasive immutability, and first-class FRP system. It's not only an excellent language, but also a great introductory FP language that any JavaScript developer can pick up. his talk dives into the nuts and bolts of shipping a production web app in Elm, including questions like why you should choose Elm, how you transition from imperative architecture to FRP, and to what extent you can  leverage the JavaScript library ecosystem without sacrificing your functional invariants. Come see how pleasant functional programming in the browser can be!
+                </td>
+                <td></td>
+              </tr>
+
+              <tr><td>Scala</td><td class="title">Idiomatic Scala: Your Options Do Not Match</td><td><a href="#marconi-lanna">Marconi Lanna</a></td></tr>
+              <tr>
+                <td></td>
+                <td class="abstract">
+                  The Scaladoc page for Option says: "The most idiomatic way to use a scala.Option instance is to treat it as a collection or monad and use map, flatMap, filter, or foreach [...] A less-idiomatic way to use scala.Option values is via pattern matching." In this talk we show how to use the Option monad in an idiomatic, functional style, leveraging its comprehensive set of higher-order functions to solve any coding situation in a concise and declarative manner. After this talk, you will never have to pattern match against Options again!
+                </td>
+                <td></td>
+              </tr>
+
+              <tr><td>F#</td><td class="title">Building Concurrent, Fault-Tolerant, Scalable Applications in F# using Akka.Net</td><td><a href="#riccardo-terrell">Riccardo Terrell</a></td></tr>
+              <tr>
+                <td></td>
+                <td class="abstract">
+                  Writing correct concurrent, fault-tolerant, scalable applications is no simple task. The struggle is generally the result of using the wrong tools or wrong level of abstraction. The Actor based concurrency model aims to simplify this process. The actor model is a mathematical model of concurrent computation originated in 1973 by Carl Hewitt, Peter Bishop, and Richard Steiger. Actor programming is one of the most widely applicable programming models, which provides support for concurrency, by improving distribution, error detection, and fault tolerance. As such, it’s a good fit for the kinds of programming problems we find ourselves faced with in today’s increasingly distributed world Actors raise the abstraction level and provide a better platform to build correct concurrent and scalable applications. This presentation will introduce concepts in architecture such as immutability, isolation and asynchronous processing utilizing tools such as Akka.NET which is a .NET port of the popular JVM framework Akka. The goal is to provide solid knowledge of and foundation for the Actor model. Following the presentation, attendees will take with them enough material to start to use and leverage the Actor model to write successful concurrent applications.
+                </td>
+                <td></td>
+              </tr>
+
+              <tr><td>Haskell</td><td class="title">Accelerating Haskell: GPGPU Programming with Haskell</td>
+                <td><a href="#joe-nash">Joe Nash</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="abstract"></td>
+                <td></td>
+              </tr>
+
+              <tr><td>Scala</td><td class="title">Programs as Values: Pure Composable Database Access in Scala</td><td><a href="#rob-norris">Rob Norris</a></td></tr>
+              <tr>
+                <td></td>
+                <td class="abstract">
+                  FP is often glibly described as "programming with functions", but we can equivalently say that FP is about programming with *values*. Functions are values, failures are values, effects are values, and indeed programs themselves can be treated as values. This talk explores some consequences of this idea of programs-as-values by looking at *doobie*, a pure-functional database library for Scala. We will examine the low-level implementation via free monads over algebras of the JDBC types, and show how this naturally enables an expressive and safe high-level API with familiar, lightweight, and composable abstractions including streaming result sets, and trivial compatibility with other pure libraries like Remotely and HTTP4s. Even if you are not in the market for a database layer, this talk will provide a practical outline for a general solution to dealing with terrible APIs (like JDBC) in a principled way.
+                </td>
+                <td></td>
+              </tr>
+
+              <tr><td>All</td><td class="title">Make Up Your Own: "Hello World!"</td><td><a href="#justin-campbell">Justin Campbell</a></td></tr>
+              <tr>
+                <td></td>
+                <td class="abstract">
+                  There are so many other languages out there, and they all have strengths, weaknesses, and very different communities surrounding them. How do we evaluate new languages and technologies for ourselves? How do we be pragmatic about introducing things to production? Let's talk about language exploration. We'll discuss how to learn a new language, considerations when introducing things to production, and come up with some ideas for Ruby and its ecosystem. Plan on dipping your toes in Elixir, Go, Haskell, Ruby, Rust, and Scala during the session.
+                </td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Lisp-Flavored Erlang</td><td class="title">The Meaning of LFE</td>
+                <td><a href="#zeeshan-lakhani">Zeeshan Lakhani</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="abstract"></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Scala</td>
+                <td class="title">Scalaz 102 - Taking Your Scalaz Usage Up a Notch!</td>
+                <td><a href="#colt-fredrickson">Colt Fredrickson</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="abstract">
+                  Scalaz is a massive library full of many critical FP abstractions, but it can be a bit dense. If you've dipped into scalaz for a couple things such as Either and Validation, but you're not sure what else you can use, this talk is for you!
+                </td>
+                <td></td>
+              </tr>
+
+              <tr><td>Haskell</td><td class="title">How to Learn Haskell in Less Than 5 Years</td><td><a href="#chris-allen">Chris Allen</a></td></tr>
+              <tr>
+                <td></td>
+                <td class="abstract">
+                  Haskell is known for being hard, this is a result of pedagogy catching up to different ways of thinking about and structuring programs. We can make teaching ourselves and others something that is not only more effective, but enjoyable in its own right.
+                </td>
+                <td></td>
+              </tr>
+
+              <tr><td>Clojure</td><td class="title">Loom and Functional Graphs in Clojure</td><td><a href="#aysylu-greenberg">Aysylu Greenberg</a></td></tr>
+              <tr>
+                <td></td>
+                <td class="abstract">
+                  Graphs are ubiquitous data structures, and the algorithms for analyzing them are fascinating. Loom is an open-source Clojure library that provides many graph algorithms and visualizations. We will discuss how graphs are represented in a functional world, bridge the gap between procedural description of algorithms and their functional implementation, and learn about the way Loom integrates with other graph representations.
+                </td>
+                <td></td>
+              </tr>
+
+              <tr><td>All</td><td class="title">Dynamic vs. Static: Having a Discussion without Sounding Like a Lunatic</td><td><a href="#david-greenberg">David Greenberg</a></td></tr>
+              <tr>
+                <td></td>
+                <td class="abstract">
+                  Types remain a highly contentious issue for programmers in industry. Rails and Python have massive communities, and drive high-profile, high-traffic, successful businesses, such as GitHub, Reddit, and Dropbox. Clearly, dynamic languages are a better choice than Java or C; unless, of course, we count the myriad more businesses powered by 90s statically typed languages (e.g. Java). This statement will infuriate some engineers and academics, as we all know that Hindley-Milner type systems are the only type systems that reduce defects and improve code quality. In this talk, we'll take a look at type systems through a different lens: how type systems are actually a business decision that is frequently cast as an emotional decision.
+                </td>
+                <td></td>
+              </tr>
+
+              <tr><td>All</td><td class="title">Type Theory and its Meaning Explanations</td><td><a href="#jon-sterling">Jon Sterling</a></td></tr>
+              <tr>
+                <td></td>
+                <td class="abstract">
+                  At the heart of intuitionistic type theory lies an intuitive semantics called the “meaning explanations”; crucially, when meaning explanations are taken as definitive for type theory, the core notion is no longer “proof” but “verification”. We’ll explore how type theories of this sort arise naturally as enrichments of logical theories with further judgements, and contrast this with modern proof-theoretic type theories which interpret the judgements and proofs of logics, not their propositions and verifications. Expect the following questions to be answered: What is the difference between a judgement and a proposition? What is a meaning explanation? What is the difference between a proof and a verification? The so-called semantical approach to type theory is, in the speaker's view more immediately philosophically acceptable than the modern syntactic one, and also provides a basis for a future where partiality and other effects may be treated naturally through refinement and behavioral typing, rather than by means of term-level monads and similar kludges.        
+                </td>
+                <td></td>
+              </tr>
+
+              <tr><td>All</td><td class="title">HTTP through Functional Programming</td><td><a href="#andrew-cherry">Andrew Cherry</a></td></tr>
+              <tr>
+                <td></td>
+                <td class="abstract">
+                  HTTP is a fascinating standard &mdash; one of those that we all use every day. But there are many different ways of reasoning about HTTP "should" mean. We'll look at some of the approaches taken to model the HTTP layer, particularly in functional programming. Graphs, proofs, type systems &mdash; they're all fair game!
+                </td>
+                <td></td>
+              </tr>
+
+              <tr><td>ooErlang</td><td class="title">ooErlang: A Programmer-Friendly Approach to OOP in Erlang</td><td><a href="#emiliano-firmino">Emiliano Firmino</a></td></tr>
+              <tr>
+                <td></td>
+                <td class="abstract"></td>
+                <td></td>
+              </tr>
+
+              <tr><td>ClojureScript</td><td class="title">A Bird's Eye View of ClojureScript</td><td><a href="#chandu-tennety">Chandu Tennety</a></td></tr>
+              <tr>
+                <td></td>
+                <td class="abstract">
+                  Birds travel thousands of miles each year to migrate, flying for hours on very little food and rest. By comparison, migrating databases seems like a paltry feat. Birdwave is a way to visualize the amazing phenomenon of bird migration. Using ClojureScript and Om allowed the app to be written in a declarative, concise manner, taking full advantage of JavaScript interoperability, as well as Clojure’s awesome built-in features such as persistent data structures and the async module. Also, prepare to be dazzled by the data-viz powerhouse that is d3. No birds were harmed in the creation of Birdwave. Or this talk.
+                </td>
+                <td></td>
+              </tr>
+
+              <tr><td>Scala</td><td class="title">Scalaz-Streams: A Functional Approach to Compositional, Streaming I/O</td><td><a href="#derek-chen-becker">Derek Chen-Becker</a></td></tr>
+              <tr>
+                <td></td>
+                <td class="abstract"></td>
+                <td></td>
+              </tr>
+
+              <tr><td>Scala</td><td class="title">Reactive Programming with Algebra</td><td><a href="#andre-van-delft">André van Delft</a>, <a href="#anatoliy-kmetyuk">Anatoliy Kmetyuk</a></td></tr>
+              <tr>
+                <td></td>
+                <td class="abstract">
+                  R&amp;D on reactive programming is growing and this has delivered many language constructs, libraries and tools. Scala programmers can use threads, timers, actors, futures, promises, observables, the async construct, and others. Still it seems to us that the state of the art is not mature: reactive programming is relatively hard, and confidence in correct operation depends mainly on extensive testing. Better support for reasoning about correctness would be useful to address timing dependent issues. The Algebra of Communicating Processes (ACP) has a potential to improve this: it lets one concisely specify event handling and concurrency, and it facilitates reasoning about parallel systems. There is an ACP-based extension to Scala named SubScript. We show how it helps describing the internal behavior of Akka actors, and how it combines with futures. For more information see [www.subscript-lang.org](http://www.subscript-lang.org).
+                </td>
+                <td></td>
+              </tr>
             </table>
 
             <h2 class="toggleable">Daily Schedule</h2>
@@ -794,6 +1155,16 @@
           <div class="inner">
               <div class="individual">
                 <div class="image">
+                  <img src="images/speakers/amcclure.jpg" alt="person">
+                </div>
+                <div class="author-info">
+                  <h2 id="andi-mcclure">Andi McClure</h2>
+                </div>
+                <p></p>
+              </div>
+
+              <div class="individual">
+                <div class="image">
                   <img src="images/speakers/mlanna.jpg" alt="person">
                 </div>
                 <div class="author-info">
@@ -869,7 +1240,7 @@
                   <img src="images/speakers/dmcilroy.jpg" alt="person">
                 </div>
                 <div class="author-info">
-                  <h2 id="doug-mcilroy">Doug McIlroy</h2>
+                  <h2 id="doug-mcllroy">Doug McIlroy</h2>
                 </div>
                 <p></p>
               </div>
@@ -1031,7 +1402,7 @@
                   <!--<img src="images/speakers/.jpg" alt="person">-->
                 </div>
                 <div class="author-info">
-                  <h2>Andrew Cherry</h2>
+                  <h2 id="andrew-cherry">Andrew Cherry</h2>
                 </div>
                 <p></p>
               </div>
@@ -1040,7 +1411,7 @@
                   <img src="images/speakers/efirmino.jpg" alt="person">
                 </div>
                 <div class="author-info">
-                  <h2>Emiliano Firmino</h2>
+                  <h2 id="emiliono-firmino">Emiliano Firmino</h2>
                 </div>
                 <p></p>
               </div>
@@ -1049,7 +1420,7 @@
                   <img src="images/speakers/ctennety.jpg" alt="person">
                 </div>
                 <div class="author-info">
-                  <h2>Chandu Tennety</h2>
+                  <h2 id="chandu-tennety">Chandu Tennety</h2>
                 </div>
                 <p></p>
               </div>
@@ -1058,7 +1429,7 @@
                   <img src="images/speakers/dgreenberg.jpg" alt="person">
                 </div>
                 <div class="author-info">
-                  <h2>David Greenberg</h2>
+                  <h2 id="david-greenberg">David Greenberg</h2>
                 </div>
                 <p></p>
               </div>
@@ -1067,7 +1438,7 @@
                   <img src="images/speakers/jnash.jpg" alt="person">
                 </div>
                 <div class="author-info">
-                  <h2>Joe Nash</h2>
+                  <h2 id="joe-nash">Joe Nash</h2>
                 </div>
                 <p></p>
               </div>
@@ -1076,7 +1447,7 @@
                   <img src="images/speakers/vmarquez.jpg" alt="person">
                 </div>
                 <div class="author-info">
-                  <h2>Vincent Marquez</h2>
+                  <h2 id="vincent-marquez">Vincent Marquez</h2>
                 </div>
                 <p></p>
               </div>
@@ -1085,7 +1456,7 @@
                   <img src="images/speakers/dchen-becker.jpg" alt="person">
                 </div>
                 <div class="author-info">
-                  <h2>Derek Chen-Becker</h2>
+                  <h2 id="derek-chen-becker">Derek Chen-Becker</h2>
                 </div>
                 <p></p>
               </div>
@@ -1094,7 +1465,7 @@
                   <img src="images/speakers/avandelft.jpg" alt="person">
                 </div>
                 <div class="copy">
-                  <h2>André van Delft</h2>
+                  <h2 id="andre-van-delft">André van Delft</h2>
                 </div>
                 <p></p>
               </div>
@@ -1103,7 +1474,25 @@
                   <!--<img src="images/speakers/akmetyuk.jpg" alt="person">-->
                 </div>
                 <div class="author-info">
-                  <h2>Anatoliy Kmetyuk</h2>
+                  <h2 id="antoliy-kmetyuk">Anatoliy Kmetyuk</h2>
+                </div>
+                <p></p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <!--<img src="images/speakers/akmetyuk.jpg" alt="person">-->
+                </div>
+                <div class="author-info">
+                  <h2 id="brian-l-troutwine">Brian L. Troutwine</h2>
+                </div>
+                <p></p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <!--<img src="images/speakers/akmetyuk.jpg" alt="person">-->
+                </div>
+                <div class="author-info">
+                  <h2 id="richard-feldman">Richard Feldman</h2>
                 </div>
                 <p></p>
               </div>
