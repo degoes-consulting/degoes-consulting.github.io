@@ -603,6 +603,9 @@
               <tr>
                 <td></td>
                 <td class="abstract">
+                Types in functional programs are not only means to verifying and documenting our code, they can also help in *writing* them! This way of working is usually termed "hole-driven development". The reason is that you annotate those parts of your program which still need to be written with "holes". Afterwards, you can query the compiler and interact with your code until no hole exists. In some cases, the code can be automatically written for you.
+
+                Hole-driven development environments are available for many languages, including Agda, Idris and Haskell. In this talk we will look at a practical example of this methodology using Haskell and its Emacs mode enhanced with the ghc-mod add-in. Get ready to unveil the hidden power of types!
                 </td>
                 <td></td>
               </tr>
@@ -611,6 +614,7 @@
               <tr>
                 <td></td>
                 <td class="abstract">
+                There is a large body of literature on teaching writing. There is comparatively less on teaching writing computer programs in particular. If we treat “code literacy” as a form of literacy, what knowledge and insights can we transport over into our domain, and what shibboleths can we dispel?
                 </td>
                 <td></td>
               </tr>
@@ -619,6 +623,7 @@
               <tr>
                 <td></td>
                 <td class="abstract">
+                Reconciling conflicts in eventually consistent distributed systems can be messy adventure, but conflict-free replicated datatypes (CRDT’s) offer a solution where updates are accepted without remote synchronization and replicas properly converge into an equivalent state. Riak Data Types bring CRDTs to the server side, making data modeling simpler and skipping the need to roll your own conflict resolution logic. More than anything, these data types make some of the recent research in strong eventual consistency real and practical, and I’ll demo #howitdoesit.
                 </td>
                 <td></td>
               </tr>
@@ -627,6 +632,7 @@
               <tr>
                 <td></td>
                 <td class="abstract">
+                A presentation on the Cyclophone, which is an instrument that uses Haskell internally for its control logic. The instrument will be at LambdaConf so people can play with it. This talk will briefly cover the tools Ben used and the various obstacles that came up during the project. 
                 </td>
                 <td></td>
               </tr>
@@ -635,6 +641,7 @@
               <tr>
                 <td></td>
                 <td class="abstract">
+                At DICOM Grid, we have been using Haskell as part of a microservices architecture lately with some success. I would like to share some experiences of the highs and lows of using a relatively novel language in production, and give some tips for other potential adoptees.
                 </td>
                 <td></td>
               </tr>
@@ -643,6 +650,7 @@
               <tr>
                 <td></td>
                 <td class="abstract">
+                Due to the high demand for performance, programs in the Scientific Computing community are usually written in Fortran or C/C++ for execution on CPUs and in CUDA when GPUs are targeted. Though, why not use Haskell and see where it stands? We will take a quick look at code complexity and performance results of the implementations of a simple diffusion algorithm in Fortran/CUDA and Haskell.
                 </td>
                 <td></td>
               </tr>
@@ -651,8 +659,19 @@
               <tr>
                 <td></td>
                 <td class="abstract">
+                We all know that making a method tail recursive is one way to ensure you don’t SOE when recursing. However, sometimes it’s either not possible or convenient to make your methods tail recursive, and this is where trampolining can help.  Beware though, his is not always a solution, for instance when using a Monad Transformer stack.  This is where the Free Monad can come to the rescue, and we’ll take a look at examples of both trampolines working and not working, as well as using Free in a non trampolined way to save your stack. 
                 </td>
                 <td></td>
+              </tr>
+
+              <tr><td>Haskell</td><td class="title">A Deep DSL Primer</td><td><a href="#">Josh Filstrup</a></td></tr>
+                <tr>
+                  <td></td>
+                  <td class="abstract">
+                    Deeply embedded domain specific languages are an extremely useful technique for handling a certain class of problems. This talk will aim to disseminate a common vocabulary and current techniques for developing them in functional languages. 
+                  </td>
+                  <td></td>
+                </tr>
               </tr>
             </table>
 
@@ -749,7 +768,7 @@
 
               <tr>
                 <td>All</td>
-                <td class="title">Introduction to Clojure</td>
+                <td class="title">Introduction to Clojure: The Programming Language You've Been Longing For</td>
                 <td><a href="#paige-bailey">Paige Bailey</a></td>
               </tr>
               <tr>
@@ -786,14 +805,16 @@
               </tr>
               <tr>
                 <td></td>
-                <td class="abstract"></td>
+                <td class="abstract">
+                  Elm is a functional reactive language that compiles to HTML, CSS and Javascript, with Haskell-like syntax. Thanks to a combination of smart language design and innovative web-based tools, it is incredibly easy to write interactive applications in Elm. During this workshop we'll cover the basics concepts of the language and syntax, dive into the hot-swapping editor and time-travelling debugger, and build an adventure game using functional reactive technqiues.
+                </td>
                 <td></td>
               </tr>
 
               <tr><td>Haskell</td><td class="title">Haskell Nuggets: Power Series Brought to Life</td><td><a href="#doug-mcllroy">Doug McIlroy</a></td></tr>
               <tr>
                 <td></td>
-                <td class="abstract">
+                <td class="abstract">Operations on power series showcase the elegance and expressiveness of overloading and lazy evaluation. Simple one-liners for sum, product, integral, derivative, functional composition, functional inverse, etc. vividly embody the underlying mathematics, and even improve upon it by banishing subscripts. Series solutions of differential equations come practically for free and generating functions actively generate.
                 </td>
                 <td></td>
               </tr>
@@ -817,6 +838,16 @@
               <tr>
                 <td></td>
                 <td class="abstract">This workshop will give an introduction to the Haskell programming language. We will work through basic concepts of functional programming and specifically Haskell by implementing a simple diffusion algorithm with convergence check. Using our naive implementation, we will learn how to identify performance bottlenecks and how to overcome them in order to achieve high-performing, sequential code.</td>
+                <td></td>
+              </tr>
+               <tr>
+                <td>Erlang</td>
+                <td class="title">Introduction to Erlang</td>
+                <td><a href="#alex-gremm">Steven Proctor</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="abstract">If you have heard nothing else about Erlang, you have probably heard something about OTP and people chanting “Processes are not threads.  Processes are really cheap. Ohmmmm.”  In this workshop you will get a overview of Erlang syntax, OTP process management, and how cheap Erlang processes really are when you implement a Markov Chain generator where each state and its possible transitions are represented by their own process.</td>
                 <td></td>
               </tr>
             </table>
@@ -921,7 +952,9 @@
               </tr>
               <tr>
                 <td></td>
-                <td class="abstract"></td>
+                <td class="abstract">
+                  Many machines and devices come equipped with powerful graphical processing units, or GPUs. These units have hundreds of processing cores, and can be exploited to accelerate our applications by offloading applicable code to the GPU instead of the CPU. In this talk we will cover the basic concepts of General Purpose Programming for GPUs, and show how it can be exploited in the functional programming language, Haskell, via the accelerate library. 
+                </td>
                 <td></td>
               </tr>
 
@@ -949,7 +982,8 @@
               </tr>
               <tr>
                 <td></td>
-                <td class="abstract"></td>
+                <td class="abstract">Do you enjoy Lisp-based languages, built on s-expressions and homoiconicity? Do you like writing syntactic abstractions with pattern matching? What if you could use a Lisp to write a fault-tolerant, highly-available distributed datastore? Welcome to the wonderful world of LFE (Lisp-Flavored Erlang)! I'll cover the basics of LFE, its toolchain, the macro system, and its immediate representation step to Core Erlang, ending up on BEAM, the Erlang virtual machine.
+                </td>
                 <td></td>
               </tr>
 
@@ -1041,6 +1075,34 @@
                   R&amp;D on reactive programming is growing and this has delivered many language constructs, libraries and tools. Scala programmers can use threads, timers, actors, futures, promises, observables, the async construct, and others. Still it seems to us that the state of the art is not mature: reactive programming is relatively hard, and confidence in correct operation depends mainly on extensive testing. Better support for reasoning about correctness would be useful to address timing dependent issues. The Algebra of Communicating Processes (ACP) has a potential to improve this: it lets one concisely specify event handling and concurrency, and it facilitates reasoning about parallel systems. There is an ACP-based extension to Scala named SubScript. We show how it helps describing the internal behavior of Akka actors, and how it combines with futures. For more information see [www.subscript-lang.org](http://www.subscript-lang.org).
                 </td>
                 <td></td>
+              </tr>
+
+              <tr><td>Scala</td><td class="title">Cats -- A fresh look at functional programming in Scala</td><td><a href="#mike-oconnor">(Mike) "Stew" O'Connor</a></td></tr>
+              <tr>
+                <td></td>
+                <td class="abstract">
+                  Cats is a library that aims to fill in the gaps in the Scala standard library that we think are necessary to do pure functional programming in scala in the same way that scalaz attempts to fill the same role. This project intends not only to create a functional library, but it intends to create a community welcoming to all. Having the opportunity to start on a library like this from scratch gives us many delicious opportunities to rethink some past decisions, and this is allowing us to innovate in unexpected ways.
+                </td>
+                <td></td>
+              </tr>
+
+              <tr><td>Scala</td><td class="title">Programming and Math</td><td><a href="#harold-carr">Harold Carr</a></td></tr>
+              <tr>
+                <td></td>
+                <td class="abstract">
+                  Design patterns are a useful way to organize software.  Unfortunately, "gang-of-four"-like patterns are not composable, due to side-effects. In a pure (i.e., no side-effects) language, functions can be composed. That makes it possible to leverage patterns from mathematics.  This talk shows an algebra of function composition, identity functions, isomorphisms, (co)products (gluing functions that do not compose) and functors.  It shows how this algebra relates to real-world programming.  The goal of this talk is to provide an initial intuition of how to apply patterns from math to programming and to motivate you to continue studying on your own (perhaps by looking at the "uber" patterns of Category Theory).  Note: knowing these patterns is NOT necessary for getting work done in a functional language, but this talk should give a glimpse of why they may be useful.  The talk illustrates ideas using Haskell.  It is aimed at FP beginners.
+                </td>
+                <td></td>
+              </tr>
+
+              <tr><td>All</td><td class="title">Introduction to Intuitionistic Type Theory</td><td><a href="#">Vlad Patryshev</a></td></tr>
+                <tr>
+                  <td></td>
+                  <td class="abstract">
+                  Traditionally, in Computer Science, sets are assumed to be the basis of a type theory, together with Boolean logic. In this version of type theory we do not need sets or Boolean logic; intuitionism is enough ("no principle of excluded middle required").  The underlying math is Topos Theory, but you are not required to be even aware of its existence. The theory is described using diagrams, not the traditional (and tricky) deduction rules. The resulting theory turns out to have dependent types. A simple "real-life" example or two will illustrate all this.
+                  </td>
+                  <td></td>
+                </tr>
               </tr>
             </table>
 
@@ -1527,7 +1589,7 @@
               </div>
               <div class="individual">
                 <div class="image">
-                  <!--<img src="images/speakers/akmetyuk.jpg" alt="person">-->
+                  <img src="images/speakers/btroutwine.jpg" alt="person">
                 </div>
                 <div class="author-info">
                   <h2 id="brian-l-troutwine">Brian L. Troutwine</h2>
@@ -1536,10 +1598,73 @@
               </div>
               <div class="individual">
                 <div class="image">
-                  <!--<img src="images/speakers/akmetyuk.jpg" alt="person">-->
+                  <img src="images/speakers/rfeldman.png" alt="person">
                 </div>
                 <div class="author-info">
                   <h2 id="richard-feldman">Richard Feldman</h2>
+                </div>
+                <p></p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <!--<img src="images/speakers/akmetyuk.jpg" alt="person">-->
+                </div>
+                <div class="author-info">
+                  <h2 id="andi-mcclure">Andi McClure</h2>
+                </div>
+                <p></p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <img src="images/speakers/moconnor.png" alt="person">
+                </div>
+                <div class="author-info">
+                  <h2 id="mike-oconnor">Mike (Stew) O'Connor</h2>
+                </div>
+                <p></p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <img src="images/speakers/sproctor.jpg" alt="person">
+                </div>
+                <div class="author-info">
+                  <h2 id="steven-proctor">Steven Proctor</h2>
+                </div>
+                <p></p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <!--<img src="images/speakers/akmetyuk.jpg" alt="person">-->
+                </div>
+                <div class="author-info">
+                  <h2 id="danese-cooper">Danese Cooper</h2>
+                </div>
+                <p></p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <img src="images/speakers/ssteed.jpg" alt="person">
+                </div>
+                <div class="author-info">
+                  <h2 id="sharon-steed">Sharon Steed</h2>
+                </div>
+                <p></p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <img src="images/speakers/haroldcarr.jpg" alt="person">
+                </div>
+                <div class="author-info">
+                  <h2 id="harold-carr">Harold Carr</h2>
+                </div>
+                <p></p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <img src="images/speakers/jfilstrup.jpeg" alt="person">
+                </div>
+                <div class="author-info">
+                  <h2 id="joshua-filstrup">Joshua Filstrup</h2>
                 </div>
                 <p></p>
               </div>
