@@ -882,6 +882,27 @@
                 <td class="abstract">If you have heard nothing else about Erlang, you have probably heard something about OTP and people chanting “Processes are not threads.  Processes are really cheap. Ohmmmm.”  In this workshop you will get a overview of Erlang syntax, OTP process management, and how cheap Erlang processes really are when you implement a Markov Chain generator where each state and its possible transitions are represented by their own process.</td>
                 <td></td>
               </tr>
+
+              <tr>
+                <td>Cryptol</td>
+                <td class="title">Intro to Cryptol and High-Assurance Crypto Engineering</td>
+                <td><a href="#adam-foltzer">Adam Foltzer</a></td>
+              </tr>
+              <tr>
+                <td>2h</td>
+                <td class="abstract">
+                  <p>
+                    <a href="http://www.cryptol.net/">Cryptol</a> is an open source pure functional language for expressing and reasoning about bit-precise computations, particularly cryptographic algorithms. Like Haskell, it is built upon a polymorphic, static type system, and offers similar mathematical function and sequence comprehension notation. The type system features size polymorphism and arithmetic type predicates designed to express the constraints that naturally arise in cryptographic specifications.
+                  </p>
+                  <p>
+                    The advanced type system and restricted domain of Cryptol enables a theorem-driven development style: correctness properties can be expressed directly in the language in tandem with the development of a specification. As the specification evolves, these properties can be continually fuzz-tested with random QuickCheck-style testing, and even sent to external SAT and SMT solvers for a mathematical proof of correctness.
+                  </p>
+                  <p>
+                    In this workshop, I’ll give a quick introduction the Cryptol language geared toward folks with a working knowledge of typed functional programming. Together we will implement a classical cryptosystem to learn the basic syntax and semantics of the language. As we program, we will express and check correctness properties about our implementations using QuickCheck and SMT. Finally, I will demonstrate a Cryptol specification of the ZUC stream cipher used in 4G LTE communications, and show how the theorem-driven development approach reveals a bug that required a revision of the cipher.
+                  </p>
+                </td>
+                <td></td>
+              </tr>
             </table>
 
             <h2>Presentations</h2>
@@ -1799,6 +1820,18 @@ and lisp. He’s the founder and principal at Facjure, a tiny studio, and is cur
                 <div class="author-info">
                   <h2 id="matt-farmer">Matt Farmer</h2>
                 </div>
+                <p></p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <img src="images/speakers/acfoltzer.jpg" alt="person">
+                </div>
+                <div class="author-info">
+                  <h2 id="adam-foltzer">Adam Foltzer</h2>
+                </div>
+                <p>
+                  Adam was lucky enough to begin programming in Scheme when he was quite young, and has since then had a passion for functional and denotational programming. While getting a B.S. and M.S. in Computer Science from Indiana University, he began using Haskell while studying the theory, design, and implementation of programming languages; parallel and concurrent programming; and quantum and reversible computing. Prior to studying Computer Science, he studied Russian language and literature, archaeology, and how to fly small aircraft.
+                </p>
               </div>
           </div>
         </div>
