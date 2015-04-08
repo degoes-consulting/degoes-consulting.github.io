@@ -12,6 +12,21 @@
         margin: 0;
         padding: 0;
       }
+      .sstl-column-33 {
+        width: 33%;
+        float: left;
+        box-sizing: border-box;
+      }
+      .sstl-column-50 {
+        width: 50%;
+        float: left;
+        box-sizing: border-box;
+      }
+      .sstl-clear-float:after {
+        content: '';
+        display:block;
+        clear: both;
+      }
       .clear {
         clear: both;
         padding-top: 1em;
@@ -373,6 +388,10 @@
         clear: both;
         padding-top: 20px;
         padding-bottom: 30px;
+      }
+      #sponsors img {
+        display: block;
+        margin: 1em auto;
       }
     </style>
     <script type="text/javascript">
@@ -1940,6 +1959,28 @@ and lisp. He’s the founder and principal at Facjure, a tiny studio, and is cur
                 </div>
                 <p></p>
               </div>
+          </div>
+        </div>
+        <div id="sponsors">
+          <h1 id="sponsors-h1">Sponsors</h1>
+          <div class="inner sstl-clear-float">
+            <h2>Friends</h2>
+            <div class="sstl-column-33">
+              <img src="images/sponsors/logo-galois.png" alt="person">
+            </div>
+            <div class="sstl-column-33">
+              <img src="images/sponsors/logo-slamdata.png" alt="person">
+            </div>
+            <div class="sstl-column-33">
+              <img src="images/sponsors/logo-victorops.png" alt="person">
+            </div>
+            <h2>Silver</h2>
+            <div class="sstl-column-50">
+              <img src="images/sponsors/logo-github.png" alt="person">
+            </div>
+            <div class="sstl-column-50">
+              <img src="images/sponsors/logo-keenio.png" alt="person">
+            </div>
           </div>
         </div>
       </div>
