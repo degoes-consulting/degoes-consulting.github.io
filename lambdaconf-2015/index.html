@@ -984,6 +984,18 @@
                 </td>
                 <td></td>
               </tr>
+              <tr>
+                <td>Haskell</td>
+                <td class="title">Building Secure Systems in Haskell</td>
+                <td><a href="#deian-stefan">Deian Stefan</a></td>
+              </tr>
+              <tr>
+                <td>50min</td>
+                <td class="abstract">
+                  Modern applications&mdash;in particular, web apps&mdash;handle user-specific, often sensitive, information. Unfortunately, protecting user data is notoriously difficult today&mdash;languages and frameworks do not provide a way for declaring and enforcing application-specific security policies. In response, developers often specify and enforce security policy in an ad-hoc fashion (e.g., by strewing security checks throughout the code-base).  Even if one manages to get all the checks in all the right places, applications rely on third party libraries which may themselves expose vulnerabilities (or, in some cases, happen to be malicious).  Recent headlines alone serve to highlight that existing approaches are not working&mdash;web applications are plagued by privacy leaks. In this talk I will first describe <a href="http://hackage.haskell.org/package/lio">LIO</a>, a Haskell library for building secure systems.  LIO is an <em>information flow control (IFC)</em> library&mdash;it provides APIs for specifying policy on data (who is allowed to read/write the data) and enforces this policy on <em>all</em> code leveraging Haskell's monads and strong type system. I will then describe <a href="http://hackage.haskell.org/package/hails">Hails</a>, a web framework built on top of LIO that makes it easy to specify policies in a declarative way, when defining your application data types. Hails applications, by construction, protect user privacy and integrity.
+                </td>
+                <td></td>
+              </tr>
             </table>
 
             <h2>Presentations</h2>
@@ -2225,6 +2237,17 @@ and lisp. He’s the founder and principal at Facjure, a tiny studio, and is cur
                 </div>
                 <p>
                   Jean-Rémi has always had a passion for programming languages and how to make them better. This has lead him to study many different languages and paradigms. Scala was his gateway drug into the world of advanced programming languages and although he loves to tinker and read about new languages, he still does the vast majority of his development in Scala. His recent area of focus has been type-level programming and meta-programming.
+                </p>
+              </div>
+              <div class="individual">
+                <div class="image">
+                  <img src="images/speakers/deian.jpg" alt="person">
+                </div>
+                <div class="author-info">
+                  <h2 id="deian-stefan">Deian Stefan</h2>
+                </div>
+                <p>
+                  Deian Stefan is a PhD student in Computer Science at Stanford and co-founder and CTO of <a href="http://gitstar.com">GitStar</a>, a company that provides security-as-a-service to web developers.  He is interested in systems, programming languages, and security.  Deian's recent work focuses on web application security; he built practical systems&mdash;namely <a href="http://hackage.haskell.org/package/hails">Hails</a>, <a href="http://hackage.haskell.org/package/lio">LIO</a>, and <a href="http://cowl.ws"> COWL</a> &mdash;with formal underpinnings that enable average developers to build secure web applications.
                 </p>
               </div>
           </div>
