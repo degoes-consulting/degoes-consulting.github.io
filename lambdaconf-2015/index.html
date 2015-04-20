@@ -11,6 +11,7 @@
 
     <link rel='stylesheet' href='css/jquery.remodal.css'>
 
+    <script type="text/javascript" src="js/jquery.md5.js"></script>
     <script type="text/javascript" src="js/jquery.remodal.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
@@ -571,8 +572,10 @@
               abstract:  $(body).find('td.abstract').first().html().trim()
             };
 
+            talk.template = splashTemplate(talk);
+
             // UNCOMMENT FOR SPLASHES
-            // $('#splashes').append(splashTemplate(talk));
+            // $('#splashes').append(talk.template);
           
             talks.push(talk);
           });
@@ -603,8 +606,10 @@
           var width  = $(window).width();
           var height = Math.floor(width * ratio);
 
-          video.height(height);
-          splash.height(height);
+          if (video.height() != height || splash.height() != height) {
+            video.height(height);
+            splash.height(height);
+          }
         }
 
         setHeight();
