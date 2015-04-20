@@ -618,12 +618,13 @@
             <table>
               <tr>
                 <td></td>
-                <td class="title">Title TBA</td>
+                <td class="title">The Art of Communication</td>
                 <td><a href="#sharon-steed">Sharon Steed</a></td>
               </tr>
               <tr>
                 <td></td>
                 <td class="abstract">
+                  Everyone wants to be liked. But we aren’t all born as Tom Hanks. How do you create that natural spark when talking with someone—or a room of a hundred someones? We’ll explore the basics of human interaction, and learn how to apply principles of social behavior to walking, talking, and listening.
                 </td>
                 <td></td>
               </tr>
@@ -751,7 +752,7 @@
                 </td>
                 <td></td>
               </tr>
-
+<!-- 
               <tr>
                 <td>Haskell</td>
                 <td class="title">A Deep DSL Primer</td><td><a href="#">Josh Filstrup</a></td>
@@ -762,7 +763,7 @@
                   Deeply embedded domain specific languages are an extremely useful technique for handling a certain class of problems. This talk will aim to disseminate a common vocabulary and current techniques for developing them in functional languages.
                 </td>
                 <td></td>
-              </tr>
+              </tr> -->
             </table>
 
             <h2>Workshops</h2>
@@ -868,7 +869,8 @@
               </tr>
 
               <tr>
-                <td>ClojureScript</td><td class="title">Data-Driven Webapps with ClojureScript and Om</td>
+                <td>ClojureScript</td>
+                <td class="title">Data-Driven Webapps with ClojureScript and Om</td>
                 <td><a href="#chandu-tennety">Chandu Tennety</a></td>
               </tr>
               <tr>
@@ -984,18 +986,6 @@
                 </td>
                 <td></td>
               </tr>
-              <tr>
-                <td>Haskell</td>
-                <td class="title">Building Secure Systems in Haskell</td>
-                <td><a href="#deian-stefan">Deian Stefan</a></td>
-              </tr>
-              <tr>
-                <td>50min</td>
-                <td class="abstract">
-                  Modern applications&mdash;in particular, web apps&mdash;handle user-specific, often sensitive, information. Unfortunately, protecting user data is notoriously difficult today&mdash;languages and frameworks do not provide a way for declaring and enforcing application-specific security policies. In response, developers often specify and enforce security policy in an ad-hoc fashion (e.g., by strewing security checks throughout the code-base).  Even if one manages to get all the checks in all the right places, applications rely on third party libraries which may themselves expose vulnerabilities (or, in some cases, happen to be malicious).  Recent headlines alone serve to highlight that existing approaches are not working&mdash;web applications are plagued by privacy leaks. In this talk I will first describe <a href="http://hackage.haskell.org/package/lio">LIO</a>, a Haskell library for building secure systems.  LIO is an <em>information flow control (IFC)</em> library&mdash;it provides APIs for specifying policy on data (who is allowed to read/write the data) and enforces this policy on <em>all</em> code leveraging Haskell's monads and strong type system. I will then describe <a href="http://hackage.haskell.org/package/hails">Hails</a>, a web framework built on top of LIO that makes it easy to specify policies in a declarative way, when defining your application data types. Hails applications, by construction, protect user privacy and integrity.
-                </td>
-                <td></td>
-              </tr>
             </table>
 
             <h2>Presentations</h2>
@@ -1009,6 +999,19 @@
               <tr>
                 <td>30m</td>
                 <td class="abstract">Emily is an experimental language project focusing on simplifying the basis of programming languages: it models all language operations through composition of function-like entities, equivalent to combinators with state. This means functions, objects, classes, and variable scopes have the same interface and are generally interchangeable. The goal is to make FP language capabilities accessible to entry-level and FP-wary programmers by means of simple concepts and a configurable, scripting-language-like syntax.</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Haskell</td>
+                <td class="title">Building Secure Systems in Haskell</td>
+                <td><a href="#deian-stefan">Deian Stefan</a></td>
+              </tr>
+              <tr>
+                <td>1h</td>
+                <td class="abstract">
+                  Modern applications&mdash;in particular, web apps&mdash;handle user-specific, often sensitive, information. Unfortunately, protecting user data is notoriously difficult today&mdash;languages and frameworks do not provide a way for declaring and enforcing application-specific security policies. In response, developers often specify and enforce security policy in an ad-hoc fashion (e.g., by strewing security checks throughout the code-base).  Even if one manages to get all the checks in all the right places, applications rely on third party libraries which may themselves expose vulnerabilities (or, in some cases, happen to be malicious).  Recent headlines alone serve to highlight that existing approaches are not working&mdash;web applications are plagued by privacy leaks. In this talk I will first describe <a href="http://hackage.haskell.org/package/lio">LIO</a>, a Haskell library for building secure systems.  LIO is an <em>information flow control (IFC)</em> library&mdash;it provides APIs for specifying policy on data (who is allowed to read/write the data) and enforces this policy on <em>all</em> code leveraging Haskell's monads and strong type system. I will then describe <a href="http://hackage.haskell.org/package/hails">Hails</a>, a web framework built on top of LIO that makes it easy to specify policies in a declarative way, when defining your application data types. Hails applications, by construction, protect user privacy and integrity.
+                </td>
                 <td></td>
               </tr>
 
@@ -1095,7 +1098,8 @@
 
               <tr>
                 <td>Erlang</td>
-                <td class="title">Fault-Tolerance on the Cheap: Making Systems That (Probably) Won't Fall Over</td><td><a href="#brian-l-troutwine">Brian L. Troutwine</a></td>
+                <td class="title">Fault-Tolerance on the Cheap: Making Systems That (Probably) Won't Fall Over</td>
+                <td><a href="#brian-l-troutwine">Brian L. Troutwine</a></td>
               </tr>
               <tr>
                 <td>1h</td>
@@ -1112,6 +1116,24 @@
                 <td>1h</td>
                 <td class="abstract">
                   “Programming is about abstraction.” But what is abstraction about? Surely not just programming. Why do we need it, why do we keep reinventing it? How do we even recognize it when we see it, across so many domains? When something is more abstract, it is not necessarily more useless, even though, definitionally, it is further removed from any specific use. How can that even be the case? Too often, when we teach functional programming, we are met with the response “you have taught me some abstractions, but not what they are good for.” Certain realms of mathematics, such as category theory, often elicit similar responses. This talk is an investigation into how to consider not only abstractions, but the process of applying them.
+                </td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Any</td>
+                <td class="title">The Next Great Functional Programming Language</td>
+                <td><a href="#john-a-degoes">John A. De Goes</a></td>
+              </tr>
+              <tr>
+                <td>30m</td>
+                <td class="abstract">
+                  John has no clue what the next great functional programming language will be like, but he's more than happy
+                  to hop up on stage and rant against type classes, nominative typing, data, modules, pattern matching, recursion, 
+                  and, well, basically everything else you associate with function programming! John will argue that to make radical
+                  progress in cheaply building correct software, we need to take one step backward and two steps forward, embracing
+                  dependent-typing, total functions, Turing-complete compilers, host languages, and automated proof search. Attend this
+                  talk to question your assumptions about functional programming... or just to heckle! Either way, all are welcome.
                 </td>
                 <td></td>
               </tr>
@@ -1234,11 +1256,11 @@
 
               <tr>
                 <td>Your Imagination</td>
-                <td class="title">Make your own programming language!</td>
+                <td class="title">Make Your Own Programming Language!</td>
                 <td><a href="#nick-heiner">Nick Heiner</a></td>
               </tr>
               <tr>
-                <td>25m</td>
+                <td>30m</td>
                 <td class="abstract">
                     We're all used to typing code into an editor and seeing the computer do something when we run it. This is so familiar that it's easy to take for granted. How <em>do</em> we go from a sequence of characters to something the machine can execute? Knowing this will not only help you program more effectively, but it will empower you to create your own programming languages.
                     <br /> <br />
@@ -1272,7 +1294,7 @@
                 <td class="abstract">
                   What happens when we prototype an app entirely in FP? <br/><br/>
 
-                  From choosing a functional database to building http apis and designing templates and stylesheets—it is possible these days, to stay entirely in FP land! In this talk I will share my experience in building functional prototypes with Clojure & Clojurescript using the following libraries: Datomic, Ring, Om, and Garden. I’ll discuss how we can trade popular databases, web toolkits, template engines, and even less and sass in favor of simpler libraries that embrace immutable data as a “Sequence of Values”.
+                  From choosing a functional database to building http apis and designing templates and stylesheets—it is possible these days, to stay entirely in FP land! In this talk I will share my experience in building functional prototypes with Clojure &amp; Clojurescript using the following libraries: Datomic, Ring, Om, and Garden. I’ll discuss how we can trade popular databases, web toolkits, template engines, and even less and sass in favor of simpler libraries that embrace immutable data as a “Sequence of Values”.
                 </td>
                 <td></td>
               </tr>
@@ -1427,11 +1449,11 @@
 
               <tr>
                 <td>Haskell</td>
-                <td class="title">Give me Freedom or Forgeddaboutit: What does "Free" really mean?</td>
+                <td class="title">Give me Freedom or Forgeddaboutit: What Does "Free" Really Mean?</td>
                 <td><a href="#joseph-abrahamson">Joseph Tel Abrahamson</a></td>
               </tr>
               <tr>
-                <td>25m</td>
+                <td>30m</td>
                 <td class="abstract">The Haskell community is often abuzz about free monads and if you stick around for long enough you'll also see notions of free monoids, free functors, yoneda/coyoneda, free seminearrings, etc. Clearly "freedom" is a larger concept than just Free f a ~ f (Free f) + a. This talk explores briefly the origins of "freedom" in Category Theory, explains what it means for you to have a "free X" for any thing X, and talks a little bit about some useful free structures which exist in Haskell.</td>
                 <td></td>
               </tr>
@@ -1442,7 +1464,7 @@
                 <td><a href="#joseph-abrahamson">Joseph Tel Abrahamson</a></td>
               </tr>
               <tr>
-                <td>25m</td>
+                <td>30m</td>
                 <td class="abstract">Finally Tagless DSLs are a DSL embedding technique pioneered by Oleg Kiselyov, Jaques Carrette, and Chung-Chieh Shan that is in some sense "dual" to the notions of free-monad interpreters. MTL is a very popular monad library in Haskell which just so happens to be, unbeknownst to most, a Finally Tagless DSL itself. This talk explores what the Finally Tagless DSL style offers and shows you can use that concept to extend your effect-typing vocabulary in MTL.</td>
                 <td></td>
               </tr>
@@ -1453,31 +1475,32 @@
                 <td><a href="#ron-toland">Ron Toland</a></td>
               </tr>
               <tr>
-                <td>25m</td>
+                <td>30m</td>
                 <td class="abstract">In this talk, I'll look at how design patterns from OOP translate to Clojure: some are unnecessary, some are embedded in the language, and others are easier to build.</td>
                 <td></td>
               </tr>
+
               <tr>
                 <td>Scala</td>
                 <td class="title">Simple Collection to Distributed Processing in Functional Way</td>
                 <td><a href="#rahul-kavale">Rahul Kavale</a></td>
               </tr>
               <tr>
-                <td>25m</td>
-                <td class="abstract">In this presentation, I'll be talking about the way functional programming ideas affect and fit into the distributed computing world. With the introduction of Apache Spark, these ideas have been implemented quiet successfully. In this talk, I will be implementing(live coding) distributed collection abstraction using basic principles of Functional programming. I will start with computation on simple in memory collection, and evolve it into a fully distributed collection having properties like fault tolerance, etc.</td>
+                <td>30m</td>
+                <td class="abstract">In this presentation, I'll be talking about the way functional programming ideas affect and fit into the distributed computing world. With the introduction of Apache Spark, these ideas have been implemented quiet successfully. In this talk, I will be implementing (live coding) a distributed collection abstraction using basic principles of Functional programming. I will start with computation on simple in memory collection, and evolve it into a fully distributed collection having properties like fault tolerance, etc.</td>
                 <td></td>
               </tr>
+
               <tr>
                 <td>Scala</td>
                 <td class="title">Computation Expressions in Scala</td>
                 <td><a href="#jeanremi-desjardins">Jean-Rémi Desjardins</a></td>
               </tr>
               <tr>
-                <td>25m</td>
+                <td>30m</td>
                 <td class="abstract">Computation Expressions are a generalization of do-notation and Idiom Brackets. They provide a single notation that uses the least powerful abstraction in order to translate sugared code into de-sugared code in the most flexible way possible. I will present a project I have been working on to implement computation expressions in Scala. In particular, I will show how this notation helps write asynchronous code with very little cognitive overhead.</td>
                 <td></td>
               </tr>
-
 
               <tr>
                 <td>Various</td>
@@ -1485,26 +1508,24 @@
                 <td><a href="#kris-nuttycombe">Kris Nuttycombe</a></td>
               </tr>
               <tr>
-                <td>25m</td>
+                <td>30m</td>
                 <td class="abstract">This introductory talk is designed to help students new to functional programming understand how type parameters enable us to more easily reason about the behavior of functions and create APIs that enforce their invariants with type-level constraints. We will cover the principles of universal and existential quantification, review examples of reasoning about behavior from function types, and discuss implications for compositionality in API design. While most examples will be in Haskell, we will discuss how the principles generalize even to code written in unityped languages.</td>
                 <td></td>
               </tr>
 
- 		<tr>
+ 		          <tr>
                 <td>Scala</td>
-                <td class="title">Monads - asking the right question</td>
-		<td><a href="#pawel-szulc">Pawel Szulc</a></td>
+                <td class="title">Monads - Asking the Right Question</td>
+		            <td><a href="#pawel-szulc">Pawel Szulc</a></td>
               </tr>
               <tr>
-                <td>25m</td>
+                <td>30m</td>
                 <td class="abstract">
                   When entering the world of functional programming, one is quickly introduced with a concept of a Monad. Concept that is for some reason really hard to grasp and comprehend. When querying the Internet for "What is a Monad?" you will most likely learn that "you do not need to know the category theory to understand monads" and that "you are not asking the right question". The first thing that came to my mind, when I was struggling with this dilemma, was "Well, what is the right question then?".
 This talk is all about looking for that right question and answering it. After this talk I hope you will find yourself knowing and understanding the concept, being able to apply it in a daily programming routine.
                 </td>
                 <td></td>
               </tr>
-
-
             </table>
 
             <h2 class="toggleable">Daily Schedule</h2>
