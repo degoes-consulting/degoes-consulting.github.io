@@ -659,12 +659,15 @@
           if (resetHash) {
             document.location.hash = '#/';
 
-            if (scroll !== undefined) $(window).scrollTop(scroll);
+            if (scroll !== undefined) {
+              $(window).scrollTop(scroll);
+              scroll = undefined;
+            }
           }
         }
 
         function showSplash() {
-          scroll = $(window).scrollTop();
+          if (scroll === undefined) scroll = $(window).scrollTop();
 
           $('#content').hide();
           $('body > header').hide();
@@ -684,8 +687,11 @@
             splash.modal({
               fadeDuration: 250
             });
+
             splash.on($.modal.BEFORE_CLOSE, function(event, modal) {
-              hideSplash(true);
+              var hash2 = document.location.hash.substring(1);
+
+              if (hash === hash2) hideSplash(true);
             });
           }
         };
