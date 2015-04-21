@@ -582,7 +582,7 @@
               abstract:  $(body).find('td.abstract').first().html().trim()
             };
 
-            talk.id       = $.md5(talk.title).substring(0, 5);
+            talk.id       = 'talk' + $.md5(talk.title).substring(0, 5);
             talk.template = splashTemplate(talk);
 
             $(meta).click(function(e) {
