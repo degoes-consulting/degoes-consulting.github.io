@@ -651,14 +651,16 @@
 
         var scroll;
 
-        function hideSplash() {
+        function hideSplash(resetHash) {
           $('#content').show();
           $('body > header').show();
           $('#splashes').hide();
 
-          document.location.hash = '#/';
+          if (resetHash) {
+            document.location.hash = '#/';
 
-          if (scroll !== undefined) $(window).scrollTop(scroll);
+            if (scroll !== undefined) $(window).scrollTop(scroll);
+          }
         }
 
         function showSplash() {
@@ -674,8 +676,8 @@
 
           var splash = $('#' + hash);
 
-          if (splash.length == 0) {
-            hideSplash();
+          if (!splash.hasClass('modal')) {
+            hideSplash(false);
           } else {
             showSplash();
 
@@ -683,7 +685,7 @@
               fadeDuration: 250
             });
             splash.on($.modal.BEFORE_CLOSE, function(event, modal) {
-              hideSplash();
+              hideSplash(true);
             });
           }
         };
