@@ -11,9 +11,10 @@
 
     <link rel='stylesheet' href='css/jquery.remodal.css'>
 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
     <script type="text/javascript" src="js/jquery.md5.js"></script>
     <script type="text/javascript" src="js/jquery.remodal.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
     <style>
       * {
@@ -403,6 +404,10 @@
         margin: 1em auto;
       }
 
+      #splashes section {
+        border: 1px solid orange;
+      }
+
       #splashes .card h1, #splashes .card h2, #splashes .card h3, #splashes .card h4, #splashes .card h5 {
         font-family: Sarpanch;
         color: #ff3f21;
@@ -505,7 +510,7 @@
     </style>
     <script type="text/javascript">
       function splashTemplate(talk) {
-        return '<section class="card">' + 
+        return '<section class="card modal" id="' + talk.id + '">' + 
               '<div class="pre-header">' + 
                   '<img src="images/graphic-1.png">' + 
               '</div>' + 
@@ -565,18 +570,24 @@
           metas.each(function(_, meta) {
             var body = $(meta).next();
 
+            var authorId = $(meta).find('td a').first().attr('href');
+
             var talk = {
               language:  $(meta).find('td').first().text(),
               title:     $(meta).find('td + td').first().text(),
-              author:    authorList[$(meta).find('td a').first().attr('href')],
+              author:    authorList[authorId],
               length:    $(body).find('td').first().text(),
               abstract:  $(body).find('td.abstract').first().html().trim()
             };
 
+            talk.id       = $.md5(talk.title).substring(0, 5);
             talk.template = splashTemplate(talk);
 
-            // UNCOMMENT FOR SPLASHES
-            // $('#splashes').append(talk.template);
+            $(meta).click(function(e) {
+              e.preventDefault();
+
+              document.location.hash = '#' + talk.id;
+            });
           
             talks.push(talk);
           });
@@ -586,7 +597,7 @@
 
         var allTalks = [];
 
-        ["#keynotes", "#lightning-talks", "#presentations"].forEach(function(id) {
+        ["#keynotes", "#lightning-talks", "#workshops", "#presentations"].forEach(function(id) {
           allTalks = allTalks.concat(scrapeTalks(id));
         });
 
@@ -623,15 +634,37 @@
           $(this).nextUntil('h2').slideToggle();
         }).nextUntil('h2').hide();
 
-        $('td.title').parent().click(function() {
+        /* $('td.title').parent().click(function() {
           $(this).next().slideToggle();
-        });
+        }); */
 
         $('td.abstract').parent().hide();
 
-        var authorList = authors();
-        var talkList   = talks();
+        var talkList = talks();
 
+        // Insert all splashes:
+        talkList.forEach(function(talk) {
+          $('#splashes').append(talk.template);
+        });
+
+        window.onhashchange = function() {
+          var hash = document.location.hash.substring(1);
+
+          var splash = $('#' + hash);
+
+          if (splash.length == 0) {
+            document.location.hash = '#/';
+          } else {
+            splash.modal({
+              fadeDuration: 250
+            });
+            splash.on($.modal.BEFORE_CLOSE, function(event, modal) {
+              document.location.hash = '#/';
+            });
+          }
+        };
+
+        window.onhashchange();
       });
     </script>
   </head>
@@ -2074,7 +2107,7 @@ This talk is all about looking for that right question and answering it. After t
                   <img src="images/speakers/pbaily.jpg" alt="person">
                 </div>
                 <div class="author-info">
-                  <h2 id="paige-baily">Paige Bailey</h2>
+                  <h2 id="paige-bailey">Paige Bailey</h2>
                 </div>
                 <p>
                   Geophysicist with computer science habits. Passionate about public transportation, sustainable energy, scientific computation, STEM education reform, adventures &mdash; and how functional languages can enable all of the above.  Paige Bailey is an Earth Sciences graduate student at Rice University; founder of PyLadies-HTX; and is employed full-time by Chevron in upstream technical computing.
