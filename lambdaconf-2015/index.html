@@ -647,19 +647,41 @@
           $('#splashes').append(talk.template);
         });
 
+        var scroll;
+
+        function hideSplash() {
+          $('#content').show();
+          $('body > header').show();
+          $('#splashes').hide();
+
+          document.location.hash = '#/';
+
+          if (scroll !== undefined) $(window).scrollTop(scroll);
+        }
+
+        function showSplash() {
+          scroll = $(window).scrollTop();
+
+          $('#content').hide();
+          $('body > header').hide();
+          $('#splashes').show();
+        }
+
         window.onhashchange = function() {
           var hash = document.location.hash.substring(1);
 
           var splash = $('#' + hash);
 
           if (splash.length == 0) {
-            document.location.hash = '#/';
+            hideSplash();
           } else {
+            showSplash();
+
             splash.modal({
               fadeDuration: 250
             });
             splash.on($.modal.BEFORE_CLOSE, function(event, modal) {
-              document.location.hash = '#/';
+              hideSplash();
             });
           }
         };
@@ -2666,13 +2688,12 @@ Software engineer, programmer, developer. Experienced with Java ecosystem. Curre
               </div>
           </div>
         </div>
-        <div id="splashes">
-          
-        </div>
       </div>
       <footer>
         <p class="legal">Copyright &copy; 2014 - 2015 De Goes Consulting Inc. All Rights Reserved.</p>
       </footer>
+    </div>
+    <div id="splashes">  
     </div>
   </body>
 </html>
