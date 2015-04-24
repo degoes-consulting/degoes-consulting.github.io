@@ -453,7 +453,7 @@
       }
 
       #splashes .card .body p {
-        padding: 0.5em 0px 2.0em 0px;
+        padding: 0.5em 0 0em 0; /*top, right, bottom, left*/
         font-size: 14pt;
       }
 
@@ -476,8 +476,8 @@
 
       #splashes .card .body .second {
         float: left;
-        width: 73%;
-        margin-left: 2%;
+        width: 70%;
+        margin-left: 5%;
       }
 
       #splashes .card .body .first img {
@@ -493,9 +493,15 @@
         font-weight: 800;
         font-size: 16pt;
       }
-
+      #splashes .card .body .abstract-wrapper {
+        margin-top: 0.5em;
+      }
+      #splashes .card .body .bio-wrapper {
+        margin-top: 2em;
+      }
       #splashes .card .body .second h3 {
         margin-top: 0em;
+        margin-bottom: 0.5em;
       }
 
       #splashes .card .clear {
@@ -521,15 +527,18 @@
               '</div>' + 
               '<div class="body">' + 
                   '<h3 class="topic">' + talk.title + '</h3>' + 
-                  '<p>' + talk.abstract + '</p>' + 
-
-                  '<div class="first">' + 
-                      '<img src="' + talk.author.img + '">' + 
-                  '</div>' + 
-                  '<div class="second">' + 
-                      '<h3>' + talk.author.name + '</h3>' + 
-                      '<p>' + talk.author.bio + '</p>' + 
-                  '</div>' + 
+                  '<div class="abstract-wrapper">' +
+                    talk.abstract + 
+                  '</div>' +
+                  '<div class="bio-wrapper">' +
+                    '<div class="first">' + 
+                        '<img src="' + talk.author.img + '">' + 
+                    '</div>' + 
+                    '<div class="second">' + 
+                        '<h3>' + talk.author.name + '</h3>' + 
+                        talk.author.bio + 
+                    '</div>' + 
+                  '</div>' +
                   '<div class="clear"></div>' + 
               '</div>' + 
           '</section>';
@@ -544,7 +553,7 @@
           var id   = '#' + $(indi).find('h2').first().attr('id');
           var name = $(indi).find('h2').first().text();
           var img  = $(indi).find('img').first().attr('src');
-          var bio  = $(indi).find('p').first().html().trim();
+          var bio  = $(indi).find('p').wrapAll('<div/>').parent().html().trim();
 
           var author = {
             id:   id,
@@ -582,7 +591,7 @@
               abstract:  $(body).find('td.abstract').first().html().trim()
             };
 
-            talk.id       = 'talk-' + $.md5(talk.title).substring(0, 5);
+            talk.id       = 'talk-' + $.md5(talk.title).substring(0, 10);
             talk.template = splashTemplate(talk);
 
             $(meta).click(function(e) {
@@ -887,13 +896,18 @@
             <table>
               <tr>
                 <td></td>
-                <td class="title">The Art of Communication</td>
+                <td class="title">The Art of Meaningful Connection: A Fear-based Approach to Communication</td>
                 <td><a href="#sharon-steed">Sharon Steed</a></td>
               </tr>
               <tr>
                 <td></td>
                 <td class="abstract">
-                  Everyone wants to be liked. But we aren’t all born as Tom Hanks. How do you create that natural spark when talking with someone—or a room of a hundred someones? We’ll explore the basics of human interaction, and learn how to apply principles of social behavior to walking, talking, and listening.
+                  <p>
+                    We spend all day communicating with people - verbally, nonverbally, on social media, over the phone, and in a myriad of other ways. But have you noticed that even though we are always connected to people, we aren't every really connecting with people? As a stutterer I know the struggle to effectively get your point across, especially in a time-crunched society. We as humans are rushed, rarely patient and generally in transit to the next thing. And I understand; I spend just as much time flying through the day as the next person. But I also understand the value of human interaction, and the fear that comes along with the idea of it. I've tried - and failed - at having meaningful conversations many times because of fear that I won't be accepted for who I am. But once I opened myself up to potential rejection, I ended up being accepted and celebrated for being flawed.
+                  </p>
+                  <p>
+                    Let's explore that fear together: the fear of reaching out, of real conversations and of willingly extending our hand to others looking to truly connect with us. Our weaknesses are often times great compliments to our strengths; it's time to be inspired to embrace vulnerabilities, empower our weaknesses and truly connect with the human beings around us.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -906,11 +920,15 @@
               <tr>
                 <td></td>
                 <td class="abstract">
-                  "Compatibility means deliberately repeating other peoples' mistakes," said Wheeler. Not only a pithy aphorism, but literally true. And today, almost fifty years after the birth of unix, we still make it a point to deliberately repeat mistakes - even if we don't count unix itself among them. Why do we still program to teletypes? Why must we concern ourselves with newlines in file names? Why is it still an everyday occurrence to find the arrow keys don't work? Why did scala intentionally repeat most of java's mistakes? How is it that so much effort is poured into validation of inputs, yet it's never enough? How can it be that we know the benefits of types, yet only enjoy those benefits in a minority of environments? Why is it so difficult to clamber above the maelstrom of complexity - and stay there?
-                  <br>
-                  Can't we have it both ways - make improvements without sacrificing compatibility?
-                  <br>
-                  In fact, we can have it both ways. The subject of my talk is the almost unexplored frontier through which we can disrupt the endless perpetuation of mistakes of the past: ipecac for the ouroboros.
+                  <p>
+                    "Compatibility means deliberately repeating other peoples' mistakes," said Wheeler. Not only a pithy aphorism, but literally true. And today, almost fifty years after the birth of unix, we still make it a point to deliberately repeat mistakes - even if we don't count unix itself among them. Why do we still program to teletypes? Why must we concern ourselves with newlines in file names? Why is it still an everyday occurrence to find the arrow keys don't work? Why did scala intentionally repeat most of java's mistakes? How is it that so much effort is poured into validation of inputs, yet it's never enough? How can it be that we know the benefits of types, yet only enjoy those benefits in a minority of environments? Why is it so difficult to clamber above the maelstrom of complexity - and stay there?
+                  </p>
+                  <p>
+                    Can't we have it both ways - make improvements without sacrificing compatibility?
+                  </p>
+                  <p>
+                    In fact, we can have it both ways. The subject of my talk is the almost unexplored frontier through which we can disrupt the endless perpetuation of mistakes of the past: ipecac for the ouroboros.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -940,9 +958,12 @@
               <tr>
                 <td></td>
                 <td class="abstract">
-                  Types in functional programs are not only means to verifying and documenting our code, they can also help in *writing* them! This way of working is usually termed "hole-driven development". The reason is that you annotate those parts of your program which still need to be written with "holes". Afterwards, you can query the compiler and interact with your code until no hole exists. In some cases, the code can be automatically written for you.
-
-                  Hole-driven development environments are available for many languages, including Agda, Idris and Haskell. In this talk we will look at a practical example of this methodology using Haskell and its Emacs mode enhanced with the ghc-mod add-in. Get ready to unveil the hidden power of types!
+                  <p>
+                    Types in functional programs are not only means to verifying and documenting our code, they can also help in *writing* them! This way of working is usually termed "hole-driven development". The reason is that you annotate those parts of your program which still need to be written with "holes". Afterwards, you can query the compiler and interact with your code until no hole exists. In some cases, the code can be automatically written for you.
+                  </p>
+                  <p>
+                    Hole-driven development environments are available for many languages, including Agda, Idris and Haskell. In this talk we will look at a practical example of this methodology using Haskell and its Emacs mode enhanced with the ghc-mod add-in. Get ready to unveil the hidden power of types!
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -954,7 +975,9 @@
               <tr>
                 <td></td>
                 <td class="abstract">
-                  There is a large body of literature on teaching writing. There is comparatively less on teaching writing computer programs in particular. If we treat “code literacy” as a form of literacy, what knowledge and insights can we transport over into our domain, and what shibboleths can we dispel?
+                  <p>
+                    There is a large body of literature on teaching writing. There is comparatively less on teaching writing computer programs in particular. If we treat “code literacy” as a form of literacy, what knowledge and insights can we transport over into our domain, and what shibboleths can we dispel?
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -967,7 +990,9 @@
               <tr>
                 <td></td>
                 <td class="abstract">
-                Reconciling conflicts in eventually consistent distributed systems can be messy adventure, but conflict-free replicated datatypes (CRDT’s) offer a solution where updates are accepted without remote synchronization and replicas properly converge into an equivalent state. Riak Data Types bring CRDTs to the server side, making data modeling simpler and skipping the need to roll your own conflict resolution logic. More than anything, these data types make some of the recent research in strong eventual consistency real and practical, and I’ll demo #howitdoesit.
+                  <p>
+                    Reconciling conflicts in eventually consistent distributed systems can be messy adventure, but conflict-free replicated datatypes (CRDT’s) offer a solution where updates are accepted without remote synchronization and replicas properly converge into an equivalent state. Riak Data Types bring CRDTs to the server side, making data modeling simpler and skipping the need to roll your own conflict resolution logic. More than anything, these data types make some of the recent research in strong eventual consistency real and practical, and I’ll demo #howitdoesit.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -980,7 +1005,9 @@
               <tr>
                 <td></td>
                 <td class="abstract">
-                A presentation on the Cyclophone, which is an instrument that uses Haskell internally for its control logic. The instrument will be at LambdaConf so people can play with it. This talk will briefly cover the tools Ben used and the various obstacles that came up during the project.
+                  <p>
+                    A presentation on the Cyclophone, which is an instrument that uses Haskell internally for its control logic. The instrument will be at LambdaConf so people can play with it. This talk will briefly cover the tools Ben used and the various obstacles that came up during the project.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -993,7 +1020,9 @@
               <tr>
                 <td></td>
                 <td class="abstract">
-                At DICOM Grid, we have been using Haskell as part of a microservices architecture lately with some success. I would like to share some experiences of the highs and lows of using a relatively novel language in production, and give some tips for other potential adoptees.
+                  <p>
+                    At DICOM Grid, we have been using Haskell as part of a microservices architecture lately with some success. I would like to share some experiences of the highs and lows of using a relatively novel language in production, and give some tips for other potential adoptees.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1004,7 +1033,9 @@
               <tr>
                 <td></td>
                 <td class="abstract">
-                Due to the high demand for performance, programs in the Scientific Computing community are usually written in Fortran or C/C++ for execution on CPUs and in CUDA when GPUs are targeted. Though, why not use Haskell and see where it stands? We will take a quick look at code complexity and performance results of the implementations of a simple diffusion algorithm in Fortran/CUDA and Haskell.
+                  <p>
+                    Due to the high demand for performance, programs in the Scientific Computing community are usually written in Fortran or C/C++ for execution on CPUs and in CUDA when GPUs are targeted. Though, why not use Haskell and see where it stands? We will take a quick look at code complexity and performance results of the implementations of a simple diffusion algorithm in Fortran/CUDA and Haskell.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1017,7 +1048,9 @@
               <tr>
                 <td></td>
                 <td class="abstract">
-                We all know that making a method tail recursive is one way to ensure you don’t SOE when recursing. However, sometimes it’s either not possible or convenient to make your methods tail recursive, and this is where trampolining can help.  Beware though, his is not always a solution, for instance when using a Monad Transformer stack.  This is where the Free Monad can come to the rescue, and we’ll take a look at examples of both trampolines working and not working, as well as using Free in a non trampolined way to save your stack.
+                  <p>
+                    We all know that making a method tail recursive is one way to ensure you don’t SOE when recursing. However, sometimes it’s either not possible or convenient to make your methods tail recursive, and this is where trampolining can help.  Beware though, his is not always a solution, for instance when using a Monad Transformer stack.  This is where the Free Monad can come to the rescue, and we’ll take a look at examples of both trampolines working and not working, as well as using Free in a non trampolined way to save your stack
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1033,7 +1066,11 @@
               </tr>
               <tr>
                 <td>2h</td>
-                <td class="abstract">Haskell has many delightful features, perhaps the most beloved of which is its type system which allows developers to specify and verify a variety of program properties at compile time. However, many properties, typically those that depend on relationships between program values are impossible, or at the very least, cumbersome to encode within Haskell's type system. Refinement types enable the specification and verification of value-dependent properties by extending Haskell's type system with logical predicates drawn from efficiently decidable logics. In this talk, we will start with a high level description of Refinement Types. Next, we will present an overview of LiquidHaskell, a refinement type checker for Haskell. In particular, we will describe the kinds of properties that can be checked, ranging from generic requirements like like totality (will 'head' crash?) and termination (will 'mergeSort' loop forever?), to application specific concerns like memory safety (will my code 'SEGFAULT' ?) and data structure correctness invariants for various libraries like containers, hscolour, bytestring, text, vector-algorithms and xmonad.</td>
+                <td class="abstract">
+                  <p>
+                    Haskell has many delightful features, perhaps the most beloved of which is its type system which allows developers to specify and verify a variety of program properties at compile time. However, many properties, typically those that depend on relationships between program values are impossible, or at the very least, cumbersome to encode within Haskell's type system. Refinement types enable the specification and verification of value-dependent properties by extending Haskell's type system with logical predicates drawn from efficiently decidable logics. In this talk, we will start with a high level description of Refinement Types. Next, we will present an overview of LiquidHaskell, a refinement type checker for Haskell. In particular, we will describe the kinds of properties that can be checked, ranging from generic requirements like like totality (will 'head' crash?) and termination (will 'mergeSort' loop forever?), to application specific concerns like memory safety (will my code 'SEGFAULT' ?) and data structure correctness invariants for various libraries like containers, hscolour, bytestring, text, vector-algorithms and xmonad.
+                  </p>
+                </td>
                 <td></td>
               </tr>
 
@@ -1044,7 +1081,11 @@
               </tr>
               <tr>
                 <td>2h</td>
-                <td class="abstract">This workshop is intended to be a deep dive into Rust starting from the very basics to advanced type level programming. Rust is a new experimental programming language currently being designed by Mozilla Research and the language's active community. The language is inspired by several variants of ML, Haskell, C++, as well as novel research ideas about the performance and safety of programming languages. One of the key features is the reification of memory as an explicit part of the language semantics. This provides low level control of memory allocation without sacrificing the safety of garbage collection. The goal of this workshop is to show how we can use Rust to write high level code that provides excellent safety and performance.</td>
+                <td class="abstract">
+                  <p>
+                    This workshop is intended to be a deep dive into Rust starting from the very basics to advanced type level programming. Rust is a new experimental programming language currently being designed by Mozilla Research and the language's active community. The language is inspired by several variants of ML, Haskell, C++, as well as novel research ideas about the performance and safety of programming languages. One of the key features is the reification of memory as an explicit part of the language semantics. This provides low level control of memory allocation without sacrificing the safety of garbage collection. The goal of this workshop is to show how we can use Rust to write high level code that provides excellent safety and performance.
+                  </p>
+                </td>
                 <td></td>
               </tr>
 
@@ -1055,7 +1096,11 @@
               </tr>
               <tr>
                 <td>2h</td>
-                <td class="abstract">Program Derivation is the practice of beginning with a specification of a function, and by a series of mechanical steps, deriving an efficient implementation. In the “Algebra of Programming” approach, pioneered by Richard Bird, Oege de Moor, and Lambert Merteens, we can derive efficient functional programs by a series of algebraic manipulations, much schoolchildren can take a typical algebraic function, “solve for x” and then simplify. In the early-mid 90s, this school of research turned its attention to the problem of parallel computing and developed many of the foundations for what is now called MapReduce. This workshop will run through some famous and nifty algorithms and derivations, parallel and sequential alike. Attendees should walk away with a few weird tricks to level up their equational reasoning in everyday programming contexts, and hopefully enough intuition to dive more deeply into this rich body of literature.</td>
+                <td class="abstract">
+                  <p>
+                    Program Derivation is the practice of beginning with a specification of a function, and by a series of mechanical steps, deriving an efficient implementation. In the “Algebra of Programming” approach, pioneered by Richard Bird, Oege de Moor, and Lambert Merteens, we can derive efficient functional programs by a series of algebraic manipulations, much schoolchildren can take a typical algebraic function, “solve for x” and then simplify. In the early-mid 90s, this school of research turned its attention to the problem of parallel computing and developed many of the foundations for what is now called MapReduce. This workshop will run through some famous and nifty algorithms and derivations, parallel and sequential alike. Attendees should walk away with a few weird tricks to level up their equational reasoning in everyday programming contexts, and hopefully enough intuition to dive more deeply into this rich body of literature.
+                  </p>
+                </td>
                 <td></td>
               </tr>
 
@@ -1066,7 +1111,11 @@
               </tr>
               <tr>
                 <td>2h</td>
-                <td class="abstract">This workshop is designed for programmers of any skill level who want to learn functional programming. PureScript is ideal for learning functional programming, because the language has simple, clean semantics, and runs on any platform because it compiles to ubiquitous Javascript. In this workshop, you'll learn what it means to think functionally and write functional code as you explore the core concepts in PureScript. By the end, you'll have written your first functional program (a simple game!) and be able to call yourself a rookie functional programmer.... or else the instructor promises to buy you a coffee!</td>
+                <td class="abstract">
+                  <p>
+                    This workshop is designed for programmers of any skill level who want to learn functional programming. PureScript is ideal for learning functional programming, because the language has simple, clean semantics, and runs on any platform because it compiles to ubiquitous Javascript. In this workshop, you'll learn what it means to think functionally and write functional code as you explore the core concepts in PureScript. By the end, you'll have written your first functional program (a simple game!) and be able to call yourself a rookie functional programmer.... or else the instructor promises to buy you a coffee!
+                  </p>
+                </td>
                 <td></td>
               </tr>
 
@@ -1077,7 +1126,26 @@
               </tr>
               <tr>
                 <td>2h</td>
-                <td class="abstract">There are patterns for modeling data that are not obvious or widely covered in Haskell that only require the application of basic algebraic datatypes, we'll explore some of these approaches with the dual purpose of introducing thinking in terms of algebraic datatypes in Haskell. The audience is not expected to know Haskell.</td>
+                <td class="abstract">
+                  <p>
+                    There are patterns for modeling data that are not obvious or widely covered in Haskell that only require the application of basic algebraic datatypes, we'll explore some of these approaches with the dual purpose of introducing thinking in terms of algebraic datatypes in Haskell. The audience is not expected to know Haskell.
+                  </p>
+                </td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Any</td>
+                <td class="title">Conversation 201: What Stuttering Can Teach You About Talking to Humans</td>
+                <td><a href="#sharon-steed">Sharon Steed</a></td>
+              </tr>
+              <tr>
+                <td>2h</td>
+                <td class="abstract">                  
+                  <p>
+                    Developers are trained to communicate to things with a goal in mind. When you're talking to something like, say a computer, you type in your code and it responds by giving you back what you want. Nine times out of ten, it works perfectly. Why, then, is it so difficult to do this same thing when talking to a client about a project, updating a superior on your progress, or pitching an investor your million-dollar idea? Because talking to people requires a special set of skills - namely, empathy and a little bit of storytelling. In an industry filled with brilliant minds, great ideas and mass disruption, so few of the best and brightest know how to tell their compelling story. The takeaways from this workshop will be learning how to value the listener and use vulnerability to improve your social connection.
+                  </p>
+                </td>
                 <td></td>
               </tr>
 
@@ -1088,7 +1156,11 @@
               </tr>
               <tr>
                 <td>2h</td>
-                <td class="abstract">Constraint logic programming is a paradigm that allows solving hard combinatorial problems with minimal programming effort. In this workshop you will learn the basics of the Prolog-based constraint logic programming system ECLiPSe, solve several puzzles, and get hints how constraint logic programming can be useful in your real-life projects.</td>
+                <td class="abstract">
+                  <p>
+                    Constraint logic programming is a paradigm that allows solving hard combinatorial problems with minimal programming effort. In this workshop you will learn the basics of the Prolog-based constraint logic programming system ECLiPSe, solve several puzzles, and get hints how constraint logic programming can be useful in your real-life projects.
+                  </p>
+                </td>
                 <td></td>
               </tr>
 
@@ -1099,7 +1171,11 @@
               </tr>
               <tr>
                 <td>2h</td>
-                <td class="abstract">A burgeoning Haskeller soon discovers that proper use of descriptive types helps to capture real-world ideas, catches errors, aids in refactoring, speeds development, and indeed makes programming more fun. But, once that Haskeller has drunk the well-typed Kool-Aid, where to go from there? The answer: even more types! A Generalized Algebraic Datatype (GADT), at its core, allows a compiler to make different assumptions about types within different branches of a pattern match. Leveraging this power allows a programmer to encode detailed invariants in a datatype or algorithm and have these invariants checked at compile time. Clever use of GADTs also lets you remove certain uses of unsafeCoerce, as long as these can be proved safe. This workshop will be a hands-on, interactive tutorial on using Haskell GADTs in a practical setting.</td>
+                <td class="abstract">
+                  <p>
+                    A burgeoning Haskeller soon discovers that proper use of descriptive types helps to capture real-world ideas, catches errors, aids in refactoring, speeds development, and indeed makes programming more fun. But, once that Haskeller has drunk the well-typed Kool-Aid, where to go from there? The answer: even more types! A Generalized Algebraic Datatype (GADT), at its core, allows a compiler to make different assumptions about types within different branches of a pattern match. Leveraging this power allows a programmer to encode detailed invariants in a datatype or algorithm and have these invariants checked at compile time. Clever use of GADTs also lets you remove certain uses of unsafeCoerce, as long as these can be proved safe. This workshop will be a hands-on, interactive tutorial on using Haskell GADTs in a practical setting.
+                  </p>
+                </td>
                 <td></td>
               </tr>
 
@@ -1110,7 +1186,11 @@
               </tr>
               <tr>
                 <td>2h</td>
-                <td class="abstract">Freya is a stack of libraries for F# which are designed to let you get close to HTTP in a functional, typed way. As well as providing a useful set of abstractions over HTTP, it also offers a graph based approach to modelling HTTP responses, enabling the creation of "well-behaved" HTTP applications simply (and correctly). We'll take a tour through the stack and exercise the various parts individually, before diving in to write a complete HTTP application. We'll see how easy it is to write applications which take full advantage of the HTTP standards, and then we'll look at ways of extending our application out past the world of RFCs in to the world of hypermedia - and we'll do it with graphs! After this session you'll be comfortable building an application using Freya, and you'll almost certainly have come up with some great ideas for how Freya, and the graph based approach to logical design, could be extended to do even more.</td>
+                <td class="abstract">
+                  <p>
+                    Freya is a stack of libraries for F# which are designed to let you get close to HTTP in a functional, typed way. As well as providing a useful set of abstractions over HTTP, it also offers a graph based approach to modelling HTTP responses, enabling the creation of "well-behaved" HTTP applications simply (and correctly). We'll take a tour through the stack and exercise the various parts individually, before diving in to write a complete HTTP application. We'll see how easy it is to write applications which take full advantage of the HTTP standards, and then we'll look at ways of extending our application out past the world of RFCs in to the world of hypermedia - and we'll do it with graphs! After this session you'll be comfortable building an application using Freya, and you'll almost certainly have come up with some great ideas for how Freya, and the graph based approach to logical design, could be extended to do even more.
+                  </p>
+                </td>
                 <td></td>
               </tr>
 
@@ -1121,7 +1201,11 @@
               </tr>
               <tr>
                 <td>2h</td>
-                <td class="abstract">Grab your REPL and your prettiest pair of parentheses! In this beginner-friendly workshop (even if you've never coded before), you will learn how to think in Clojure, why you would want to, and you'll get the opportunity for some hands-on experimentation with Zach Oakes' Nightmod, a developer tool for making live-moddable games. Clojure is a relatively new, powerful, dynamic Lisp dialect that compiles to many target environments, including the JVM, JavaScript, and the CLR. The most important single principle behind Clojure is its simplicity: its abstractions are simple and orthogonal, which means no compromise on power. A la carte polymorphism, careful support for names and namespaces, the reference succession model, and a wide selection of small, composable protocols make Clojure programming swift, surgical, and accurate. Perfect for game development! So are you ready, brave programmers? It's time to get atomic!</td>
+                <td class="abstract">
+                  <p>
+                    Grab your REPL and your prettiest pair of parentheses! In this beginner-friendly workshop (even if you've never coded before), you will learn how to think in Clojure, why you would want to, and you'll get the opportunity for some hands-on experimentation with Zach Oakes' Nightmod, a developer tool for making live-moddable games. Clojure is a relatively new, powerful, dynamic Lisp dialect that compiles to many target environments, including the JVM, JavaScript, and the CLR. The most important single principle behind Clojure is its simplicity: its abstractions are simple and orthogonal, which means no compromise on power. A la carte polymorphism, careful support for names and namespaces, the reference succession model, and a wide selection of small, composable protocols make Clojure programming swift, surgical, and accurate. Perfect for game development! So are you ready, brave programmers? It's time to get atomic!
+                  </p>
+                </td>
                 <td></td>
               </tr>
 
@@ -1132,7 +1216,11 @@
               </tr>
               <tr>
                 <td>2h</td>
-                <td class="abstract">Om is a flavor of Facebook's ReactJS that takes advantage of immutable data structures to make the virtual dom-diffing algorithm much faster in the ClojureScript environment. We will work through some simple examples to get an understanding of how state is represented and passed through to components in order to build fast, functional UIs.</td>
+                <td class="abstract">
+                  <p>
+                    Om is a flavor of Facebook's ReactJS that takes advantage of immutable data structures to make the virtual dom-diffing algorithm much faster in the ClojureScript environment. We will work through some simple examples to get an understanding of how state is represented and passed through to components in order to build fast, functional UIs.
+                  </p>
+                </td>
                 <td></td>
               </tr>
 
@@ -1143,7 +1231,11 @@
               </tr>
               <tr>
                 <td>2h</td>
-                <td class="abstract">Web development is easy and fun with Haskell... and of course, type safe! Let's take a birds-eye tour on creating a web application in Haskell from scratch, from the initial project creation to deployment in the cloud. By the end of the workshop, you will have deployed a small server for note-taking. The workshop is divided in four slots, each dealing with a different facet of web development. First of all, simple routing and building of HTML to be returned to the clients. Then, adding database capabilities using Persistent and Esqueleto. The next step is taking input from the user via digestive functors. Finally, deployment to Heroku will be considered, along with integrating other middleware in your application.</td>
+                <td class="abstract">
+                  <p>
+                    Web development is easy and fun with Haskell... and of course, type safe! Let's take a birds-eye tour on creating a web application in Haskell from scratch, from the initial project creation to deployment in the cloud. By the end of the workshop, you will have deployed a small server for note-taking. The workshop is divided in four slots, each dealing with a different facet of web development. First of all, simple routing and building of HTML to be returned to the clients. Then, adding database capabilities using Persistent and Esqueleto. The next step is taking input from the user via digestive functors. Finally, deployment to Heroku will be considered, along with integrating other middleware in your application.
+                  </p>
+                </td>
                 <td></td>
               </tr>
 
@@ -1155,7 +1247,9 @@
               <tr>
                 <td>2h</td>
                 <td class="abstract">
-                  Elm is a functional reactive language that compiles to HTML, CSS and Javascript, with Haskell-like syntax. Thanks to a combination of smart language design and innovative web-based tools, it is incredibly easy to write interactive applications in Elm. During this workshop we'll cover the basics concepts of the language and syntax, dive into the hot-swapping editor and time-travelling debugger, and build an adventure game using functional reactive technqiues.
+                  <p>
+                    Elm is a functional reactive language that compiles to HTML, CSS and Javascript, with Haskell-like syntax. Thanks to a combination of smart language design and innovative web-based tools, it is incredibly easy to write interactive applications in Elm. During this workshop we'll cover the basics concepts of the language and syntax, dive into the hot-swapping editor and time-travelling debugger, and build an adventure game using functional reactive technqiues.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1167,7 +1261,11 @@
               </tr>
               <tr>
                 <td>2h</td>
-                <td class="abstract">React has popularized the idea of user interfaces as pure functions of application state, an approach which is perfectly suited for a language like PureScript. In this workshop, we'll learn how to use React and PureScript to create clean, well-factored web applications. This workshop assumes only basic knowledge of PureScript (or a related language such as Haskell), and for that reason, it can be considered a continuation of the earlier PureScript workshop for beginners.</td>
+                <td class="abstract">
+                  <p>
+                    React has popularized the idea of user interfaces as pure functions of application state, an approach which is perfectly suited for a language like PureScript. In this workshop, we'll learn how to use React and PureScript to create clean, well-factored web applications. This workshop assumes only basic knowledge of PureScript (or a related language such as Haskell), and for that reason, it can be considered a continuation of the earlier PureScript workshop for beginners.
+                  </p>
+                </td>
                 <td></td>
               </tr>
 
@@ -1178,7 +1276,11 @@
               </tr>
               <tr>
                 <td>2h</td>
-                <td class="abstract">This workshop will give an introduction to the Haskell programming language. We will work through basic concepts of functional programming and specifically Haskell by implementing a simple diffusion algorithm with convergence check. Using our naive implementation, we will learn how to identify performance bottlenecks and how to overcome them in order to achieve high-performing, sequential code.</td>
+                <td class="abstract">
+                  <p>
+                    This workshop will give an introduction to the Haskell programming language. We will work through basic concepts of functional programming and specifically Haskell by implementing a simple diffusion algorithm with convergence check. Using our naive implementation, we will learn how to identify performance bottlenecks and how to overcome them in order to achieve high-performing, sequential code.
+                  </p>
+                </td>
                 <td></td>
               </tr>
 
@@ -1189,7 +1291,11 @@
               </tr>
               <tr>
                 <td>2h</td>
-                <td class="abstract">If you have heard nothing else about Erlang, you have probably heard something about OTP and people chanting “Processes are not threads.  Processes are really cheap. Ohmmmm.”  In this workshop you will get a overview of Erlang syntax, OTP process management, and how cheap Erlang processes really are when you implement a Markov Chain generator where each state and its possible transitions are represented by their own process.</td>
+                <td class="abstract">
+                  <p>
+                    If you have heard nothing else about Erlang, you have probably heard something about OTP and people chanting “Processes are not threads.  Processes are really cheap. Ohmmmm.”  In this workshop you will get a overview of Erlang syntax, OTP process management, and how cheap Erlang processes really are when you implement a Markov Chain generator where each state and its possible transitions are represented by their own process.
+                  </p>
+                </td>
                 <td></td>
               </tr>
 
@@ -1221,12 +1327,10 @@
               </tr>
               <tr>
                 <td>2h</td>
-                <td class="abstract">This workshop will give an introduction to Typed Racket. We will give an overview of the features of its type system,
-                go over some examples of typing old untyped Racket code and provide some accompanying typing exercises for people to try. We will also
-                discuss some current issues trusting Typed Racket, e.g. sketchy examples of mixing typed and untyped code. Finally, we will discuss
-                the need to add type annotations to a significant number of existing Racket modules - and try to get people interested in contributing
-                to Typed Racket. Some prior experience using a Lisp-like functional programming language, such as Scheme/Racket, could be an asset in
-                understanding the content of this workshop, though none is required.
+                <td class="abstract">
+                  <p>
+                    This workshop will give an introduction to Typed Racket. We will give an overview of the features of its type system, go over some examples of typing old untyped Racket code and provide some accompanying typing exercises for people to try. We will also discuss some current issues trusting Typed Racket, e.g. sketchy examples of mixing typed and untyped code. Finally, we will discuss the need to add type annotations to a significant number of existing Racket modules - and try to get people interested in contributing to Typed Racket. Some prior experience using a Lisp-like functional programming language, such as Scheme/Racket, could be an asset in understanding the content of this workshop, though none is required.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1237,9 +1341,12 @@
               <tr>
                 <td>2h</td>
                 <td class="abstract">
+                  <p>
                     <a href="http://www.idris-lang.org/">Idris</a> is a dependently typed programming language. Unlike most other dependently typed systems, Idris is designed specifically for writing executable programs. This workshop will slowly walk through writing a few programs using dependent types, to motivate its uses around correctness and expressivity.<br />
-                    <br />
+                  </p>
+                  <p>
                     This workshop will be modeled similarly to LambdaConf 2014's but with new examples to demonstrate what Idris is capable of. The only prerequisite knowledge is familiarity with algebraic data types. It is important to have the Idris REPL installed, optionally with an interactive editor configuration such as Emacs' <a href="https://github.com/idris-hackers/idris-mode">idris-mode</a> or Vim's <a href="https://github.com/idris-hackers/idris-vim">idris-vim</a>.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1255,7 +1362,11 @@
               </tr>
               <tr>
                 <td>30m</td>
-                <td class="abstract">Emily is an experimental language project focusing on simplifying the basis of programming languages: it models all language operations through composition of function-like entities, equivalent to combinators with state. This means functions, objects, classes, and variable scopes have the same interface and are generally interchangeable. The goal is to make FP language capabilities accessible to entry-level and FP-wary programmers by means of simple concepts and a configurable, scripting-language-like syntax.</td>
+                <td class="abstract">
+                  <p>
+                    Emily is an experimental language project focusing on simplifying the basis of programming languages: it models all language operations through composition of function-like entities, equivalent to combinators with state. This means functions, objects, classes, and variable scopes have the same interface and are generally interchangeable. The goal is to make FP language capabilities accessible to entry-level and FP-wary programmers by means of simple concepts and a configurable, scripting-language-like syntax.
+                  </p>
+                </td>
                 <td></td>
               </tr>
 
@@ -1267,7 +1378,9 @@
               <tr>
                 <td>1h</td>
                 <td class="abstract">
-                  Modern applications&mdash;in particular, web apps&mdash;handle user-specific, often sensitive, information. Unfortunately, protecting user data is notoriously difficult today&mdash;languages and frameworks do not provide a way for declaring and enforcing application-specific security policies. In response, developers often specify and enforce security policy in an ad-hoc fashion (e.g., by strewing security checks throughout the code-base).  Even if one manages to get all the checks in all the right places, applications rely on third party libraries which may themselves expose vulnerabilities (or, in some cases, happen to be malicious).  Recent headlines alone serve to highlight that existing approaches are not working&mdash;web applications are plagued by privacy leaks. In this talk I will first describe <a href="http://hackage.haskell.org/package/lio">LIO</a>, a Haskell library for building secure systems.  LIO is an <em>information flow control (IFC)</em> library&mdash;it provides APIs for specifying policy on data (who is allowed to read/write the data) and enforces this policy on <em>all</em> code leveraging Haskell's monads and strong type system. I will then describe <a href="http://hackage.haskell.org/package/hails">Hails</a>, a web framework built on top of LIO that makes it easy to specify policies in a declarative way, when defining your application data types. Hails applications, by construction, protect user privacy and integrity.
+                  <p>
+                    Modern applications&mdash;in particular, web apps&mdash;handle user-specific, often sensitive, information. Unfortunately, protecting user data is notoriously difficult today&mdash;languages and frameworks do not provide a way for declaring and enforcing application-specific security policies. In response, developers often specify and enforce security policy in an ad-hoc fashion (e.g., by strewing security checks throughout the code-base).  Even if one manages to get all the checks in all the right places, applications rely on third party libraries which may themselves expose vulnerabilities (or, in some cases, happen to be malicious).  Recent headlines alone serve to highlight that existing approaches are not working&mdash;web applications are plagued by privacy leaks. In this talk I will first describe <a href="http://hackage.haskell.org/package/lio">LIO</a>, a Haskell library for building secure systems.  LIO is an <em>information flow control (IFC)</em> library&mdash;it provides APIs for specifying policy on data (who is allowed to read/write the data) and enforces this policy on <em>all</em> code leveraging Haskell's monads and strong type system. I will then describe <a href="http://hackage.haskell.org/package/hails">Hails</a>, a web framework built on top of LIO that makes it easy to specify policies in a declarative way, when defining your application data types. Hails applications, by construction, protect user privacy and integrity.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1279,7 +1392,10 @@
               </tr>
               <tr>
                 <td>30m</td>
-                <td class="abstract">Operations on power series showcase the elegance and expressiveness of overloading and lazy evaluation. Simple one-liners for sum, product, integral, derivative, functional composition, functional inverse, etc. vividly embody the underlying mathematics, and even improve upon it by banishing subscripts. Series solutions of differential equations come practically for free and generating functions actively generate.
+                <td class="abstract">
+                  <p>
+                    Operations on power series showcase the elegance and expressiveness of overloading and lazy evaluation. Simple one-liners for sum, product, integral, derivative, functional composition, functional inverse, etc. vividly embody the underlying mathematics, and even improve upon it by banishing subscripts. Series solutions of differential equations come practically for free and generating functions actively generate.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1292,7 +1408,33 @@
               <tr>
                 <td>1h</td>
                 <td class="abstract">
-                  "Programming in Scala", by Martin Odersky et al., is one of the most comprehensive and the de facto reference for Scala. However, the book, originally published in 2008 for Scala 2.7.2, has not been updated since its second edition in 2010, covering up until Scala 2.8.1. In the meantime, Scala has had 3 major releases with numerous fresh and advanced features. While we wait for a third edition of "Programming in Scala" to describe all the latest and greatest Scala features introduced in the last 4 years, this talk presents the main features introduced in Scala: 2.9, 2.10, and 2.11, as well as an exciting peek into 2.12 and beyond (What's in Scala's future?).
+                  <p>
+                    "Programming in Scala", by Martin Odersky et al., is one of the most comprehensive and the de facto reference for Scala. However, the book, originally published in 2008 for Scala 2.7.2, has not been updated since its second edition in 2010, covering up until Scala 2.8.1. In the meantime, Scala has had 3 major releases with numerous fresh and advanced features. While we wait for a third edition of "Programming in Scala" to describe all the latest and greatest Scala features introduced in the last 4 years, this talk presents the main features introduced in Scala: 2.9, 2.10, and 2.11, as well as an exciting peek into 2.12 and beyond (What's in Scala's future?).
+                  </p>
+                </td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Scala</td>
+                <td class="title">A Skeptic's Look at Scalaz "Gateway Drugs": A Practical Exploration</td>
+                <td><a href="#brendan-mcadams">Brendan McAdams</a></td>
+              </tr>
+              <tr>
+                <td>30m</td>
+                <td class="abstract">
+                  <p>
+                    We've all seen them on the corner of our local software development neighborhoods: FP purists, shamelessly peddling scalaz to unsuspecting developers. Lured in by promises of Free Monoids, Semigroups, and Endofunctors these developers soon seem lost in throes of ecstatic coding.
+                  </p>
+                  <p>
+                    To the skeptical and stubbornly practical among us, the above might ring a little true – especially if read in Rod Serling's voice. Images of gibbering horrors lurking in the depths of mathematical perfection swim before our eyes.
+                  </p>
+                  <p>
+                    But what if there is true value in the world of Scalaz? What if it is possible to use these tools for good (and a little bit of evil – it's fun to use learning for evil!) and profit... Without getting hopelessly lost in the opium dens of FP?
+                  </p>
+                  <p>
+                    In this talk we will look at some of the "gateway drugs" of Scalaz: Validation, NonEmptyList, \/, Monad Transformers, and more. How do they work from a practical standpoint? What is their value for real world applications? Can we use them without an advanced Maths PhD? And just how fun is it to <em>really</em> code with these tools? 
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1305,7 +1447,9 @@
               <tr>
                 <td>1h</td>
                 <td class="abstract">
-                  Free monads, generic programming, fix-points and coproducts of data types are usually considered advanced topics for a Haskell programmer. In this talk we will look at these concepts from an unifying lens: combining and enriching pattern functors. A pattern functor is the stripped-down description of a data type: only the shape of the constructors remain, but all the recursive structure is gone. Using Haskell, we can manipulate pattern functors to create new data types at will.
+                  <p>
+                    Free monads, generic programming, fix-points and coproducts of data types are usually considered advanced topics for a Haskell programmer. In this talk we will look at these concepts from an unifying lens: combining and enriching pattern functors. A pattern functor is the stripped-down description of a data type: only the shape of the constructors remain, but all the recursive structure is gone. Using Haskell, we can manipulate pattern functors to create new data types at will.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1318,7 +1462,9 @@
               <tr>
                 <td>1h</td>
                 <td class="abstract">
-                  Shortly after Adelbert Chang entered college as a computer science major, he contemplated changing his major several times, usually in the direction of physics and mathematics. That all changed when he was introduced to functional programming &mdash; at once both mysterious and beautiful. In this talk, Adelbert will elaborate on his early perspectives on computer science, math, and physics, and discuss how he ended up so enamored with functional programming.
+                  <p>
+                    Shortly after Adelbert Chang entered college as a computer science major, he contemplated changing his major several times, usually in the direction of physics and mathematics. That all changed when he was introduced to functional programming &mdash; at once both mysterious and beautiful. In this talk, Adelbert will elaborate on his early perspectives on computer science, math, and physics, and discuss how he ended up so enamored with functional programming.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1331,9 +1477,9 @@
               <tr>
                 <td>30m</td>
                 <td class="abstract">
-                  Axle is a Scala-embedded domain-specific language built on Spire.
-                  This talk will cover the architecture and objectives of the project.
-                  Live coding examples will show how "design patterns" from Abstract Algebra apply to a range of domains including machine learning, bioinformatics, game theory, statistics, and data visualization.
+                  <p>
+                    Axle is a Scala-embedded domain-specific language built on Spire. This talk will cover the architecture and objectives of the project. Live coding examples will show how "design patterns" from Abstract Algebra apply to a range of domains including machine learning, bioinformatics, game theory, statistics, and data visualization.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1346,9 +1492,12 @@
               <tr>
                 <td>1h</td>
                 <td class="abstract">
-                  <p>Functional programming is too-often viewed as an academic discipline.  And why not?  After all, FP imposes constraints that seem to be more aesthetic and pedantic than practical, and almost all motivating examples for FP involve one-liners mapping over a list while hand-waving about endomorphisms rather than something more "down to earth".  This talk takes a different approach.</p>
-
-                  <p>Functional programming makes things easier.  It makes it easier to write code, test code, design components and abstractions.  It makes turnaround times faster, bugs rarer and even improves application throughput.  This talk explains how all of this is possible and why it is precisely that I will *never* work on a serious application without FP again.  We will also touch briefly on how FP works (or doesn't work) in common industrial languages like Java and JavaScript, and where we can gain benefits by expanding our toolset just a bit.</p>
+                  <p>
+                    Functional programming is too-often viewed as an academic discipline.  And why not?  After all, FP imposes constraints that seem to be more aesthetic and pedantic than practical, and almost all motivating examples for FP involve one-liners mapping over a list while hand-waving about endomorphisms rather than something more "down to earth".  This talk takes a different approach.
+                  </p>
+                  <p>
+                    Functional programming makes things easier.  It makes it easier to write code, test code, design components and abstractions.  It makes turnaround times faster, bugs rarer and even improves application throughput.  This talk explains how all of this is possible and why it is precisely that I will *never* work on a serious application without FP again.  We will also touch briefly on how FP works (or doesn't work) in common industrial languages like Java and JavaScript, and where we can gain benefits by expanding our toolset just a bit.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1360,7 +1509,11 @@
               </tr>
               <tr>
                 <td>1h</td>
-                <td class="abstract">Building computer systems that are reliable is hard. The functional programming community has invested a lot of time and energy into up-front-correctness guarantees: types and the like. Unfortunately, absolutely correct software is time-consuming to write and expensive as a result. Fault-tolerant systems achieve system-total reliability by accepting that sub-components will fail and planning for that failure as a first-class concern of the system. As companies embrace the wave of "as-a-service" architectures, failure of sub-systems become a more pressing concern. Using examples from heavy industry, aeronautics and telecom systems, this talk will explore how you can design for fault-tolerance and how functional programming techniques get us most of the way there.</td>
+                <td class="abstract">
+                  <p>
+                    Building computer systems that are reliable is hard. The functional programming community has invested a lot of time and energy into up-front-correctness guarantees: types and the like. Unfortunately, absolutely correct software is time-consuming to write and expensive as a result. Fault-tolerant systems achieve system-total reliability by accepting that sub-components will fail and planning for that failure as a first-class concern of the system. As companies embrace the wave of "as-a-service" architectures, failure of sub-systems become a more pressing concern. Using examples from heavy industry, aeronautics and telecom systems, this talk will explore how you can design for fault-tolerance and how functional programming techniques get us most of the way there.
+                  </p>
+                </td>
                 <td></td>
               </tr>
 
@@ -1372,7 +1525,9 @@
               <tr>
                 <td>1h</td>
                 <td class="abstract">
-                  “Programming is about abstraction.” But what is abstraction about? Surely not just programming. Why do we need it, why do we keep reinventing it? How do we even recognize it when we see it, across so many domains? When something is more abstract, it is not necessarily more useless, even though, definitionally, it is further removed from any specific use. How can that even be the case? Too often, when we teach functional programming, we are met with the response “you have taught me some abstractions, but not what they are good for.” Certain realms of mathematics, such as category theory, often elicit similar responses. This talk is an investigation into how to consider not only abstractions, but the process of applying them.
+                  <p>
+                    “Programming is about abstraction.” But what is abstraction about? Surely not just programming. Why do we need it, why do we keep reinventing it? How do we even recognize it when we see it, across so many domains? When something is more abstract, it is not necessarily more useless, even though, definitionally, it is further removed from any specific use. How can that even be the case? Too often, when we teach functional programming, we are met with the response “you have taught me some abstractions, but not what they are good for.” Certain realms of mathematics, such as category theory, often elicit similar responses. This talk is an investigation into how to consider not only abstractions, but the process of applying them.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1385,12 +1540,9 @@
               <tr>
                 <td>30m</td>
                 <td class="abstract">
-                  John has no clue what the next great functional programming language will be like, but he's more than happy
-                  to hop up on stage and rant against type classes, nominative typing, data, modules, pattern matching, recursion, 
-                  and, well, basically everything else you associate with functional programming! John will argue that to make radical
-                  progress in cheaply building correct software, we need to take one step backward and two steps forward, embracing
-                  dependent-typing, total functions, Turing-complete compilers, host languages, and automated proof search. Attend this
-                  talk to question your assumptions about functional programming... or just to heckle! Either way, all are welcome.
+                  <p>
+                    John has no clue what the next great functional programming language will be like, but he's more than happy to hop up on stage and rant against type classes, nominative typing, data, modules, pattern matching, recursion,  and, well, basically everything else you associate with functional programming! John will argue that to make radical progress in cheaply building correct software, we need to take one step backward and two steps forward, embracing dependent-typing, total functions, Turing-complete compilers, host languages, and automated proof search. Attend this talk to question your assumptions about functional programming... or just to heckle! Either way, all are welcome.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1403,7 +1555,9 @@
               <tr>
                 <td>1h</td>
                 <td class="abstract">
-                  What happens when you take a 2011 CoffeeScript web app designed to edit 100,000-word novels...and scratch-rewrite it in Elm? It turns out the result is faster, more robust, and massively easier to maintain. Elm's simple design means that even a functional programming novice can quickly get up to speed on its static type inference, pervasive immutability, and first-class FRP system. It's not only an excellent language, but also a great introductory FP language that any JavaScript developer can pick up. This talk dives into the nuts and bolts of shipping a production web app in Elm, including questions like why you should choose Elm, how you transition from imperative architecture to FRP, and to what extent you can leverage the JavaScript library ecosystem without sacrificing your functional invariants. Come see how pleasant functional programming in the browser can be!
+                  <p>
+                    What happens when you take a 2011 CoffeeScript web app designed to edit 100,000-word novels...and scratch-rewrite it in Elm? It turns out the result is faster, more robust, and massively easier to maintain. Elm's simple design means that even a functional programming novice can quickly get up to speed on its static type inference, pervasive immutability, and first-class FRP system. It's not only an excellent language, but also a great introductory FP language that any JavaScript developer can pick up. This talk dives into the nuts and bolts of shipping a production web app in Elm, including questions like why you should choose Elm, how you transition from imperative architecture to FRP, and to what extent you can leverage the JavaScript library ecosystem without sacrificing your functional invariants. Come see how pleasant functional programming in the browser can be!
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1416,7 +1570,9 @@
               <tr>
                 <td>30m</td>
                 <td class="abstract">
-                  The Scaladoc page for Option says: "The most idiomatic way to use a scala.Option instance is to treat it as a collection or monad and use map, flatMap, filter, or foreach [...] A less-idiomatic way to use scala.Option values is via pattern matching." In this talk we show how to use the Option monad in an idiomatic, functional style, leveraging its comprehensive set of higher-order functions to solve any coding situation in a concise and declarative manner. After this talk, you will never have to pattern match against Options again!
+                  <p>
+                    The Scaladoc page for Option says: "The most idiomatic way to use a scala.Option instance is to treat it as a collection or monad and use map, flatMap, filter, or foreach [...] A less-idiomatic way to use scala.Option values is via pattern matching." In this talk we show how to use the Option monad in an idiomatic, functional style, leveraging its comprehensive set of higher-order functions to solve any coding situation in a concise and declarative manner. After this talk, you will never have to pattern match against Options again!
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1429,7 +1585,9 @@
               <tr>
                 <td>1h</td>
                 <td class="abstract">
-                  Writing correct concurrent, fault-tolerant, scalable applications is no simple task. The struggle is generally the result of using the wrong tools or wrong level of abstraction. The Actor based concurrency model aims to simplify this process. The actor model is a mathematical model of concurrent computation originated in 1973 by Carl Hewitt, Peter Bishop, and Richard Steiger. Actor programming is one of the most widely applicable programming models, which provides support for concurrency, by improving distribution, error detection, and fault tolerance. As such, it’s a good fit for the kinds of programming problems we find ourselves faced with in today’s increasingly distributed world Actors raise the abstraction level and provide a better platform to build correct concurrent and scalable applications. This presentation will introduce concepts in architecture such as immutability, isolation and asynchronous processing utilizing tools such as Akka.NET which is a .NET port of the popular JVM framework Akka. The goal is to provide solid knowledge of and foundation for the Actor model. Following the presentation, attendees will take with them enough material to start to use and leverage the Actor model to write successful concurrent applications.
+                  <p>
+                    Writing correct concurrent, fault-tolerant, scalable applications is no simple task. The struggle is generally the result of using the wrong tools or wrong level of abstraction. The Actor based concurrency model aims to simplify this process. The actor model is a mathematical model of concurrent computation originated in 1973 by Carl Hewitt, Peter Bishop, and Richard Steiger. Actor programming is one of the most widely applicable programming models, which provides support for concurrency, by improving distribution, error detection, and fault tolerance. As such, it’s a good fit for the kinds of programming problems we find ourselves faced with in today’s increasingly distributed world Actors raise the abstraction level and provide a better platform to build correct concurrent and scalable applications. This presentation will introduce concepts in architecture such as immutability, isolation and asynchronous processing utilizing tools such as Akka.NET which is a .NET port of the popular JVM framework Akka. The goal is to provide solid knowledge of and foundation for the Actor model. Following the presentation, attendees will take with them enough material to start to use and leverage the Actor model to write successful concurrent applications.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1442,7 +1600,9 @@
               <tr>
                 <td>1h</td>
                 <td class="abstract">
-                  Many machines and devices come equipped with powerful graphical processing units, or GPUs. These units have hundreds of processing cores, and can be exploited to accelerate our applications by offloading applicable code to the GPU instead of the CPU. In this talk we will cover the basic concepts of General Purpose Programming for GPUs, and show how it can be exploited in the functional programming language, Haskell, via the accelerate library.
+                  <p>
+                    Many machines and devices come equipped with powerful graphical processing units, or GPUs. These units have hundreds of processing cores, and can be exploited to accelerate our applications by offloading applicable code to the GPU instead of the CPU. In this talk we will cover the basic concepts of General Purpose Programming for GPUs, and show how it can be exploited in the functional programming language, Haskell, via the accelerate library.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1455,7 +1615,9 @@
               <tr>
                 <td>30m</td>
                 <td class="abstract">
-                  FP is often glibly described as "programming with functions", but we can equivalently say that FP is about programming with *values*. Functions are values, failures are values, effects are values, and indeed programs themselves can be treated as values. This talk explores some consequences of this idea of programs-as-values by looking at *doobie*, a pure-functional database library for Scala. We will examine the low-level implementation via free monads over algebras of the JDBC types, and show how this naturally enables an expressive and safe high-level API with familiar, lightweight, and composable abstractions including streaming result sets, and trivial compatibility with other pure libraries like Remotely and HTTP4s. Even if you are not in the market for a database layer, this talk will provide a practical outline for a general solution to dealing with terrible APIs (like JDBC) in a principled way.
+                  <p>
+                    FP is often glibly described as "programming with functions", but we can equivalently say that FP is about programming with <em>values</em>. Functions are values, failures are values, effects are values, and indeed programs themselves can be treated as values. This talk explores some consequences of this idea of programs-as-values by looking at *doobie*, a pure-functional database library for Scala. We will examine the low-level implementation via free monads over algebras of the JDBC types, and show how this naturally enables an expressive and safe high-level API with familiar, lightweight, and composable abstractions including streaming result sets, and trivial compatibility with other pure libraries like Remotely and HTTP4s. Even if you are not in the market for a database layer, this talk will provide a practical outline for a general solution to dealing with terrible APIs (like JDBC) in a principled way.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1468,7 +1630,9 @@
               <tr>
                 <td>1h</td>
                 <td class="abstract">
-                  There are so many other languages out there, and they all have strengths, weaknesses, and very different communities surrounding them. How do we evaluate new languages and technologies for ourselves? How do we be pragmatic about introducing things to production? Let's talk about language exploration. We'll discuss how to learn a new language, considerations when introducing things to production, and come up with some ideas for Ruby and its ecosystem. Plan on dipping your toes in Elixir, Go, Haskell, Ruby, Rust, and Scala during the session.
+                  <p>
+                    There are so many other languages out there, and they all have strengths, weaknesses, and very different communities surrounding them. How do we evaluate new languages and technologies for ourselves? How do we be pragmatic about introducing things to production? Let's talk about language exploration. We'll discuss how to learn a new language, considerations when introducing things to production, and come up with some ideas for Ruby and its ecosystem. Plan on dipping your toes in Elixir, Go, Haskell, Ruby, Rust, and Scala during the session.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1480,7 +1644,10 @@
               </tr>
               <tr>
                 <td>1h</td>
-                <td class="abstract">Do you enjoy Lisp-based languages, built on s-expressions and homoiconicity? Do you like writing syntactic abstractions with pattern matching? What if you could use a Lisp to write a fault-tolerant, highly-available distributed datastore? Welcome to the wonderful world of LFE (Lisp-Flavored Erlang)! I'll cover the basics of LFE, its toolchain, the macro system, and its immediate representation step to Core Erlang, ending up on BEAM, the Erlang virtual machine.
+                <td class="abstract">
+                  <p>
+                    Do you enjoy Lisp-based languages, built on s-expressions and homoiconicity? Do you like writing syntactic abstractions with pattern matching? What if you could use a Lisp to write a fault-tolerant, highly-available distributed datastore? Welcome to the wonderful world of LFE (Lisp-Flavored Erlang)! I'll cover the basics of LFE, its toolchain, the macro system, and its immediate representation step to Core Erlang, ending up on BEAM, the Erlang virtual machine.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1493,7 +1660,9 @@
               <tr>
                 <td>1h</td>
                 <td class="abstract">
-                  Scalaz is a massive library full of many critical FP abstractions, but it can be a bit dense. If you've dipped into Scalaz for a couple things such as Either and Validation, but you're not sure what else you can use, this talk is for you!
+                  <p>
+                    Scalaz is a massive library full of many critical FP abstractions, but it can be a bit dense. If you've dipped into Scalaz for a couple things such as Either and Validation, but you're not sure what else you can use, this talk is for you!
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1506,7 +1675,9 @@
               <tr>
                 <td>1h</td>
                 <td class="abstract">
-                  Haskell is known for being hard, this is a result of pedagogy catching up to different ways of thinking about and structuring programs. We can make teaching ourselves and others something that is not only more effective, but enjoyable in its own right.
+                  <p>
+                    Haskell is known for being hard, this is a result of pedagogy catching up to different ways of thinking about and structuring programs. We can make teaching ourselves and others something that is not only more effective, but enjoyable in its own right.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1519,11 +1690,15 @@
               <tr>
                 <td>30m</td>
                 <td class="abstract">
+                  <p>
                     We're all used to typing code into an editor and seeing the computer do something when we run it. This is so familiar that it's easy to take for granted. How <em>do</em> we go from a sequence of characters to something the machine can execute? Knowing this will not only help you program more effectively, but it will empower you to create your own programming languages.
-                    <br /> <br />
+                  </p>
+                  <p>
                     I'll give an overview of the pipeline from your text editor to the machine's behavior. Then, we'll dive in and look at specific tools that will help us create our own programming language. We'll also discuss different language design decisions, such as static versus dynamic typing, and see how they are implemented behind the scenes.
-                    <br /> <br />
+                  </p>
+                  <p>
                     By the end, you'll be ready to bring your new language into the world!
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1536,22 +1711,27 @@
               <tr>
                 <td>1h</td>
                 <td class="abstract">
-                  Graphs are ubiquitous data structures, and the algorithms for analyzing them are fascinating. Loom is an open-source Clojure library that provides many graph algorithms and visualizations. We will discuss how graphs are represented in a functional world, bridge the gap between procedural description of algorithms and their functional implementation, and learn about the way Loom integrates with other graph representations.
+                  <p>
+                    Graphs are ubiquitous data structures, and the algorithms for analyzing them are fascinating. Loom is an open-source Clojure library that provides many graph algorithms and visualizations. We will discuss how graphs are represented in a functional world, bridge the gap between procedural description of algorithms and their functional implementation, and learn about the way Loom integrates with other graph representations.
+                  </p>
                 </td>
                 <td></td>
               </tr>
 
               <tr>
                 <td>Clojure/Clojurescript</td>
-                <td class="title">Fullstack FP in Datomic, Clojure, and ClojureScript</td>
+                <td class="title">Full-stack FP in Datomic, Clojure, and ClojureScript</td>
                 <td><a href="#priyatam-mudivarti">Priyatam Mudivarti</a></td>
               </tr>
               <tr>
                 <td>1h</td>
                 <td class="abstract">
-                  What happens when we prototype an app entirely in FP? <br/><br/>
-
-                  From choosing a functional database to building http apis and designing templates and stylesheets—it is possible these days, to stay entirely in FP land! In this talk I will share my experience in building functional prototypes with Clojure &amp; Clojurescript using the following libraries: Datomic, Ring, Om, and Garden. I’ll discuss how we can trade popular databases, web toolkits, template engines, and even less and sass in favor of simpler libraries that embrace immutable data as a “Sequence of Values”.
+                  <p>
+                    What happens when we prototype an app entirely in FP?
+                  </p>
+                  <p>
+                    From choosing a functional database to building http apis and designing templates and stylesheets—it is possible these days, to stay entirely in FP land! In this talk I will share my experience in building functional prototypes with Clojure &amp; Clojurescript using the following libraries: Datomic, Ring, Om, and Garden. I’ll discuss how we can trade popular databases, web toolkits, template engines, and even less and sass in favor of simpler libraries that embrace immutable data as a “Sequence of Values”.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1564,7 +1744,9 @@
               <tr>
                 <td>1h</td>
                 <td class="abstract">
-                  Types remain a highly contentious issue for programmers in industry. Rails and Python have massive communities, and drive high-profile, high-traffic, successful businesses, such as GitHub, Reddit, and Dropbox. Clearly, dynamic languages are a better choice than Java or C; unless, of course, we count the myriad more businesses powered by 90s statically typed languages (e.g. Java). This statement will infuriate some engineers and academics, as we all know that Hindley-Milner type systems are the only type systems that reduce defects and improve code quality. In this talk, we'll take a look at type systems through a different lens: how type systems are actually a business decision that is frequently cast as an emotional decision.
+                  <p>
+                    Types remain a highly contentious issue for programmers in industry. Rails and Python have massive communities, and drive high-profile, high-traffic, successful businesses, such as GitHub, Reddit, and Dropbox. Clearly, dynamic languages are a better choice than Java or C; unless, of course, we count the myriad more businesses powered by 90s statically typed languages (e.g. Java). This statement will infuriate some engineers and academics, as we all know that Hindley-Milner type systems are the only type systems that reduce defects and improve code quality. In this talk, we'll take a look at type systems through a different lens: how type systems are actually a business decision that is frequently cast as an emotional decision.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1577,7 +1759,9 @@
               <tr>
                 <td>1h</td>
                 <td class="abstract">
-                  At the heart of intuitionistic type theory lies an intuitive semantics called the “meaning explanations." Crucially, when meaning explanations are taken as definitive for type theory, the core notion is no longer “proof” but “verification”. We’ll explore how type theories of this sort arise naturally as enrichments of logical theories with further judgements, and contrast this with modern proof-theoretic type theories which interpret the judgements and proofs of logics, not their propositions and verifications. Expect the following questions to be answered: What is the difference between a judgement and a proposition? What is a meaning explanation? What is the difference between a proof and a verification? The so-called semantical approach to type theory is, in the speaker's view, more immediately philosophically acceptable than the modern syntactic one, and also provides a basis for a future where partiality and other effects may be treated naturally through refinement and behavioral typing, rather than by means of term-level monads and similar kludges.
+                  <p>
+                    At the heart of intuitionistic type theory lies an intuitive semantics called the “meaning explanations." Crucially, when meaning explanations are taken as definitive for type theory, the core notion is no longer “proof” but “verification”. We’ll explore how type theories of this sort arise naturally as enrichments of logical theories with further judgements, and contrast this with modern proof-theoretic type theories which interpret the judgements and proofs of logics, not their propositions and verifications. Expect the following questions to be answered: What is the difference between a judgement and a proposition? What is a meaning explanation? What is the difference between a proof and a verification? The so-called semantical approach to type theory is, in the speaker's view, more immediately philosophically acceptable than the modern syntactic one, and also provides a basis for a future where partiality and other effects may be treated naturally through refinement and behavioral typing, rather than by means of term-level monads and similar kludges.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1590,7 +1774,9 @@
               <tr>
                 <td>30m</td>
                 <td class="abstract">
-                  HTTP is a fascinating standard &mdash; one of those that we all use every day. But there are many different ways of reasoning about HTTP "should" mean. We'll look at some of the approaches taken to model the HTTP layer, particularly in functional programming. Graphs, proofs, type systems &mdash; they're all fair game!
+                  <p>
+                    HTTP is a fascinating standard &mdash; one of those that we all use every day. But there are many different ways of reasoning about HTTP "should" mean. We'll look at some of the approaches taken to model the HTTP layer, particularly in functional programming. Graphs, proofs, type systems &mdash; they're all fair game!
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1603,7 +1789,9 @@
               <tr>
                 <td>1h</td>
                 <td class="abstract">
-                  Object-oriented Programming (OOP) dominates the industry. Most developers have experience with OO, but are new to functional programming. To help bring them to functional programming, we developed ooErlang, an extension of Erlang that fully supports OO with simpler syntax than previous approaches. This talk presents how we have implemented ooErlang and how to start using it.
+                  <p>
+                    Object-oriented Programming (OOP) dominates the industry. Most developers have experience with OO, but are new to functional programming. To help bring them to functional programming, we developed ooErlang, an extension of Erlang that fully supports OO with simpler syntax than previous approaches. This talk presents how we have implemented ooErlang and how to start using it.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1616,7 +1804,9 @@
               <tr>
                 <td>1h</td>
                 <td class="abstract">
-                  Birds travel thousands of miles each year to migrate, flying for hours on very little food and rest. By comparison, migrating databases seems like a paltry feat. Birdwave is a way to visualize the amazing phenomenon of bird migration. Using ClojureScript and Om allowed the app to be written in a declarative, concise manner, taking full advantage of JavaScript interoperability, as well as Clojure’s awesome built-in features such as persistent data structures and the async module. Also, prepare to be dazzled by the data-viz powerhouse that is d3. No birds were harmed in the creation of Birdwave. Or this talk.
+                  <p>
+                    Birds travel thousands of miles each year to migrate, flying for hours on very little food and rest. By comparison, migrating databases seems like a paltry feat. Birdwave is a way to visualize the amazing phenomenon of bird migration. Using ClojureScript and Om allowed the app to be written in a declarative, concise manner, taking full advantage of JavaScript interoperability, as well as Clojure’s awesome built-in features such as persistent data structures and the async module. Also, prepare to be dazzled by the data-viz powerhouse that is d3. No birds were harmed in the creation of Birdwave. Or this talk.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1629,7 +1819,9 @@
               <tr>
                 <td>1h</td>
                 <td class="abstract">
-                  [serious announcer voice] In a world gone mad with data, one library stands alone in the fight against sloppy, unsafe processing. [/serious announcer voice] The scalaz-stream library brings type safety, flexibile composition and powerful abstractions to the world of streaming data processing. This talk will start out with the basic building blocks and move on to advanced techniques, covering the good, bad, and the ugly along the way.
+                  <p>
+                    [serious announcer voice] In a world gone mad with data, one library stands alone in the fight against sloppy, unsafe processing. [/serious announcer voice] The scalaz-stream library brings type safety, flexibile composition and powerful abstractions to the world of streaming data processing. This talk will start out with the basic building blocks and move on to advanced techniques, covering the good, bad, and the ugly along the way.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1642,7 +1834,9 @@
               <tr>
                 <td>1h</td>
                 <td class="abstract">
-                  R&amp;D on reactive programming is growing and this has delivered many language constructs, libraries and tools. Scala programmers can use threads, timers, actors, futures, promises, observables, the async construct, and others. Still it seems to us that the state of the art is not mature: reactive programming is relatively hard, and confidence in correct operation depends mainly on extensive testing. Better support for reasoning about correctness would be useful to address timing dependent issues. The Algebra of Communicating Processes (ACP) has a potential to improve this: it lets one concisely specify event handling and concurrency, and it facilitates reasoning about parallel systems. There is an ACP-based extension to Scala named SubScript. We show how it helps describing the internal behavior of Akka actors, and how it combines with futures. For more information see <a href="www.subscript-lang.org">www.subscript-lang.org</a>.
+                  <p>
+                    R&amp;D on reactive programming is growing and this has delivered many language constructs, libraries and tools. Scala programmers can use threads, timers, actors, futures, promises, observables, the async construct, and others. Still it seems to us that the state of the art is not mature: reactive programming is relatively hard, and confidence in correct operation depends mainly on extensive testing. Better support for reasoning about correctness would be useful to address timing dependent issues. The Algebra of Communicating Processes (ACP) has a potential to improve this: it lets one concisely specify event handling and concurrency, and it facilitates reasoning about parallel systems. There is an ACP-based extension to Scala named SubScript. We show how it helps describing the internal behavior of Akka actors, and how it combines with futures. For more information see <a href="www.subscript-lang.org">www.subscript-lang.org</a>.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1655,7 +1849,9 @@
               <tr>
                 <td>1h</td>
                 <td class="abstract">
-                  Cats is a library that aims to fill in the gaps in the Scala standard library that we think are necessary to do pure functional programming in Scala, in the same way that Scalaz attempts to fill the same role. This project intends not only to create a functional library, but it intends to create a community welcoming to all. Having the opportunity to start on a library like this from scratch gives us many delicious opportunities to rethink some past decisions, and this is allowing us to innovate in unexpected ways.
+                  <p>
+                    Cats is a library that aims to fill in the gaps in the Scala standard library that we think are necessary to do pure functional programming in Scala, in the same way that Scalaz attempts to fill the same role. This project intends not only to create a functional library, but it intends to create a community welcoming to all. Having the opportunity to start on a library like this from scratch gives us many delicious opportunities to rethink some past decisions, and this is allowing us to innovate in unexpected ways.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1668,7 +1864,9 @@
               <tr>
                 <td>1h</td>
                 <td class="abstract">
-                  Design patterns are a useful way to organize software.  Unfortunately, "gang-of-four"-like patterns are not composable, due to side-effects. In a pure (i.e., no side-effects) language, functions can be composed. That makes it possible to leverage patterns from mathematics.  This talk shows an algebra of function composition, identity functions, isomorphisms, (co)products (gluing functions that do not compose) and functors.  It shows how this algebra relates to real-world programming.  The goal of this talk is to provide an initial intuition of how to apply patterns from math to programming and to motivate you to continue studying on your own (perhaps by looking at the "uber" patterns of Category Theory).  Note: knowing these patterns is NOT necessary for getting work done in a functional language, but this talk should give a glimpse of why they may be useful.  The talk illustrates ideas using Haskell.  It is aimed at FP beginners.
+                  <p>
+                    Design patterns are a useful way to organize software.  Unfortunately, "gang-of-four"-like patterns are not composable, due to side-effects. In a pure (i.e., no side-effects) language, functions can be composed. That makes it possible to leverage patterns from mathematics.  This talk shows an algebra of function composition, identity functions, isomorphisms, (co)products (gluing functions that do not compose) and functors.  It shows how this algebra relates to real-world programming.  The goal of this talk is to provide an initial intuition of how to apply patterns from math to programming and to motivate you to continue studying on your own (perhaps by looking at the "uber" patterns of Category Theory).  Note: knowing these patterns is NOT necessary for getting work done in a functional language, but this talk should give a glimpse of why they may be useful.  The talk illustrates ideas using Haskell.  It is aimed at FP beginners.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1681,7 +1879,9 @@
                 <tr>
                   <td>1h</td>
                   <td class="abstract">
-                  Traditionally, in Computer Science, sets are assumed to be the basis of a type theory, together with Boolean logic. In this version of type theory, we do not need sets or Boolean logic; intuitionism is enough ("no principle of excluded middle required"). The underlying math is Topos Theory, but you are not required to be even aware of its existence. The theory is described using diagrams, not the traditional (and tricky) deduction rules. The resulting theory turns out to have dependent types. A simple "real-life" example or two will illustrate all this.
+                    <p>
+                      Traditionally, in Computer Science, sets are assumed to be the basis of a type theory, together with Boolean logic. In this version of type theory, we do not need sets or Boolean logic; intuitionism is enough ("no principle of excluded middle required"). The underlying math is Topos Theory, but you are not required to be even aware of its existence. The theory is described using diagrams, not the traditional (and tricky) deduction rules. The resulting theory turns out to have dependent types. A simple "real-life" example or two will illustrate all this.
+                    </p>
                   </td>
                   <td></td>
                 </tr>
@@ -1695,11 +1895,9 @@
               <tr>
                 <td>30m</td>
                 <td class="abstract">
-                  This is the story of a road less traveled. In this talk we're going to take a look at the impact
-                  of choosing less common technologies like Scala and Clojure at an organizational level at Elemica.
-                  That will include some things that worked well for us, some things that didn't work so well, a
-                  myth or two we were able to dispell along the way, and land with why the process of figuring all
-                  of that out is a worthwhile endeavor.
+                  <p>
+                    This is the story of a road less traveled. In this talk we're going to take a look at the impact of choosing less common technologies like Scala and Clojure at an organizational level at Elemica. That will include some things that worked well for us, some things that didn't work so well, a myth or two we were able to dispell along the way, and land with why the process of figuring all of that out is a worthwhile endeavor.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -1711,7 +1909,11 @@
               </tr>
               <tr>
                 <td>30m</td>
-                <td class="abstract">The Haskell community is often abuzz about free monads and if you stick around for long enough you'll also see notions of free monoids, free functors, yoneda/coyoneda, free seminearrings, etc. Clearly "freedom" is a larger concept than just Free f a ~ f (Free f) + a. This talk explores briefly the origins of "freedom" in Category Theory, explains what it means for you to have a "free X" for any thing X, and talks a little bit about some useful free structures which exist in Haskell.</td>
+                <td class="abstract">
+                  <p>
+                    The Haskell community is often abuzz about free monads and if you stick around for long enough you'll also see notions of free monoids, free functors, yoneda/coyoneda, free seminearrings, etc. Clearly "freedom" is a larger concept than just Free f a ~ f (Free f) + a. This talk explores briefly the origins of "freedom" in Category Theory, explains what it means for you to have a "free X" for any thing X, and talks a little bit about some useful free structures which exist in Haskell.
+                  </p>
+                </td>
                 <td></td>
               </tr>
 
@@ -1722,7 +1924,11 @@
               </tr>
               <tr>
                 <td>30m</td>
-                <td class="abstract">Finally Tagless DSLs are a DSL embedding technique pioneered by Oleg Kiselyov, Jaques Carrette, and Chung-Chieh Shan that is in some sense "dual" to the notions of free-monad interpreters. MTL is a very popular monad library in Haskell which just so happens to be, unbeknownst to most, a Finally Tagless DSL itself. This talk explores what the Finally Tagless DSL style offers and shows you can use that concept to extend your effect-typing vocabulary in MTL.</td>
+                <td class="abstract">
+                  <p>
+                    Finally Tagless DSLs are a DSL embedding technique pioneered by Oleg Kiselyov, Jaques Carrette, and Chung-Chieh Shan that is in some sense "dual" to the notions of free-monad interpreters. MTL is a very popular monad library in Haskell which just so happens to be, unbeknownst to most, a Finally Tagless DSL itself. This talk explores what the Finally Tagless DSL style offers and shows you can use that concept to extend your effect-typing vocabulary in MTL.
+                  </p>
+                </td>
                 <td></td>
               </tr>
 
@@ -1733,7 +1939,11 @@
               </tr>
               <tr>
                 <td>30m</td>
-                <td class="abstract">In this talk, I'll look at how design patterns from OOP translate to Clojure: some are unnecessary, some are embedded in the language, and others are easier to build.</td>
+                <td class="abstract">
+                  <p>
+                    In this talk, I'll look at how design patterns from OOP translate to Clojure: some are unnecessary, some are embedded in the language, and others are easier to build.
+                  </p>
+                  </td>
                 <td></td>
               </tr>
 
@@ -1744,7 +1954,11 @@
               </tr>
               <tr>
                 <td>30m</td>
-                <td class="abstract">In this presentation, I'll be talking about the way functional programming ideas affect and fit into the distributed computing world. With the introduction of Apache Spark, these ideas have been implemented quiet successfully. In this talk, I will be implementing (live coding) a distributed collection abstraction using basic principles of Functional programming. I will start with computation on simple in memory collection, and evolve it into a fully distributed collection having properties like fault tolerance, etc.</td>
+                <td class="abstract">
+                  <p>
+                    In this presentation, I'll be talking about the way functional programming ideas affect and fit into the distributed computing world. With the introduction of Apache Spark, these ideas have been implemented quiet successfully. In this talk, I will be implementing (live coding) a distributed collection abstraction using basic principles of Functional programming. I will start with computation on simple in memory collection, and evolve it into a fully distributed collection having properties like fault tolerance, etc.
+                  </p>
+                </td>
                 <td></td>
               </tr>
 
@@ -1755,7 +1969,11 @@
               </tr>
               <tr>
                 <td>30m</td>
-                <td class="abstract">Computation Expressions are a generalization of do-notation and Idiom Brackets. They provide a single notation that uses the least powerful abstraction in order to translate sugared code into de-sugared code in the most flexible way possible. I will present a project I have been working on to implement computation expressions in Scala. In particular, I will show how this notation helps write asynchronous code with very little cognitive overhead.</td>
+                <td class="abstract">
+                  <p>
+                    Computation Expressions are a generalization of do-notation and Idiom Brackets. They provide a single notation that uses the least powerful abstraction in order to translate sugared code into de-sugared code in the most flexible way possible. I will present a project I have been working on to implement computation expressions in Scala. In particular, I will show how this notation helps write asynchronous code with very little cognitive overhead.
+                  </p>
+                </td>
                 <td></td>
               </tr>
 
@@ -1766,7 +1984,11 @@
               </tr>
               <tr>
                 <td>30m</td>
-                <td class="abstract">This introductory talk is designed to help students new to functional programming understand how type parameters enable us to more easily reason about the behavior of functions and create APIs that enforce their invariants with type-level constraints. We will cover the principles of universal and existential quantification, review examples of reasoning about behavior from function types, and discuss implications for compositionality in API design. While most examples will be in Haskell, we will discuss how the principles generalize even to code written in unityped languages.</td>
+                <td class="abstract">
+                  <p>
+                    This introductory talk is designed to help students new to functional programming understand how type parameters enable us to more easily reason about the behavior of functions and create APIs that enforce their invariants with type-level constraints. We will cover the principles of universal and existential quantification, review examples of reasoning about behavior from function types, and discuss implications for compositionality in API design. While most examples will be in Haskell, we will discuss how the principles generalize even to code written in unityped languages.
+                  </p>
+                </td>
                 <td></td>
               </tr>
 
@@ -1778,8 +2000,12 @@
               <tr>
                 <td>30m</td>
                 <td class="abstract">
-                  When entering the world of functional programming, one is quickly introduced with a concept of a Monad. Concept that is for some reason really hard to grasp and comprehend. When querying the Internet for "What is a Monad?" you will most likely learn that "you do not need to know the category theory to understand monads" and that "you are not asking the right question". The first thing that came to my mind, when I was struggling with this dilemma, was "Well, what is the right question then?".
-This talk is all about looking for that right question and answering it. After this talk I hope you will find yourself knowing and understanding the concept, being able to apply it in a daily programming routine.
+                  <p>
+                    When entering the world of functional programming, one is quickly introduced with a concept of a Monad. Concept that is for some reason really hard to grasp and comprehend. When querying the Internet for "What is a Monad?" you will most likely learn that "you do not need to know the category theory to understand monads" and that "you are not asking the right question". The first thing that came to my mind, when I was struggling with this dilemma, was "Well, what is the right question then?".
+                  </p>
+                  <p>
+                    This talk is all about looking for that right question and answering it. After this talk I hope you will find yourself knowing and understanding the concept, being able to apply it in a daily programming routine.
+                  </p>
                 </td>
                 <td></td>
               </tr>
@@ -2243,7 +2469,9 @@ This talk is all about looking for that right question and answering it. After t
                 <div class="author-info">
                   <h2 id="brian-mckenna">Brian McKenna</h2>
                 </div>
-                <p>One of the many Australian functional programmers. Working as one of the few professional PureScript engineers. Trying to improve front-end development by applying more functional programming and functional programming by applying more types. Brian says silly things on Twitter as <a href="https://twitter.com/puffnfresh">@puffnfresh</a>.</p>
+                <p>
+                  One of the many Australian functional programmers. Working as one of the few professional PureScript engineers. Trying to improve front-end development by applying more functional programming and functional programming by applying more types. Brian says silly things on Twitter as <a href="https://twitter.com/puffnfresh">@puffnfresh</a>.
+                </p>
               </div>
               <div class="individual">
                 <div class="image">
@@ -2362,9 +2590,11 @@ This talk is all about looking for that right question and answering it. After t
                 <div class="author-info">
                   <h2 id="priyatam-mudivarti">Priyatam Mudivarti</h2>
                 </div>
-                <p>Priyatam is a writer and polyglot engineer specializing in apis and user-interface design. After building software
+                <p>
+                  Priyatam is a writer and polyglot engineer specializing in apis and user-interface design. After building software
 for twelve years in all layers of the stack in enterprises and creative agencies, he found his passion at the intersection of literature
-and lisp. He’s the founder and principal at Facjure, a tiny studio, and is currently working on a novel.</p>
+and lisp. He’s the founder and principal at Facjure, a tiny studio, and is currently working on a novel.
+                </p>
               </div>
               <div class="individual">
                 <div class="image">
@@ -2471,12 +2701,8 @@ and lisp. He’s the founder and principal at Facjure, a tiny studio, and is cur
                   <h2 id="mark-farrell">Mark Farrell</h2>
                 </div>
                 <p>
-                 Mark Farrell is currently a second-year student in Mathematics at the University of Waterloo, located in Waterloo, Ontario, Canada.
-                 He hopes to specialize in a close cousin of Computer Science known as Combinatorics & Optimization.
-                 Recently, he has completed software development internships at Dalhousie University and Defence Research & Development Canada, both
-                 also located in Canada. During his internships, he was able hone his interest in functional programming with programming languages like Scala, Clojure and
-                 Scheme/Racket. He has also made a couple of small contributions to projects like Scalaz & Idris - and hopes to continue learning more about
-                 functional programming & PL theory in the future!
+                 Mark Farrell is currently a second-year student in Mathematics at the University of Waterloo, located in Waterloo, Ontario, Canada. He hopes to specialize in a close cousin of Computer Science known as Combinatorics &amp; Optimization.
+                 Recently, he has completed software development internships at Dalhousie University and Defence Research &amp; Development Canada, both also located in Canada. During his internships, he was able hone his interest in functional programming with programming languages like Scala, Clojure and Scheme/Racket. He has also made a couple of small contributions to projects like Scalaz &amp; Idris - and hopes to continue learning more about functional programming &amp; PL theory in the future!
                 </p>
               </div>
               <div class="individual">
@@ -2514,6 +2740,20 @@ and lisp. He’s the founder and principal at Facjure, a tiny studio, and is cur
               </div>
               <div class="individual">
                 <div class="image">
+                  <img src="images/speakers/brendan-mcadams.jpg" alt="person">
+                </div>
+                <div class="author-info">
+                  <h2 id="brendan-mcadams">Brendan McAdams</h2>
+                </div>
+                <p>
+                  Brendan is a Senior Consultant at BoldRadius, where he works directly with clients to help them find success through consulting and training on the Typesafe Reactive Platform. With over 15 years of software development experience, Brendan boasts an impressive resume that has seen him work at Netflix, Typesafe, and MongoDB.
+                </p>
+                <p>
+                  Brendan is a renowned speaker and luminary in the Scala community, and is a regular presenter at industry leading conferences such as Scala Days and Scala eXchange. His deep technical knowledge coupled with his outgoing and approachable personality not only make him a great speaker, but also a phenomenal trainer on the Typesafe Reactive Platform.
+                </p>
+              </div>
+              <div class="individual">
+                <div class="image">
                   <img src="images/speakers/kris-nuttycombe.jpg" alt="person">
                 </div>
                 <div class="author-info">
@@ -2523,7 +2763,7 @@ and lisp. He’s the founder and principal at Facjure, a tiny studio, and is cur
                   Kris is an independent software consultant and entrepreneur based in Boulder, CO. His first introduction to functional programming was in 2008 when, after a decade working in Perl, C, Java, and Ruby he discovered Scala and realized that there was a lot he didn't know about programming. Since then, he's become a devotee of Haskell, and each day comes to realize that he knows even less than he previously thought. His specialty is multi-KLOC refactorings that make his coworkers wince; his current project involves refactoring the mechanisms of global capitalism.
                 </p>
               </div>
-	<div class="individual">
+	            <div class="individual">
                 <div class="image">
                   <img src="images/speakers/pawelszulc.jpg" alt="person">
                 </div>
@@ -2586,7 +2826,8 @@ Software engineer, programmer, developer. Experienced with Java ecosystem. Curre
           <h1 id="etc-h1">Code of Conduct</h1>
           <div class="inner">
             <p>
-              LambdaConf's code of conduct is simple: <strong>be a decent human being</strong>.</p>
+              LambdaConf's code of conduct is simple: <strong>be a decent human being</strong>.
+            </p>
             <p>
               Embrace and celebrate diversity, treat everyone with respect and dignity, and in the words you speak and the actions you take, show genuine care and concern for helping others achieve their goals.
             </p>
