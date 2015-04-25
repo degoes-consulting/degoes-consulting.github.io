@@ -658,41 +658,12 @@
           $('#splashes').append(talk.template);
         });
 
-        var scroll;
-
-        function hideSplash(resetHash) {
-          $('#content').show();
-          $('body > header').show();
-          $('#splashes').hide();
-
-          if (resetHash) {
-            document.location.hash = '#/';
-
-            if (scroll !== undefined) {
-              $(window).scrollTop(scroll);
-              scroll = undefined;
-            }
-          }
-        }
-
-        function showSplash() {
-          if (scroll === undefined) scroll = $(window).scrollTop();
-
-          $('#content').hide();
-          $('body > header').hide();
-          $('#splashes').show();
-        }
-
         window.onhashchange = function() {
           var hash = document.location.hash.substring(1);
 
           var splash = $('#' + hash);
 
-          if (!splash.hasClass('modal')) {
-            hideSplash(false);
-          } else {
-            showSplash();
-
+          if (splash.hasClass('modal')) {
             splash.modal({
               fadeDuration: 250
             });
@@ -700,7 +671,9 @@
             splash.on($.modal.BEFORE_CLOSE, function(event, modal) {
               var hash2 = document.location.hash.substring(1);
 
-              if (hash === hash2) hideSplash(true);
+              if (hash === hash2) {
+                document.location.hash = '#/';
+              }
             });
           }
         };
