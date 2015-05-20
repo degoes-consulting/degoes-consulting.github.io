@@ -662,7 +662,7 @@
           $(this).next().slideToggle();
         }); */
 
-        $('td.abstract').parent().hide();
+        // $('td.abstract').parent().hide();
 
         var talkList = talks();
 
@@ -956,7 +956,8 @@
             <a href="https://docs.google.com/spreadsheets/d/1f2VB7YrWojUmZ3Q1RAPGdGd9NsVLEl4x48zhDYbsUgM/edit#gid=0">
               Clear here to access the daily schedule. Bookmark the link, as last minute changes will be noted in this schedule!
             </a>
-            <h2 id="keynotes">Keynotes</h2>
+
+            <h2 id="keynotes" class="toggleable">Keynotes</h2>
 
             <table>
               <tr>
@@ -999,8 +1000,7 @@
               </tr>
             </table>
 
-
-            <h2 id="lightning-talks">Lightning Talks</h2>
+            <h2 id="lightning-talks" class="toggleable">Lightning Talks</h2>
 
             <table>
               <tr>
@@ -1109,7 +1109,7 @@
               </tr>
             </table>
 
-            <h2 id="workshops">Workshops</h2>
+            <h2 id="workshops" class="toggleable">Workshops</h2>
 
             <table>
               <tr>
@@ -1405,7 +1405,7 @@
               </tr>
             </table>
 
-            <h2 id="presentations">Presentations</h2>
+            <h2 id="presentations" class="toggleable">Presentations</h2>
 
             <table>
               <tr>
@@ -1469,12 +1469,12 @@
               </tr>
 
               <tr>
-                <td></td>
+                <td>None</td>
                 <td class="title">The Virtual Filesystem: This Changes Everything</td>
                 <td><a href="#paul-phillips">Paul Phillips</a></td>
               </tr>
               <tr>
-                <td></td>
+                <td>60m</td>
                 <td class="abstract">
                   <p>
                     In this talk, Paul Phillips expands on ideas in his keynote to deliver a compelling vision for how properly conceived and implemented virtual file systems have the ability to literally change every single thing about how we interact with computers.
@@ -2078,45 +2078,6 @@
                 <td></td>
               </tr>
             </table>
-
-            <h2 class="toggleable">Daily Schedule</h2>
-
-            <p>
-              <strong>Note</strong>: The full schedule will not come out until May. Early registered attendees will fill out a survey in March to help optimize the schedule.
-            </p>
-            <p>
-            <div class="day">
-              <h2><strong>Friday</strong><br>Workshops, Dinner</h2>
-              <p class="hour">8:00 AM - Breakfast / Coffee Social</p>
-              <p class="twohour">9:00 AM</p>
-              <p class="twohour">11:00 AM</p>
-              <p class="hour">1:00 PM - Lunch</p>
-              <p class="twohour">2:00 PM</p>
-              <p class="twohour">4:00 PM</p>
-              <p class="hour">Free time</p>
-              <p class="twohour">7:00 PM - Conference Dinner / Drink Social, Lightning Talks</p>
-            </div>
-            <div class="day">
-              <h2><strong>Saturday</strong><br>Talks</h2>
-              <p class="hour">8:00 AM - Breakfast / Coffee Social</p>
-              <p class="hour">9:00 AM - Keynotes</p>
-              <p class="hour">10:00 AM</p>
-              <p class="hour">11:00 AM</p>
-              <p class="hour">12:00 PM</p>
-              <p class="hour">1:00 PM - Lunch</p>
-              <p class="hour">2:00 PM</p>
-              <p class="hour">3:00 PM</p>
-              <p class="hour">4:00 PM</p>
-              <p class="hour">5:00 PM</p>
-            </div>
-            <div class="day">
-              <h2><strong>Sunday</strong><br>Mountain Hike*, Unconference</h2>
-              <p class="twohour">8:00 AM - Hike* &amp; Breakfast</p>
-              <p class="hour">10:00 AM</p>
-              <p class="hour">11:00 AM</p>
-              <p class="hour">12:00 AM</p>
-            </div>
-            <p class="clear"><em>*We will have an alternate activity for those unable to go on a hike.</em></p>
           </div>
         </div>
         <div id="boulder">
@@ -2199,7 +2160,9 @@
           <div class="inner">
             <h2>University of Colorado</h2>
 
-            <p>The venue for all events except Friday night is University of Colorado Boulder.</p>
+            <p>The venue for all events is University of Colorado Boulder.</p>
+
+            <p><em>Note</em>: Friday night, the drink social will occur at various places around town. See your drink tickets for details.</p>
 
             <br>
 
